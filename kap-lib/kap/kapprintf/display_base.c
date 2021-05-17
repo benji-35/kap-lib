@@ -54,3 +54,15 @@ void display_char(va_list *data, int nb)
         kput_char(' ');
     kput_char(c);
 }
+
+void display_str(va_list *data, int nb)
+{
+    string str = va_arg(*data, string);
+    if (nb <= length(str)) {
+        my_putstr(str);
+        return;
+    }
+    for (int i = length(str); i < nb; i++)
+        add_char_str_before(&str, ' ');
+    my_putstr(str);
+}

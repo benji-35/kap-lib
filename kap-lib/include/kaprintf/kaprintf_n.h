@@ -11,6 +11,7 @@
 #include <stdarg.h>
 #include <kap/kstr.h>
 
+void display_str(va_list *data, int nb);
 void display_binary(va_list *data, int nb);
 void display_hexa(va_list *data, int nb);
 void display_pointer(va_list *data, int nb);
