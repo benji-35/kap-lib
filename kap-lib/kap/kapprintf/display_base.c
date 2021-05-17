@@ -47,10 +47,10 @@ void display_char(va_list *data, int nb)
 {
     char c = va_arg(*data, int);
     if (nb <= 1) {
-        my_putchar(c);
+        kput_char(c);
         return;
     }
     for (int i = 0; i < nb - 1; i++)
-        my_putchar(' ');
-    my_putchar(c);
+        kput_char(' ');
+    kput_char(c);
 }

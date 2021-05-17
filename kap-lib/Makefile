@@ -42,7 +42,8 @@ SRC_KSTR =	$(PATH_STR)concat_str.c			\
 			$(PATH_STR)split_to_str.c		\
 			$(PATH_STR)insert_str_str.c		\
 			$(PATH_STR)my_putstr.c			\
-			$(PATH_STR)split_str_str.c
+			$(PATH_STR)split_str_str.c		\
+			$(PATH_STR)kap_putchar.c
 
 SRC_KUTILS =	$(PATH_UTILS)kan_open_file.c	\
 				$(PATH_UTILS)kfree.c			\
@@ -61,6 +62,7 @@ SRC_KPRINTF =	$(PATH_PRINTF)check_flag.c				\
 
 SRC_KAP += $(SRC_KSTR)
 SRC_KAP += $(SRC_KUTILS)
+SRC_KAP += $(SRC_KPRINTF)
 
 OBJ_KAP = $(SRC_KAP:.c=.o)
 

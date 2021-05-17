@@ -341,4 +341,10 @@ extern void my_puttext(text txt, int fd);
  * @return text of splitted string str
  */
 extern text split_sstr(string str, string splitter);
+
+/**
+ * display char in terminal 
+ * @param c > char to display
+ */
+extern void kput_char(char c);
 #endif /* !_KAP_STRING_H */

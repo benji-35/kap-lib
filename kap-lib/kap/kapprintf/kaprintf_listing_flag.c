@@ -5,7 +5,7 @@
 ** kaprintf_listing_flag
 */
 
-#include <kaprintf_n.h>
+#include <kaprintf/kaprintf_n.h>
 
 pflag_t pflags[] = {
     {"s", &my_putstr},

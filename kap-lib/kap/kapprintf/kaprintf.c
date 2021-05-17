@@ -19,7 +19,7 @@ void kprintf(string __cmd, ...)
         if (__cmd[i] == '%') {
             check_flag(list, &__cmd, &i);
         } else {
-            my_putchar(__cmd[i]);
+            kput_char(__cmd[i]);
         }
     }
     va_end(list);
