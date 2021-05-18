@@ -1,7 +1,7 @@
 # C-Lib
 My C-lib
 
-# kprintf
+# kprintf include <kap/kaplib.h>
 kprintf is printf in kap lib.
 flag list :
 | N° | Flag |            description              |
@@ -19,7 +19,7 @@ flag list :
 | 10 |  %ll  | display long long |
 | 11 |  %ull  | display unsigned long long |
 
-# kstr
+# kstr include <kap/kstr.h>
 #### FUNCTION LIST (ENGLISH VERSION)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
@@ -130,7 +130,7 @@ flag list :
 | 49 |   my_puttext   |  text txt, int fd  |      void      | affiche un texte dans la sortie fd |
 | 50 |   split_sstr   | string str, string splitter |      text      | Découpe la string à chaque apparition de la string splitter |
 
-# kmath
+# kmath include <kap/kmath.h>
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
 |:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
@@ -139,4 +139,11 @@ flag list :
 | 03 |   ksquare_root   | kussize_t nb | kussize_t | return value of square root of nb |
 | 04 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |
 
-# kutils
+# kutils include <kap/kutils.h>
+
+| N° |     Name function     |      Arguments      |  Value return  |            description              |
+|:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
+| 01 |   kfree   | void *__ptr | void | if __ptr == null then nothing is done else __ptr is free |
+| 02 |   can_open_file   | string path | bool_t | return true if file can be open else return false |
+| 03 |   kopen_file   | string path | string | return string that contain the file content |
+| 04 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |
