@@ -8,9 +8,9 @@
 #include <kap/kutils.h>
 #include <kap/kmath.h>
 
-kssize_t ksquare_root(kussize_t nb);
+kdsize_t ksquare_root(kussize_t nb);
 
-kssize_t kpower(ksize_t num, ksize_t power)
+kdsize_t kpower(ksize_t num, ksize_t power)
 {
     int r = 0;
 

@@ -17,6 +17,7 @@ typedef unsigned long kusize_t;
 typedef unsigned long long kussize_t;
 typedef long ksize_t;
 typedef long long kssize_t;
+typedef long double kdsize_t;
 
 #define true 1
 #define false 0
