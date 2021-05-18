@@ -20,7 +20,7 @@ flag list :
 | 11 |  %ull  | display unsigned long long |
 
 # kstr
-# FUNCTION LIST (ENGLISH VERSION)
+#### FUNCTION LIST (ENGLISH VERSION)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
 |:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
@@ -75,7 +75,7 @@ flag list :
 | 49 |   my_puttext   |  text txt, int fd  |      void      | display text in output fd |
 | 50 |   split_sstr   | string str, string splitter |      text      | split string at each occurence of the string splitter in str |
 
-# FUNCTION LIST (VERSION FRANÇAISE)
+#### FUNCTION LIST (VERSION FRANÇAISE)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
 |:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
@@ -129,3 +129,14 @@ flag list :
 | 48 |   my_putstr_fd   |       string str, int fd    |      ssize_t      | affiche la string dans la sortie fd et retourne son résultat |
 | 49 |   my_puttext   |  text txt, int fd  |      void      | affiche un texte dans la sortie fd |
 | 50 |   split_sstr   | string str, string splitter |      text      | Découpe la string à chaque apparition de la string splitter |
+
+# kmath
+
+| N° |     Name function     |      Arguments      |  Value return  |            description              |
+|:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
+| 01 |   kdiv_by   | kssize_t num, kssize_t div | bool_t | return true if num can be divide by div |
+| 02 |   kpower   | ksize_t num, ksize_t power | kdsize_t | return result of num power "power" |
+| 03 |   ksquare_root   | kussize_t nb | kussize_t | return value of square root of nb |
+| 04 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |
+
+# kutils
