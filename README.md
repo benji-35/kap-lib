@@ -49,7 +49,7 @@ flag list :
 | 23 |       int_to_str      |        int nb       |     string     | Return int in string                |
 | 24 |       reverse_str     |      string *str    |      void      | Reverse the string                  |
 | 25 |        length         |      string str     |       int      | Return string size                  |
-| 26 |      length_split     |      text split     |       int      | Return text size                    |
+| 26 |      length_text     |      text split     |       int      | Return text size                    |
 | 27 |     str_char_occur    |      string str, char c|       int      | Return number of occurence of char in string|
 | 28 |      str_rm_occhar    |      string *str, char c    |      void      | Remove all occurence of char in string|
 | 29 |      str_rm_fochar    |      string *str, char c|      void      | Remove the first accurence of char in string|
@@ -105,7 +105,7 @@ flag list :
 | 23 |       int_to_str      |        int nb       |     string     | Retourne un nombre entier en string|
 | 24 |       reverse_str     |      string *str    |      void      | Inverse une string|
 | 25 |        length         |      string str     |       int      | Retourne la taille de la string|
-| 26 |      length_split     |      text split     |       int      | Retourne la taille du texte|
+| 26 |      length_text     |      text split     |       int      | Retourne la taille du texte|
 | 27 |     str_char_occur    |      string str, char c|       int      | Retourne le nombre d'occurences d'un char dans une string|
 | 28 |      str_rm_occhar    |      string *str, char c    |      void      | Supprime toutes les occurences du char dans une string|
 | 29 |      str_rm_fochar    |      string *str, char c|      void      | Supprime la première occurence du char dans une string|
