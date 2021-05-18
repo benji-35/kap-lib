@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <kap/kstr.h>
+#include <kap/kutils.h>
 
 static int size_nb(int nb)
 {
@@ -26,6 +27,10 @@ string int_to_str(int nb)
     int size = size_nb(nb);
     string result = malloc(sizeof(char) * (size + 1));
 
+    if (nb == 0) {
+        kfree(result);
+        return (copy_str("0"));
+    }
     for (int i = size - 1; i >= 0; i--) {
         result[i] = (nb % 10) + 48;
         nb = nb / 10;

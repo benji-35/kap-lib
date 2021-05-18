@@ -6,13 +6,14 @@
 */
 
 #include <stdlib.h>
+#include <kap/kutils.h>
 #include <kap/kstr.h>
 
-static int my_is_number(char c)
+static bool_t my_is_number(char c)
 {
     if (c >= '0' && c <= '9')
-        return (1);
-    return (0);
+        return (true);
+    return (false);
 }
 
 int str_to_int(string str)
@@ -20,10 +21,10 @@ int str_to_int(string str)
     if (str == NULL)
         return (0);
     int res = 0;
-    int start = 0;
+    ksize_t start = 0;
     if (str[0] == '-')
         start = 1;
-    for (int i = start; my_is_number(str[i]); i++)
+    for (ksize_t i = start; my_is_number(str[i]); i++)
         res = (res * 10) + (str[i] - 48);
     if (start)
         res = res * -1;
