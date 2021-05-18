@@ -13,6 +13,10 @@
 void kfree(void *__ptr);
 
 typedef enum bool_e bool_t;
+typedef unsigned long kusize_t;
+typedef unsigned long long kussize_t;
+typedef long ksize_t;
+typedef long long kssize_t;
 
 #define true 1
 #define false 0

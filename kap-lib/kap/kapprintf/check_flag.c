@@ -9,6 +9,7 @@
 #include <kap/kstr.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 void kprintf(string __cmd, ...);
 
@@ -16,7 +17,7 @@ void check_flag(va_list *list, string *__cmd, int *index)
 {
     int nb = str_to_int((*__cmd) + (*index + 1));
     string str_nb = int_to_str(nb);
-    int to_avance = *index + length(str_nb) + 1;
+    int to_avance = *index + length(str_nb);
 
     for (int i = 0; i < FLAG_LENGTH; i++) {
         if (strat_with((*__cmd) + to_avance, pflags[i].flag)) {

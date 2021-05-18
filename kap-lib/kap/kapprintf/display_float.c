@@ -7,14 +7,8 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
-
-int lenght(char *str);
-void putstr(char *str);
-void add_char_in_str(char **str, char c);
-char *empty_str(void);
-void add_char_str_before(char **str, char c);
-char *mall_str(char *str);
-void delete_o(char **str);
+#include <kap/kstr.h>
+#include <kap/kutils.h>
 
 static void add_double_coma(double d, char **str)
 {
@@ -28,10 +22,10 @@ static void add_double_coma(double d, char **str)
         d = d * 10.0;
     }
     for (int i = 0; i < 7; i++) {
-        add_char_str_before(str, ((int)d % 10) + 48);
+        add_char_strp(str, ((int)d % 10) + 48, 0);
         d = d / 10.0;
     }
-    add_char_str_before(str, '.');
+    add_char_strp(str, '.', 0);
 }
 
 static void neg_double(int *neg, double *nb)
@@ -42,26 +36,32 @@ static void neg_double(int *neg, double *nb)
     }
 }
 
+static void rem_o_str(string *str)
+{
+    while ((*str)[0] == '0')
+        str_rm_fchar(str);
+}
+
 void display_double(va_list *data, int bef)
 {
     double f = va_arg(*data, double);
     int neg = 0;
     if (f == 0.0) {
-        putstr("0.0");
+        my_putstr("0.0");
         return;
     }
     char *str = empty_str();
     neg_double(&neg, &f);
     add_double_coma(f, &str);
     while (f > 0.0) {
-        add_char_str_before(&str, ((int)f % 10) + 48);
+        add_char_strp(&str, ((int)f % 10) + 48, 0);
         f = f / 10.0;
     }
-    for (int i = 0; i < bef - lenght(str); i++)
-        add_char_str_before(&str, ' ');
+    for (int i = 0; i < bef - length(str); i++)
+        add_char_strp(&str, ' ', 0);
     if (neg)
-        add_char_str_before(&str, '-');
-    delete_o(&str);
-    putstr(str);
+        add_char_strp(&str, '-', 0);
+    rem_o_str(&str);
+    my_putstr(str);
     free(str);
 }

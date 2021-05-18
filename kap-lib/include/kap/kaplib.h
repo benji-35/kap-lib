@@ -9,7 +9,7 @@
 #define _KAP_LIB_H
 
 #include <kap/kstr.h>
-#include <kutils.h>
+#include <kap/kutils.h>
 
 void kprintf(string __cmd, ...);
 

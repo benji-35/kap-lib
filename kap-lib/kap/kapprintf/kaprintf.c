@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 void check_flag(va_list list, string *__cmd, int *index);
 

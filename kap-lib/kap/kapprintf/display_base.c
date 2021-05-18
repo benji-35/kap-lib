@@ -8,17 +8,18 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <kap/kstr.h>
+#include <kap/kutils.h>
+#include <kap/kmath.h>
 
-char *int_to_binary(unsigned int nb, int flag, int minimize);
-char *int_to_hex(unsigned int nb, int flag);
-void add_char_str_before(char **str, char c);
+char *int_to_binary(long long nb, int flag, int minimize);
+string int_to_hex(long long nb, int flag);
 
 void display_binary(va_list *data, int nb)
 {
     unsigned int nb_b = va_arg(*data, unsigned int);
     char *str = int_to_binary(nb_b, 1, 1);
     for (int i = 0; i < nb - length(str); i++)
-        add_char_str_before(&str, ' ');
+        add_char_strp(&str, ' ', 0);
     my_putstr(str);
     free(str);
 }
@@ -28,7 +29,7 @@ void display_hexa(va_list *data, int nb)
     unsigned int nb_b = va_arg(*data, unsigned int);
     char *str = int_to_hex(nb_b, 0);
     for (int i = 0; i < nb - length(str); i++)
-        add_char_str_before(&str, ' ');
+        add_char_strp(&str, ' ', 0);
     my_putstr(str);
     free(str);
 }
@@ -38,7 +39,7 @@ void display_pointer(va_list *data, int nb)
     unsigned int nb_b = va_arg(*data, unsigned int);
     char *str = int_to_hex(nb_b, 1);
     for (int i = 0; i < nb - length(str); i++)
-        add_char_str_before(&str, ' ');
+        add_char_strp(&str, ' ', 0);
     my_putstr(str);
     free(str);
 }
@@ -63,6 +64,6 @@ void display_str(va_list *data, int nb)
         return;
     }
     for (int i = length(str); i < nb; i++)
-        add_char_str_before(&str, ' ');
+        kput_char(' ');
     my_putstr(str);
 }

@@ -347,4 +347,27 @@ extern text split_sstr(string str, string splitter);
  * @param c > char to display
  */
 extern void kput_char(char c);
+
+/**
+ * add char in specific position
+ * @param str > pointer of string
+ * @param c > char to add in str
+ * @param pos > position in string
+ */
+extern void add_char_strp(string *str, char c, int pos);
+
+/**
+ * create an empty string with specific size
+ * @param size > size of the string
+ * @return string with good size
+ */
+extern string empty_str_size(int size);
+
+/**
+ * split text all nb chars in string
+ * @param str > string to split
+ * @param nb > interval of splitting
+ * @return text
+ */
+extern text ksplit_interv(string str, int nb);
 #endif /* !_KAP_STRING_H */
