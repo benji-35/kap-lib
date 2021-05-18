@@ -17,8 +17,11 @@ void check_flag(va_list *list, string *__cmd, int *index)
 {
     int nb = str_to_int((*__cmd) + (*index + 1));
     string str_nb = int_to_str(nb);
-    int to_avance = *index + length(str_nb);
+    int to_add = length(str_nb);
+    int to_avance = *index + 1;
 
+    if (nb > 0)
+        to_avance += to_add;
     for (int i = 0; i < FLAG_LENGTH; i++) {
         if (strat_with((*__cmd) + to_avance, pflags[i].flag)) {
             pflags[i].display(list, nb);
