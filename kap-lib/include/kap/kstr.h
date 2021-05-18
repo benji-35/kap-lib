@@ -370,4 +370,27 @@ extern string empty_str_size(int size);
  * @return text
  */
 extern text ksplit_interv(string str, int nb);
+
+/**
+ * remove char in string at specific position
+ * @param str > pointer on string
+ * @param pos > position in str
+ */
+extern void remove_char_str(string *str, int pos);
+
+/**
+ * copy str from specific position to end of string
+ * @param str > string to copy
+ * @param pos > position for the begining of copy
+ * @return copied string
+ */
+extern string copy_str_fp(string str, int pos);
+
+/**
+ * copy str to specific position from the begining
+ * @param str > string to copy
+ * @param pos > position for the end of copy
+ * @return copied string
+ */
+extern string copy_str_tp(string str, int pos);
 #endif /* !_KAP_STRING_H */

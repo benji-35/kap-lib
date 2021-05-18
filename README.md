@@ -74,7 +74,8 @@ flag list :
 | 48 |   my_putstr_fd   |       string str, int fd    |      ssize_t      | display string in output fd and return result |
 | 49 |   my_puttext   |  text txt, int fd  |      void      | display text in output fd |
 | 50 |   split_sstr   | string str, string splitter |      text      | split string at each occurence of the string splitter in str |
-
+| 51 | kput_char | char c | void | display the c char in terminal |
+| 52 | ksplit_interv | string str, int nb | text | return string split all nb chars |
 #### FUNCTION LIST (VERSION FRANÇAISE)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
@@ -129,6 +130,8 @@ flag list :
 | 48 |   my_putstr_fd   |       string str, int fd    |      ssize_t      | affiche la string dans la sortie fd et retourne son résultat |
 | 49 |   my_puttext   |  text txt, int fd  |      void      | affiche un texte dans la sortie fd |
 | 50 |   split_sstr   | string str, string splitter |      text      | Découpe la string à chaque apparition de la string splitter |
+| 51 | kput_char | char c | void | affiche le char c dans le terminal |
+| 52 | ksplit_interv | string str, int nb | text | retourn la string séparé tous les nb char |
 
 # kmath include <kap/kmath.h>
 
