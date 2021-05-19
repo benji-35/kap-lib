@@ -11,9 +11,9 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-char *kopen_file(char *path)
+string kopen_file(string path)
 {
-    char *res = NULL;
+    string res = NULL;
     struct stat st;
     ssize_t rd;
     int fd = open(path, O_RDONLY, stat);

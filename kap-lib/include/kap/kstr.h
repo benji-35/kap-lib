@@ -11,9 +11,6 @@
 #include <unistd.h>
 #include <kap/kutils.h>
 
-typedef char** text;
-typedef char* string;
-
 /**
  * Calcul size of string
  * @param str > string
