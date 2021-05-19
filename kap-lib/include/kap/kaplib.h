@@ -8,8 +8,9 @@
 #ifndef _KAP_LIB_H
 #define _KAP_LIB_H
 
-#include <kap/kstr.h>
 #include <kap/kutils.h>
+#include <kap/kstr.h>
+#include <kap/kmath.h>
 
 void kprintf(string __cmd, ...);
 

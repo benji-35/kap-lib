@@ -9,7 +9,6 @@
 #define _KAP_UTILS_H
 
 #include <stdio.h>
-#include <kap/kstr.h>
 
 void kfree(void *__ptr);
 
@@ -30,9 +29,9 @@ enum bool_e {
     TRUE
 };
 
-bool_t can_open_file(string path);
-string kopen_file(string path);
-void kwrite_file(string path, string txt, bool_t append);
+bool_t can_open_file(char *path);
+char *kopen_file(char *path);
+void kwrite_file(char *path, char *txt, bool_t append);
 void kfree(void *__ptr);
 
 #endif /* !_KAP_UTILS_H */

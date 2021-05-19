@@ -46,3 +46,19 @@ string copy_str_tp(string str, int pos)
     cpy[pos] = 0;
     return (cpy);
 }
+
+string copy_str_tc(string str, char c)
+{
+    if (str == NULL)
+        return (NULL);
+    string res = NULL;
+    int pos_c = pos_char_str(str, c);
+
+    if (pos_c == -1)
+        return (NULL);
+    res = malloc(sizeof(char) * (pos_c + 1));
+    for (ksize_t i = 0; i < pos_c; i++)
+        res[i] = str[i];
+    res[pos_c] = 0;
+    return (res);
+}

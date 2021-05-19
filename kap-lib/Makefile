@@ -46,7 +46,8 @@ SRC_KSTR =	$(PATH_STR)concat_str.c			\
 			$(PATH_STR)my_putstr.c			\
 			$(PATH_STR)split_str_str.c		\
 			$(PATH_STR)kap_putchar.c		\
-			$(PATH_STR)split_str_interv.c
+			$(PATH_STR)split_str_interv.c	\
+			$(PATH_STR)get_cahrstr_pos.c
 
 SRC_KUTILS =	$(PATH_UTILS)kan_open_file.c	\
 				$(PATH_UTILS)kfree.c			\

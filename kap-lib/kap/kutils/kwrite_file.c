@@ -7,12 +7,13 @@
 
 #include <stdlib.h>
 #include <kap/kutils.h>
+#include <kap/kstr.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
 
-static void kwrite_append(string path, string txt)
+static void kwrite_append(char *path, char *txt)
 {
     int fd = open(path, O_WRONLY | O_CREAT | O_APPEND, 0644);
 
@@ -22,7 +23,7 @@ static void kwrite_append(string path, string txt)
     close(fd);
 }
 
-static void kwrite_noappend(string path, string txt)
+static void kwrite_noappend(char *path, char *txt)
 {
     int fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 
@@ -32,7 +33,7 @@ static void kwrite_noappend(string path, string txt)
     close(fd);
 }
 
-void kwrite_file(string path, string txt, bool_t append)
+void kwrite_file(char *path, char *txt, bool_t append)
 {
     if (path == NULL)
         return;

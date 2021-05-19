@@ -9,6 +9,7 @@
 #define _KAP_STRING_H
 
 #include <unistd.h>
+#include <kap/kutils.h>
 
 typedef char** text;
 typedef char* string;
@@ -393,4 +394,20 @@ extern string copy_str_fp(string str, int pos);
  * @return copied string
  */
 extern string copy_str_tp(string str, int pos);
+
+/**
+ * return position of first occurence of char in string
+ * @param str > string
+ * @param c > char to check firts occurence
+ * @return ksize_t
+ */
+extern ksize_t pos_char_str(string str, char c);
+
+/**
+ * copy str to char
+ * @param str > string to copy
+ * @param c > char to set end of copy
+ * @return string
+ */
+extern string copy_str_tc(string str, char c);
 #endif /* !_KAP_STRING_H */
