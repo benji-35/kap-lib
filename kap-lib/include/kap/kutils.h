@@ -8,6 +8,7 @@
 #ifndef _KAP_UTILS_H
 #define _KAP_UTILS_H
 
+#include <stdio.h>
 #include <kap/kstr.h>
 
 void kfree(void *__ptr);
@@ -21,6 +22,8 @@ typedef long double kdsize_t;
 
 #define true 1
 #define false 0
+
+#define UNUSED __attribute__((unused))
 
 enum bool_e {
     FALSE,
