@@ -11,6 +11,14 @@
 #include <unistd.h>
 #include <kap/kutils.h>
 
+#ifndef _KAP_STR_TYPD_
+#define _KAP_STR_TYPD_
+
+typedef char** text;
+typedef char* string;
+
+#endif /*_KAP_STR_TYPD_*/
+
 /**
  * Calcul size of string
  * @param str > string
