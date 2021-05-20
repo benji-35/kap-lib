@@ -17,7 +17,8 @@ INCLUDE_FLAGS += -I ../kap-lib/include
 
 LIB_FLAGS += -L ../kap-lib -lkap -lcriterion
 
-SRC                 =   kprintf_tests.c
+SRC                 =   kprintf_tests.c	\
+						kstr_tests.c
 
 OBJ = $(SRC:.c=.o)
 
