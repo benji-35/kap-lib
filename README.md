@@ -1,7 +1,7 @@
 # C-Lib
 My C-lib
 
-# kprintf include <kap/kaplib.h>
+# kprintf include <kap/klib.h>
 kprintf is printf in kap lib.
 flag list :
 | N° | Flag |            description              |
@@ -76,6 +76,7 @@ flag list :
 | 50 |   split_sstr   | string str, string splitter |      text      | split string at each occurence of the string splitter in str |
 | 51 | kput_char | char c | void | display the c char in terminal |
 | 52 | ksplit_interv | string str, int nb | text | return string split all nb chars |
+| 53 | str_format | string __cmd, ... | string | As a kprint or printf, str_format return string with values you entered |
 #### FUNCTION LIST (VERSION FRANÇAISE)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
@@ -132,6 +133,7 @@ flag list :
 | 50 |   split_sstr   | string str, string splitter |      text      | Découpe la string à chaque apparition de la string splitter |
 | 51 | kput_char | char c | void | affiche le char c dans le terminal |
 | 52 | ksplit_interv | string str, int nb | text | retourn la string séparé tous les nb char |
+| 53 | str_format | string __cmd, ... | string | Comme le kprintf ou le printf. Le str_format vous permet d'avoir la string avec toutes les variables que vous avez entré |
 
 # kmath include <kap/kmath.h>
 
