@@ -10,8 +10,6 @@
 
 #include <stdio.h>
 
-void kfree(void *__ptr);
-
 #ifndef _KAP_BOOL_
 #define _KAP_BOOL_
 typedef enum bool_e bool_t;

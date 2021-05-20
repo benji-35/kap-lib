@@ -27,7 +27,7 @@ kussize_t ksquare_root(kussize_t nb)
     return (res);
 }
 
-kussize_t kroot(kusize_t nb, kusize_t rt)
+kussize_t kroot(kusize_t nb UNUSED, kusize_t rt UNUSED)
 {
     return (0);
 }

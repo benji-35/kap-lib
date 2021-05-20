@@ -7,6 +7,8 @@
 
 PATH_STR =	kap/kapstr/
 
+PATH_STR_FORM =	$(PATH_STR)utils_format/
+
 PATH_UTILS =	kap/kutils/
 
 PATH_PRINTF =	kap/kapprintf/
@@ -15,39 +17,43 @@ PATH_MATHS =	kap/kmaths/
 
 SRC_KAP =	
 
-SRC_KSTR =	$(PATH_STR)concat_str.c			\
-			$(PATH_STR)contain_str.c		\
-			$(PATH_STR)equal_str.c			\
-			$(PATH_STR)finish_with.c		\
-			$(PATH_STR)lenght_str.c			\
-			$(PATH_STR)split_str.c			\
-			$(PATH_STR)start_with.c			\
-			$(PATH_STR)str_to_lowercase.c	\
-			$(PATH_STR)copy_str.c			\
-			$(PATH_STR)int_to_str.c			\
-			$(PATH_STR)str_to_int.c			\
-			$(PATH_STR)str_get_words.c		\
-			$(PATH_STR)inverse_str.c		\
-			$(PATH_STR)insert_char_str.c	\
-			$(PATH_STR)free_split.c			\
-			$(PATH_STR)nb_char_occur.c		\
-			$(PATH_STR)remove_first_char.c	\
-			$(PATH_STR)char_is_an.c			\
-			$(PATH_STR)empty_str.c			\
-			$(PATH_STR)double_to_str.c		\
-			$(PATH_STR)str_to_double.c		\
-			$(PATH_STR)add_line_text.c		\
-			$(PATH_STR)remove_line_text.c	\
-			$(PATH_STR)add_char_str.c		\
-			$(PATH_STR)remove_str_text.c	\
-			$(PATH_STR)replace_str_char.c	\
-			$(PATH_STR)split_to_str.c		\
-			$(PATH_STR)insert_str_str.c		\
-			$(PATH_STR)my_putstr.c			\
-			$(PATH_STR)split_str_str.c		\
-			$(PATH_STR)kap_putchar.c		\
-			$(PATH_STR)split_str_interv.c	\
-			$(PATH_STR)get_cahrstr_pos.c
+SRC_KSTR =	$(PATH_STR)concat_str.c				\
+			$(PATH_STR)contain_str.c			\
+			$(PATH_STR)equal_str.c				\
+			$(PATH_STR)finish_with.c			\
+			$(PATH_STR)lenght_str.c				\
+			$(PATH_STR)split_str.c				\
+			$(PATH_STR)start_with.c				\
+			$(PATH_STR)str_to_lowercase.c		\
+			$(PATH_STR)copy_str.c				\
+			$(PATH_STR)int_to_str.c				\
+			$(PATH_STR)str_to_int.c				\
+			$(PATH_STR)str_get_words.c			\
+			$(PATH_STR)inverse_str.c			\
+			$(PATH_STR)insert_char_str.c		\
+			$(PATH_STR)free_split.c				\
+			$(PATH_STR)nb_char_occur.c			\
+			$(PATH_STR)remove_first_char.c		\
+			$(PATH_STR)char_is_an.c				\
+			$(PATH_STR)empty_str.c				\
+			$(PATH_STR)double_to_str.c			\
+			$(PATH_STR)str_to_double.c			\
+			$(PATH_STR)add_line_text.c			\
+			$(PATH_STR)remove_line_text.c		\
+			$(PATH_STR)add_char_str.c			\
+			$(PATH_STR)remove_str_text.c		\
+			$(PATH_STR)replace_str_char.c		\
+			$(PATH_STR)split_to_str.c			\
+			$(PATH_STR)insert_str_str.c			\
+			$(PATH_STR)my_putstr.c				\
+			$(PATH_STR)split_str_str.c			\
+			$(PATH_STR)kap_putchar.c			\
+			$(PATH_STR)split_str_interv.c		\
+			$(PATH_STR)get_cahrstr_pos.c		\
+			$(PATH_STR)string_format.c			\
+			$(PATH_STR_FORM)add_istr.c			\
+			$(PATH_STR_FORM)flag_str_format.c	\
+			$(PATH_STR_FORM)str_flag_list.c
 
 SRC_KUTILS =	$(PATH_UTILS)kan_open_file.c	\
 				$(PATH_UTILS)kfree.c			\

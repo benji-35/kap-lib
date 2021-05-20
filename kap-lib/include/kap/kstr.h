@@ -415,4 +415,12 @@ extern ksize_t pos_char_str(string str, char c);
  * @return string
  */
 extern string copy_str_tc(string str, char c);
+
+/**
+ * create a string by same way with printf
+ * @param __cmd > enter what you want to write
+ * @param ... > every variable you want
+ * @return string
+ */
+extern string str_format(string __cmd, ...);
 #endif /* !_KAP_STRING_H */

@@ -5,7 +5,7 @@
 ** kaprintf_listing_flag
 */
 
-#include <kaprintf/kaprintf_n.h>
+#include <kapformats/kaprintf_n.h>
 
 pflag_t pflags[] = {
     {"ull", &display_ulonglong},

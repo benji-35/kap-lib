@@ -12,4 +12,5 @@ void kfree(void *__ptr)
     if (__ptr == NULL)
         return;
     free(__ptr);
+    __ptr = NULL;
 }

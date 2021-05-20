@@ -5,7 +5,7 @@
 ** check_flag
 */
 
-#include <kaprintf/kaprintf_n.h>
+#include <kapformats/kaprintf_n.h>
 #include <kap/kstr.h>
 #include <stdlib.h>
 #include <stdarg.h>
