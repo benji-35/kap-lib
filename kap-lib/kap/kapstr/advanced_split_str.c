@@ -40,10 +40,7 @@ text advanced_split_str(string str, string __cmd, ...)
 
     add_str_text(&res, 0, str);
     va_start(list, __cmd);
-    printf("[ADVANCED SPLIT STR] str = %s, __cmd = %s\n", str, __cmd);
-    printf("========== [\e[31mTEST\e[0m] ==========\n");
     for (ksize_t i = 0; __cmd[i]; i++) {
-        printf("[\e[32m__cmd[%ld]\e[0m] (text pointer = %p)\n", i, res);
         my_puttext(res, kstdin);
         if (__cmd[i] == '%' && i < size - 1) {
             i++;

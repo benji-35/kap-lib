@@ -8,9 +8,9 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 
-string copy_str(string str)
+string copy_str(cstring str)
 {
-    int size = length(str);
+    int size = length((string) str);
     string result = malloc(sizeof(char) * (size + 1));
 
     for (int i = 0; i < size; i++)

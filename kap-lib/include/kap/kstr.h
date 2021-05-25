@@ -77,7 +77,7 @@ extern int strat_with(string str1, string str2);
  * @param str > main string
  * @return the copy of str
  */
-extern string copy_str(string str);
+extern string copy_str(cstring str);
 
 /**
  * Chnage all upper case to lower case in string

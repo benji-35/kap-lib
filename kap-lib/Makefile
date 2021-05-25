@@ -15,6 +15,16 @@ PATH_PRINTF =	kap/kapprintf/
 
 PATH_MATHS =	kap/kmaths/
 
+PATH_LIST =	kap/klist/
+
+PATH_HASH_MAP	=	kap/khashmap/
+
+PATH_PARSER_XML	=	kap/kapparser/xml/
+
+PATH_PARSER_YML	=	kap/kapparser/yml/
+
+PATH_PARSER_JSON	=	kap/kapparser/json/
+
 SRC_KAP =	
 
 SRC_KSTR =	$(PATH_STR)concat_str.c				\
@@ -75,10 +85,35 @@ SRC_MATHS =	$(PATH_MATHS)kdivisible_by.c	\
 			$(PATH_MATHS)kpower.c			\
 			$(PATH_MATHS)ksquare_root.c
 
+SRC_HASHMAP	=	$(PATH_HASH_MAP)add_node.c			\
+				$(PATH_HASH_MAP)create_hashmap.c	\
+				$(PATH_HASH_MAP)destroy_hashmap.c	\
+				$(PATH_HASH_MAP)find_node.c
+
+SRC_LIST	=	$(PATH_LIST)kinit_list.c	\
+				$(PATH_LIST)klist_clear.c	\
+				$(PATH_LIST)klist_rm_node.c	\
+				$(PATH_LIST)knode_get.c		\
+				$(PATH_LIST)list_add_node.c
+
+SRC_PARSER_XML	=
+
+SRC_PARSER_JSON	=
+
+SRC_PARSER_YML	=
+
+SRC_REGEX	=	
+
 SRC_KAP += $(SRC_KSTR)
 SRC_KAP += $(SRC_KUTILS)
 SRC_KAP += $(SRC_MATHS)
 SRC_KAP += $(SRC_KPRINTF)
+SRC_KAP += $(SRC_HASHMAP)
+SRC_KAP += $(SRC_LIST)
+SRC_KAP +=	$(SRC_PARSER_JSON)
+SRC_KAP += $(SRC_PARSER_XML)
+SRC_KAP += $(SRC_PARSER_YML)
+SRC_KAP	+= $(SRC_REGEX)
 
 OBJ_KAP = $(SRC_KAP:.c=.o)
 

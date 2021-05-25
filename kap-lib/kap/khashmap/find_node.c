@@ -14,10 +14,10 @@ khnode_t *get_last_hnode(hmap_t *hmap)
     kassert(hmap == NULL && "[hmap] -> NULL pointer");
     kassert(hmap->len <= 0 && "[hmap] -> no nodes in hash map");
     if (hmap == NULL || hmap->len <= 0)
-        return;
+        return NULL;
     kassert(hmap->nodes == NULL && "[node in hmap] -> NULL pointer");
     if (hmap->nodes == NULL)
-        return;
+        return NULL;
     node = hmap->nodes;
     while (node->next != NULL)
         node = node->next;
@@ -32,10 +32,10 @@ khnode_t *get_hnode_index(hmap_t *hmap, ksize_t index)
     kassert(hmap->len <=index  && "[hmap] ->\
     no nodes in hash map or not enough nodes");
     if (hmap == NULL || hmap->len <= index)
-        return;
+        return NULL;
     kassert(hmap->nodes == NULL && "[node in hmap] -> NULL pointer");
     if (hmap->nodes == NULL)
-        return;
+        return NULL;
     node = hmap->nodes;
     for (ksize_t i = 1; i < index; i++)
         node = node->next;
