@@ -11,7 +11,6 @@
 
 static void check_flag_avsplit(text *txt, va_list *list, char flg)
 {
-    text res = NULL;
     text res2 = NULL;
 
     if (flg != 's' && flg != 'c')
@@ -19,18 +18,18 @@ static void check_flag_avsplit(text *txt, va_list *list, char flg)
     if (flg == 's') {
         for (ksize_t i = 0; i < length_text(*txt); i++) {
             res2 = split_sstr((*txt)[i], va_arg(*list, string));
-            add_text_text(&res, length_text(res), res2);
+            remove_line_text(txt, i);
+            add_text_text(txt, length_text(*txt), res2);
             free_text(res2);
         }
     } else {
         for (ksize_t i = 0; i < length_text(*txt); i++) {
             res2 = split_str((*txt)[i], va_arg(*list, int));
-            add_text_text(&res, length_text(res), res2);
+            remove_line_text(txt, i);
+            add_text_text(txt, length_text(*txt), res2);
             free_text(res2);
         }
     }
-    add_text_text(txt, length_text(*txt), res);
-    free_text(res);
 }
 
 text advanced_split_str(string str, string __cmd, ...)
@@ -41,7 +40,11 @@ text advanced_split_str(string str, string __cmd, ...)
 
     add_str_text(&res, 0, str);
     va_start(list, __cmd);
+    printf("[ADVANCED SPLIT STR] str = %s, __cmd = %s\n", str, __cmd);
+    printf("========== [\e[31mTEST\e[0m] ==========\n");
     for (ksize_t i = 0; __cmd[i]; i++) {
+        printf("[\e[32m__cmd[%ld]\e[0m] (text pointer = %p)\n", i, res);
+        my_puttext(res, kstdin);
         if (__cmd[i] == '%' && i < size - 1) {
             i++;
             check_flag_avsplit(&res, &list, __cmd[i]);
