@@ -20,20 +20,22 @@ void kstr_redirect_all_stdout(void)
 
 Test(kstr, add_char_str_test, .init = kstr_redirect_all_stdout)
 {
-    string stri = "Je suis ben";
+    string stri = copy_str("Je suis ben");
     string want = "Je suis ben.";
 
     add_char_str(&stri, '.');
     cr_assert_str_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
 }
 
 Test(kstr, add_char_strp_test, .init = kstr_redirect_all_stdout)
 {
-    string stri = "e suis ben.";
+    string stri = copy_str("e suis ben.");
     string want = "Je suis ben.";
 
     add_char_strp(&stri, 'J', 0);
     cr_assert_str_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
 }
 
 Test(kstr, empty_str_test, .init = kstr_redirect_all_stdout)
@@ -42,6 +44,7 @@ Test(kstr, empty_str_test, .init = kstr_redirect_all_stdout)
     string want = "\0";
 
     cr_assert_str_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
 }
 
 Test(kstr, empty_str_size_test, .init = kstr_redirect_all_stdout)
@@ -50,15 +53,17 @@ Test(kstr, empty_str_size_test, .init = kstr_redirect_all_stdout)
     string want = " ";
 
     cr_assert_str_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
 }
 
 Test(kstr, rm_char_str_test, .init = kstr_redirect_all_stdout)
 {
-    string stri = "JJe";
+    string stri = copy_str("JJe");
     string want  = "Je";
 
     remove_char_str(&stri, 0);
     cr_assert_str_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
 }
 
 Test(kstr, split_str_test, .init = kstr_redirect_all_stdout)
