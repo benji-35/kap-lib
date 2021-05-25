@@ -68,6 +68,14 @@ Test(kstr, display_text_fd_null, .init = kstr_redirect_all_stdout)
     cr_assert_stderr_eq_str(want, "Expected [%s]\n", want);
 }
 
+Test(kstr, display_char_fd, .init = kstr_redirect_all_stdout)
+{
+    kput_char('C', kstdout);
+    string want = "C";
+
+    cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
+}
+
 // ========================= TEST LENGTH ========================= //
 Test(kstr, length_str_normal, .init = kstr_redirect_all_stdout)
 {
@@ -149,7 +157,7 @@ Test(kstr, empty_str_size_test, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST REMOVE CHAR ========================= //
 
-Test(kstr, rm_char_str_test, .init = kstr_redirect_all_stdout)
+Test(kstr, rm_char_str_test_easy, .init = kstr_redirect_all_stdout)
 {
     string stri = copy_str("JJe");
     string want  = "Je";
@@ -157,6 +165,45 @@ Test(kstr, rm_char_str_test, .init = kstr_redirect_all_stdout)
     remove_char_str(&stri, 0);
     cr_assert_str_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
     kfree(stri);
+}
+
+Test(kstr, str_rm_fchar_test_easy, .init = kstr_redirect_all_stdout)
+{
+    string stri = copy_str("JCe");
+    string want  = "Ce";
+
+    str_rm_fchar(&stri);
+    cr_assert_str_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_rm_fchar_test_npossible, .init = kstr_redirect_all_stdout)
+{
+    string stri = NULL;
+    string want  = NULL;
+
+    str_rm_fchar(&stri);
+    cr_assert_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_rm_pchar_test_easy, .init = kstr_redirect_all_stdout)
+{
+    string stri = copy_str("Yo toi comment ca va ?");
+    string want = "Yo oi comment ca va ?";
+
+    str_rm_pchar(&stri, 3);
+    cr_assert_str_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_rm_pchar_test_npossible, .init = kstr_redirect_all_stdout)
+{
+    string stri = NULL;
+    string want = NULL;
+
+    str_rm_pchar(&stri, 3);
+    cr_assert_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
 }
 
 // ========================= TEST SPLIT STR ========================= //
