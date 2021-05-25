@@ -663,6 +663,35 @@ Test(kstr, get_words_null, .init = kstr_redirect_all_stds)
     cr_assert_eq(want, words, "The result was [%s]. Expected [%s]\n", words, want);
 }
 
+// ========================= TEST LENGTH TEXT ========================= //
+
+Test(kstr, length_text_one, .init = kstr_redirect_all_stds)
+{
+    int want = 6;
+    string txt[] = {"1", "2", "3", "4", "5", "6", NULL};
+    int get = length_text(txt);
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, length_text_two, .init = kstr_redirect_all_stds)
+{
+    int want = 0;
+    string txt[] = {NULL};
+    int get = length_text(txt);
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, length_text_three, .init = kstr_redirect_all_stds)
+{
+    int want = 0;
+    char** txt = NULL;
+    int get = length_text(txt);
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
 // ========================= TEST ADD TEXT TEXT ========================= //
 
 Test(kstr, add_text_tex_one, .init = kstr_redirect_all_stds)
