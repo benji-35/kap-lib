@@ -10,12 +10,14 @@
 
 #include <stdio.h>
 
-#ifndef _KAP_BOOL_
-#define _KAP_BOOL_
-typedef enum bool_e bool_t;
-#define true 1
-#define false 0
-#endif /*_KAP_BOOL_*/
+#ifndef bool
+#define bool
+
+#define bool _Bool
+#define true (1)
+#define false (0)
+
+#endif /*bool*/
 
 #ifndef _KAP_SIZE_
 #define _KAP_SIZE_
@@ -74,14 +76,10 @@ int __line, void (*err)(cstring));
 
 #endif /* !_KAP_ASSERT_H_ */
 
-enum bool_e {
-    FALSE,
-    TRUE
-};
 
-bool_t can_open_file(string path);
+bool can_open_file(string path);
 string kopen_file(string path);
-void kwrite_file(string path, string txt, bool_t append);
+void kwrite_file(string path, string txt, bool append);
 void kfree(void *__ptr);
 
 #endif /* !_KAP_UTILS_H */

@@ -7,7 +7,7 @@
 
 #include <kap/kutils.h>
 
-bool_t kdiv_by(kssize_t num, kssize_t div)
+bool kdiv_by(kssize_t num, kssize_t div)
 {
     double f = (double)num / (double)div;
     int i = num / div;
