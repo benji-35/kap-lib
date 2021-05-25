@@ -49,6 +49,9 @@ void set_value(kyml_p *parser, string path, string value);
 void destroy_path_content(kyml_p *parser, string path);
 void destroy_yml_parser(kyml_p *parser);
 yml_content_t *search_content_yml(int id, text txt, yml_content_t **li);
+string create_yml_array(text txt);
+
+ksize_t nb_yml_content(yml_cont_t **cont);
 #endif /*!_KYML_PARSER*/
 
 #endif /* !KPARSER_H_ */

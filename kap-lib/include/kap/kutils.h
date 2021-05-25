@@ -85,5 +85,6 @@ string kopen_file(string path);
 text kopen_file_t(string path);
 void kwrite_file(string path, string txt, bool append);
 void kfree(void *__ptr);
+bool check_extension_file(string path, string __exten);
 
 #endif /* !_KAP_UTILS_H */

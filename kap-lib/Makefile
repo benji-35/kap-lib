@@ -69,7 +69,8 @@ SRC_KSTR =	$(PATH_STR)concat_str.c				\
 SRC_KUTILS =	$(PATH_UTILS)kan_open_file.c	\
 				$(PATH_UTILS)kfree.c			\
 				$(PATH_UTILS)kopen_file.c		\
-				$(PATH_UTILS)kwrite_file.c
+				$(PATH_UTILS)kwrite_file.c		\
+				$(PATH_UTILS)check_file_extension.c
 
 SRC_KPRINTF =	$(PATH_PRINTF)check_flag.c				\
 				$(PATH_PRINTF)display_base.c			\
