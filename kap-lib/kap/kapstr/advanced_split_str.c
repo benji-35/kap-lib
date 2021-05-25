@@ -9,7 +9,7 @@
 #include <kap/kstr.h>
 #include <stdarg.h>
 
-void check_flag_avsplit(text *txt, va_list *list, char flg)
+static void check_flag_avsplit(text *txt, va_list *list, char flg)
 {
     text res = NULL;
     text res2 = NULL;
