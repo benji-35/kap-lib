@@ -74,14 +74,14 @@ typedef char const ** ctext;
 #define _KAP_ASSERT_H_
 
 #ifndef kASSERT_FUNCTION
-
 #define kASSERT_FUNCTION KNULL
-
 #endif /*kASSERT_FUNCTION*/
 
+extern bool_t kassert_e(bool_t isfail, cstring __expr, cstring __fname, int __line);
 extern bool_t kassert_f(bool_t isfail, cstring __expr, cstring __fname, int __line);
 
 #define kassert(__expr) kassert_f(__expr, #__expr, __FILE__, __LINE__)
+#define keassert(__expr) kassert_e(__expr, #__expr, __FILE__, __LINE__)
 
 #endif /* !_KAP_ASSERT_H_ */
 
