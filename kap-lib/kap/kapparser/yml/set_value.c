@@ -21,7 +21,7 @@ static yml_content_t *calc_content_yml(int id, text txt, yml_content_t *yml)
     return (yml);
 }
 
-static yml_content_t *search_content_yml(int id, text txt, yml_content_t **li)
+yml_content_t *search_content_yml(int id, text txt, yml_content_t **li)
 {
     if (li == NULL)
         return (calc_content_yml(id, txt, create_yml_content(&li, txt[id])));

@@ -3,11 +3,7 @@ name: test
 content:
   content1: cont1
   content2: cont2
+  content3:
+    content: val
 
-array1: [1, 2, 3, 4, 5]
-
-array2:
-  - 1
-  - 2
-  - 3
-  - 4
+array: [1, 2, 3, 4, 5]

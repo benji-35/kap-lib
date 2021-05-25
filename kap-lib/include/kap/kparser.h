@@ -30,6 +30,7 @@
 typedef struct kyml_parser_s kyml_parser_t;
 typedef kyml_parser_t kyml_p;
 typedef struct yml_content_s yml_content_t;
+typedef yml_content_t yml_cont_t;
 
 struct yml_content_s {
     string name;
@@ -45,7 +46,9 @@ struct kyml_parser_s {
 
 yml_content_t *create_yml_content(yml_content_t ***list, string name);
 void set_value(kyml_p *parser, string path, string value);
-
+void destroy_path_content(kyml_p *parser, string path);
+void destroy_yml_parser(kyml_p *parser);
+yml_content_t *search_content_yml(int id, text txt, yml_content_t **li);
 #endif /*!_KYML_PARSER*/
 
 #endif /* !KPARSER_H_ */
