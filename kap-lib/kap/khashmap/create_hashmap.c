@@ -8,11 +8,11 @@
 #include <stdlib.h>
 #include <kap/klist.h>
 
-khashmap_t *create_hashmap(void)
+hmap_t *create_hashmap(void)
 {
-    khashmap_t *map;
+    hmap_t *map;
 
-    kassert((map = malloc(sizeof(khashmap_t))) == NULL);
+    kassert((map = malloc(sizeof(hmap_t))) == NULL);
     if (map == NULL)
         return (NULL);
     map->len = 0;
