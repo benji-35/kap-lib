@@ -206,6 +206,46 @@ Test(kstr, str_rm_pchar_test_npossible, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
 }
 
+Test(kstr, str_rm_fochar_test_easy, .init = kstr_redirect_all_stdout)
+{
+    string stri = copy_str("Yo comment ca va toi ?");
+    string want = "Yocomment ca va toi ?";
+
+    str_rm_fochar(&stri, ' ');
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_rm_fochar_test_npossible, .init = kstr_redirect_all_stdout)
+{
+    string stri = NULL;
+    string want = NULL;
+
+    str_rm_fochar(&stri, ' ');
+    cr_assert_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_rm_occhar_test_easy, .init = kstr_redirect_all_stdout)
+{
+    string stri = copy_str("Yo comment ca va toi ?");
+    string want = "Y cmment ca va ti ?";
+
+    str_rm_occhar(&stri, 'o');
+    cr_assert_str_eq(stri, want, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_rm_occhar_test_npossible, .init = kstr_redirect_all_stdout)
+{
+    string stri = NULL;
+    string want = NULL;
+
+    str_rm_fochar(&stri, ' ');
+    cr_assert_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
 // ========================= TEST SPLIT STR ========================= //
 
 Test(kstr, split_str_test, .init = kstr_redirect_all_stdout)
