@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <kap/klib.h>
 
-void kstr_redirect_all_stdout(void)
+void kstr_redirect_all_stds(void)
 {
     cr_redirect_stdout();
     cr_redirect_stderr();
@@ -19,7 +19,7 @@ void kstr_redirect_all_stdout(void)
 // =================================  TEST STR  =================================//
 
 // ========================= TEST PUT STR AND TEXT ========================= //
-Test(kstr, display_str, .init = kstr_redirect_all_stdout)
+Test(kstr, display_str, .init = kstr_redirect_all_stds)
 {
     my_putstr("Hello World !");
     string want = "Hello World !";
@@ -27,7 +27,7 @@ Test(kstr, display_str, .init = kstr_redirect_all_stdout)
     cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
 }
 
-Test(kstr, display_str_null, .init = kstr_redirect_all_stdout)
+Test(kstr, display_str_null, .init = kstr_redirect_all_stds)
 {
     my_putstr(NULL);
     string want = "NULL";
@@ -35,7 +35,7 @@ Test(kstr, display_str_null, .init = kstr_redirect_all_stdout)
     cr_assert_stderr_eq_str(want, "Expected [%s]\n", want);
 }
 
-Test(kstr, display_str_fd, .init = kstr_redirect_all_stdout)
+Test(kstr, display_str_fd, .init = kstr_redirect_all_stds)
 {
     my_putstr_fd("Hello World !", kstderr);
     string want = "Hello World !";
@@ -43,7 +43,7 @@ Test(kstr, display_str_fd, .init = kstr_redirect_all_stdout)
     cr_assert_stderr_eq_str(want, "Expected [%s]\n", want);
 }
 
-Test(kstr, display_str_fd_null, .init = kstr_redirect_all_stdout)
+Test(kstr, display_str_fd_null, .init = kstr_redirect_all_stds)
 {
     my_putstr_fd(NULL, kstderr);
     string want = "NULL";
@@ -51,7 +51,7 @@ Test(kstr, display_str_fd_null, .init = kstr_redirect_all_stdout)
     cr_assert_stderr_eq_str(want, "Expected [%s]\n", want);
 }
 
-Test(kstr, display_text_fd, .init = kstr_redirect_all_stdout)
+Test(kstr, display_text_fd, .init = kstr_redirect_all_stds)
 {
     char *txt[] = {"Hello", "World", "!", NULL};
     my_puttext(txt, kstdout);
@@ -60,7 +60,7 @@ Test(kstr, display_text_fd, .init = kstr_redirect_all_stdout)
     cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
 }
 
-Test(kstr, display_text_fd_null, .init = kstr_redirect_all_stdout)
+Test(kstr, display_text_fd_null, .init = kstr_redirect_all_stds)
 {
     my_puttext(NULL, kstderr);
     string want = "NULL";
@@ -68,7 +68,7 @@ Test(kstr, display_text_fd_null, .init = kstr_redirect_all_stdout)
     cr_assert_stderr_eq_str(want, "Expected [%s]\n", want);
 }
 
-Test(kstr, display_char_fd, .init = kstr_redirect_all_stdout)
+Test(kstr, display_char_fd, .init = kstr_redirect_all_stds)
 {
     kput_char('C', kstdout);
     string want = "C";
@@ -77,7 +77,7 @@ Test(kstr, display_char_fd, .init = kstr_redirect_all_stdout)
 }
 
 // ========================= TEST LENGTH ========================= //
-Test(kstr, length_str_normal, .init = kstr_redirect_all_stdout)
+Test(kstr, length_str_normal, .init = kstr_redirect_all_stds)
 {
     int size = length("Je suis une string de X caracteres");
     int want = 34;
@@ -85,7 +85,7 @@ Test(kstr, length_str_normal, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, size, "The result was [%d]. Expected [%d]\n", size, want);
 }
 
-Test(kstr, length_str_null, .init = kstr_redirect_all_stdout)
+Test(kstr, length_str_null, .init = kstr_redirect_all_stds)
 {
     int size = length(NULL);
     int want = 0;
@@ -95,7 +95,7 @@ Test(kstr, length_str_null, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST COPY STR ========================= //
 
-Test(kstr, copy_str_test_normal, .init = kstr_redirect_all_stdout)
+Test(kstr, copy_str_test_normal, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("Yo !");
     string want = "Yo !";
@@ -104,7 +104,7 @@ Test(kstr, copy_str_test_normal, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, copy_str_test_null, .init = kstr_redirect_all_stdout)
+Test(kstr, copy_str_test_null, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str(NULL);
     string want = "";
@@ -115,7 +115,7 @@ Test(kstr, copy_str_test_null, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST ADD CHAR STR ========================= //
 
-Test(kstr, add_char_str_test, .init = kstr_redirect_all_stdout)
+Test(kstr, add_char_str_test, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("Je suis ben");
     string want = "Je suis ben.";
@@ -125,7 +125,7 @@ Test(kstr, add_char_str_test, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, add_char_strp_test, .init = kstr_redirect_all_stdout)
+Test(kstr, add_char_strp_test, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("e suis ben.");
     string want = "Je suis ben.";
@@ -137,7 +137,7 @@ Test(kstr, add_char_strp_test, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST EMPTY STR ========================= //
 
-Test(kstr, empty_str_test, .init = kstr_redirect_all_stdout)
+Test(kstr, empty_str_test, .init = kstr_redirect_all_stds)
 {
     string stri = empty_str();
     string want = "\0";
@@ -146,7 +146,7 @@ Test(kstr, empty_str_test, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, empty_str_size_test, .init = kstr_redirect_all_stdout)
+Test(kstr, empty_str_size_test, .init = kstr_redirect_all_stds)
 {
     string stri = empty_str_size(1);
     string want = " ";
@@ -157,7 +157,7 @@ Test(kstr, empty_str_size_test, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST REMOVE CHAR ========================= //
 
-Test(kstr, rm_char_str_test_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, rm_char_str_test_easy, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("JJe");
     string want  = "Je";
@@ -167,7 +167,7 @@ Test(kstr, rm_char_str_test_easy, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_rm_fchar_test_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, str_rm_fchar_test_easy, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("JCe");
     string want  = "Ce";
@@ -177,7 +177,7 @@ Test(kstr, str_rm_fchar_test_easy, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_rm_fchar_test_npossible, .init = kstr_redirect_all_stdout)
+Test(kstr, str_rm_fchar_test_npossible, .init = kstr_redirect_all_stds)
 {
     string stri = NULL;
     string want  = NULL;
@@ -187,7 +187,7 @@ Test(kstr, str_rm_fchar_test_npossible, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_rm_pchar_test_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, str_rm_pchar_test_easy, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("Yo toi comment ca va ?");
     string want = "Yo oi comment ca va ?";
@@ -197,7 +197,7 @@ Test(kstr, str_rm_pchar_test_easy, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_rm_pchar_test_npossible, .init = kstr_redirect_all_stdout)
+Test(kstr, str_rm_pchar_test_npossible, .init = kstr_redirect_all_stds)
 {
     string stri = NULL;
     string want = NULL;
@@ -206,7 +206,7 @@ Test(kstr, str_rm_pchar_test_npossible, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
 }
 
-Test(kstr, str_rm_fochar_test_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, str_rm_fochar_test_easy, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("Yo comment ca va toi ?");
     string want = "Yocomment ca va toi ?";
@@ -216,7 +216,7 @@ Test(kstr, str_rm_fochar_test_easy, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_rm_fochar_test_npossible, .init = kstr_redirect_all_stdout)
+Test(kstr, str_rm_fochar_test_npossible, .init = kstr_redirect_all_stds)
 {
     string stri = NULL;
     string want = NULL;
@@ -226,7 +226,7 @@ Test(kstr, str_rm_fochar_test_npossible, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_rm_occhar_test_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, str_rm_occhar_test_easy, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("Yo comment ca va toi ?");
     string want = "Y cmment ca va ti ?";
@@ -236,7 +236,7 @@ Test(kstr, str_rm_occhar_test_easy, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_rm_occhar_test_npossible, .init = kstr_redirect_all_stdout)
+Test(kstr, str_rm_occhar_test_npossible, .init = kstr_redirect_all_stds)
 {
     string stri = NULL;
     string want = NULL;
@@ -248,7 +248,7 @@ Test(kstr, str_rm_occhar_test_npossible, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST SPLIT STR ========================= //
 
-Test(kstr, split_str_test, .init = kstr_redirect_all_stdout)
+Test(kstr, split_str_test, .init = kstr_redirect_all_stds)
 {
     string stri = "Je\nsuis\nbenjamin\n";
     string want = "Je\nsuis\nbenjamin\n";
@@ -259,7 +259,7 @@ Test(kstr, split_str_test, .init = kstr_redirect_all_stdout)
     free_text(get);
 }
 
-Test(kstr, split_sstr_test, .init = kstr_redirect_all_stdout)
+Test(kstr, split_sstr_test, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("Je \nsuis \nbenjamin \n");
     string want  = "Je\nsuis\nbenjamin\n";
@@ -270,7 +270,7 @@ Test(kstr, split_sstr_test, .init = kstr_redirect_all_stdout)
     free_text(get);
 }
 
-Test(kstr, add_str_text_test, .init = kstr_redirect_all_stdout)
+Test(kstr, add_str_text_test, .init = kstr_redirect_all_stds)
 {
     string stri = "Je\nsuis\nbenjamin\n";
     text get = split_str(stri, '\n');
@@ -284,7 +284,7 @@ Test(kstr, add_str_text_test, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST STAR WITH ========================= //
 
-Test(kstr, start_with_test_one, .init = kstr_redirect_all_stdout)
+Test(kstr, start_with_test_one, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
     int want = 1;
@@ -294,7 +294,7 @@ Test(kstr, start_with_test_one, .init = kstr_redirect_all_stdout)
 
 }
 
-Test(kstr, start_with_test_two, .init = kstr_redirect_all_stdout)
+Test(kstr, start_with_test_two, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
     int want = 1;
@@ -304,7 +304,7 @@ Test(kstr, start_with_test_two, .init = kstr_redirect_all_stdout)
 
 }
 
-Test(kstr, start_with_test_three, .init = kstr_redirect_all_stdout)
+Test(kstr, start_with_test_three, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
     int want = 1;
@@ -314,7 +314,7 @@ Test(kstr, start_with_test_three, .init = kstr_redirect_all_stdout)
 
 }
 
-Test(kstr, start_with_test_four, .init = kstr_redirect_all_stdout)
+Test(kstr, start_with_test_four, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
     int want = 0;
@@ -326,7 +326,7 @@ Test(kstr, start_with_test_four, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST STR CHAR OCCUR ========================= //
 
-Test(kstr, str_char_occur_test_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, str_char_occur_test_easy, .init = kstr_redirect_all_stds)
 {
     string stri = "canab, nop I can't. Just him cut the knife";
     int want = 3;
@@ -335,7 +335,7 @@ Test(kstr, str_char_occur_test_easy, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_char_occur_test_easy_two, .init = kstr_redirect_all_stdout)
+Test(kstr, str_char_occur_test_easy_two, .init = kstr_redirect_all_stds)
 {
     string stri = "Canab, nop I can't. Just him cut the knife";
     int want = 2;
@@ -344,7 +344,7 @@ Test(kstr, str_char_occur_test_easy_two, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_char_occur_test_no_char, .init = kstr_redirect_all_stdout)
+Test(kstr, str_char_occur_test_no_char, .init = kstr_redirect_all_stds)
 {
     string stri = "Canab, nop I can't. Just him cut the knife";
     int want = 0;
@@ -353,7 +353,7 @@ Test(kstr, str_char_occur_test_no_char, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_char_occur_test_null, .init = kstr_redirect_all_stdout)
+Test(kstr, str_char_occur_test_null, .init = kstr_redirect_all_stds)
 {
     string stri = NULL;
     int want = 0;
@@ -364,7 +364,7 @@ Test(kstr, str_char_occur_test_null, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST STR LOWER CASE ========================= //
 
-Test(kstr, str_to_lower_case_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_lower_case_easy, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("YO JE SUis Le piraTE des ocEANS\n");
     string want = "yo je suis le pirate des oceans\n";
@@ -374,7 +374,7 @@ Test(kstr, str_to_lower_case_easy, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_to_lower_case_with_special_chars, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_lower_case_with_special_chars, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("YO JE SUis Le piraTE des ocEANS 123456789*-+\n");
     string want = "yo je suis le pirate des oceans 123456789*-+\n";
@@ -384,7 +384,7 @@ Test(kstr, str_to_lower_case_with_special_chars, .init = kstr_redirect_all_stdou
     kfree(stri);
 }
 
-Test(kstr, str_to_lower_case_npossible, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_lower_case_npossible, .init = kstr_redirect_all_stds)
 {
     string stri = NULL;
     string want = NULL;
@@ -396,7 +396,7 @@ Test(kstr, str_to_lower_case_npossible, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST STR UPPER CASE ========================= //
 
-Test(kstr, str_to_upper_case_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_upper_case_easy, .init = kstr_redirect_all_stds)
 {
     string want = "YO JE SUIS LE PIRATE DES OCEANS\n";
     string stri = copy_str("yo je suis le pirate des oceans\n");
@@ -406,7 +406,7 @@ Test(kstr, str_to_upper_case_easy, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_to_upper_case_with_special_chars, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_upper_case_with_special_chars, .init = kstr_redirect_all_stds)
 {
     string want = "YO JE SUIS LE PIRATE DES OCEANS 123456789*-+\n";
     string stri = copy_str("yo je suis le pirate des oceans 123456789*-+\n");
@@ -416,7 +416,7 @@ Test(kstr, str_to_upper_case_with_special_chars, .init = kstr_redirect_all_stdou
     kfree(stri);
 }
 
-Test(kstr, str_to_upper_case_npossible, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_upper_case_npossible, .init = kstr_redirect_all_stds)
 {
     string stri = NULL;
     string want = NULL;
@@ -428,7 +428,7 @@ Test(kstr, str_to_upper_case_npossible, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST FINISH WITH ========================= //
 
-Test(kstr, finish_with_test_one, .init = kstr_redirect_all_stdout)
+Test(kstr, finish_with_test_one, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
     int want = 1;
@@ -438,7 +438,7 @@ Test(kstr, finish_with_test_one, .init = kstr_redirect_all_stdout)
 
 }
 
-Test(kstr, finish_with_test_two, .init = kstr_redirect_all_stdout)
+Test(kstr, finish_with_test_two, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
     int want = 1;
@@ -448,7 +448,7 @@ Test(kstr, finish_with_test_two, .init = kstr_redirect_all_stdout)
 
 }
 
-Test(kstr, finish_with_test_three, .init = kstr_redirect_all_stdout)
+Test(kstr, finish_with_test_three, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
     int want = 0;
@@ -460,7 +460,7 @@ Test(kstr, finish_with_test_three, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST STR EQUALITY ========================= //
 
-Test(kstr, str_equality_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, str_equality_easy, .init = kstr_redirect_all_stds)
 {
     bool_t get = str_equality("Hello World !", "Hello World !");
     bool_t want = true;
@@ -468,7 +468,7 @@ Test(kstr, str_equality_easy, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_equality_easy_two, .init = kstr_redirect_all_stdout)
+Test(kstr, str_equality_easy_two, .init = kstr_redirect_all_stds)
 {
     bool_t get = str_equality("hello World !", "Hello World !");
     bool_t want = false;
@@ -476,7 +476,7 @@ Test(kstr, str_equality_easy_two, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_equality_easy_three, .init = kstr_redirect_all_stdout)
+Test(kstr, str_equality_easy_three, .init = kstr_redirect_all_stds)
 {
     bool_t get = str_equality("Hello World !", NULL);
     bool_t want = false;
@@ -484,7 +484,7 @@ Test(kstr, str_equality_easy_three, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_equality_null, .init = kstr_redirect_all_stdout)
+Test(kstr, str_equality_null, .init = kstr_redirect_all_stds)
 {
     bool_t get = str_equality(NULL, NULL);
     bool_t want = true;
@@ -494,7 +494,7 @@ Test(kstr, str_equality_null, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST CONCAT STR ========================= //
 
-Test(kstr, concat_str_easy, .init = kstr_redirect_all_stdout)
+Test(kstr, concat_str_easy, .init = kstr_redirect_all_stds)
 {
     string want = "Hello World";
     string stri = concat_str("Hello", " World");
@@ -503,7 +503,7 @@ Test(kstr, concat_str_easy, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, concat_str_easy_two, .init = kstr_redirect_all_stdout)
+Test(kstr, concat_str_easy_two, .init = kstr_redirect_all_stds)
 {
     string want = "Hello World";
     string stri = concat_str("Hello World", NULL);
@@ -512,7 +512,7 @@ Test(kstr, concat_str_easy_two, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, concat_str_easy_three, .init = kstr_redirect_all_stdout)
+Test(kstr, concat_str_easy_three, .init = kstr_redirect_all_stds)
 {
     string want = "Hello World";
     string stri = concat_str(NULL, "Hello World");
@@ -521,7 +521,7 @@ Test(kstr, concat_str_easy_three, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, concat_str_null, .init = kstr_redirect_all_stdout)
+Test(kstr, concat_str_null, .init = kstr_redirect_all_stds)
 {
     string want = NULL;
     string stri = concat_str(NULL, NULL);
@@ -532,7 +532,7 @@ Test(kstr, concat_str_null, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST INT STR ========================= //
 
-Test(kstr, int_to_str_one, .init = kstr_redirect_all_stdout)
+Test(kstr, int_to_str_one, .init = kstr_redirect_all_stds)
 {
     string want = "0";
     string stri = int_to_str(0);
@@ -541,7 +541,7 @@ Test(kstr, int_to_str_one, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, int_to_str_two, .init = kstr_redirect_all_stdout)
+Test(kstr, int_to_str_two, .init = kstr_redirect_all_stds)
 {
     string want = "23";
     string stri = int_to_str(23);
@@ -550,7 +550,7 @@ Test(kstr, int_to_str_two, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, int_to_str_three, .init = kstr_redirect_all_stdout)
+Test(kstr, int_to_str_three, .init = kstr_redirect_all_stds)
 {
     string want = "125698";
     string stri = int_to_str(125698);
@@ -559,7 +559,7 @@ Test(kstr, int_to_str_three, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, int_to_str_four, .init = kstr_redirect_all_stdout)
+Test(kstr, int_to_str_four, .init = kstr_redirect_all_stds)
 {
     string want = "-1";
     string stri = int_to_str(-1);
@@ -568,7 +568,7 @@ Test(kstr, int_to_str_four, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, int_to_str_five, .init = kstr_redirect_all_stdout)
+Test(kstr, int_to_str_five, .init = kstr_redirect_all_stds)
 {
     string want = "-1260";
     string stri = int_to_str(-1260);
@@ -577,7 +577,7 @@ Test(kstr, int_to_str_five, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, int_to_str_six, .init = kstr_redirect_all_stdout)
+Test(kstr, int_to_str_six, .init = kstr_redirect_all_stds)
 {
     string want = "-125698";
     string stri = int_to_str(-125698);
@@ -586,7 +586,7 @@ Test(kstr, int_to_str_six, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
-Test(kstr, str_to_int_one, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_int_one, .init = kstr_redirect_all_stds)
 {
     int want = 0;
     int get = str_to_int("0");
@@ -594,7 +594,7 @@ Test(kstr, str_to_int_one, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_to_int_two, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_int_two, .init = kstr_redirect_all_stds)
 {
     int want = 29;
     int get = str_to_int("29");
@@ -602,7 +602,7 @@ Test(kstr, str_to_int_two, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_to_int_three, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_int_three, .init = kstr_redirect_all_stds)
 {
     int want = -16;
     int get = str_to_int("-16");
@@ -610,7 +610,7 @@ Test(kstr, str_to_int_three, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_to_int_four, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_int_four, .init = kstr_redirect_all_stds)
 {
     int want = 0;
     int get = str_to_int("absiefhrf");
@@ -618,7 +618,7 @@ Test(kstr, str_to_int_four, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
-Test(kstr, str_to_int_five, .init = kstr_redirect_all_stdout)
+Test(kstr, str_to_int_five, .init = kstr_redirect_all_stds)
 {
     int want = 0;
     int get = str_to_int(NULL);
@@ -626,9 +626,46 @@ Test(kstr, str_to_int_five, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
+// ========================= TEST GET WORDS ========================= //
+
+Test(kstr, get_words_one, .init = kstr_redirect_all_stds)
+{
+    string stri = "je!;!suis*--/+le*/dev";
+    string want = "je\nsuis\nle\ndev\n";
+    text words = get_words(stri);
+    string get = text_to_str(words, "\n");
+
+    my_puttext(words, kstdout);
+    cr_assert_stdout_eq_str(want, "The result was [%s]. Expected [%s]\n", get, want);
+    free_text(words);
+    kfree(get);
+}
+
+Test(kstr, get_words_two, .init = kstr_redirect_all_stds)
+{
+    string stri = "j*/-+-/-/+-/-/+'ai-*+*//-/-*'(\"'(-\"-\"'\"\"'(19\"'(\"('\"'(\"(ans";
+    string want = "j\nai\n19\nans\n";
+    text words = get_words(stri);
+    string get = text_to_str(words, "\n");
+
+    my_puttext(words, kstdout);
+    cr_assert_stdout_eq_str(want, "The result was [%s]. Expected [%s]\n", get, want);
+    free_text(words);
+    kfree(get);
+}
+
+Test(kstr, get_words_null, .init = kstr_redirect_all_stds)
+{
+    string stri = NULL;
+    string want = NULL;
+    text words = get_words(stri);
+
+    cr_assert_eq(want, words, "The result was [%s]. Expected [%s]\n", words, want);
+}
+
 // ========================= TEST ADD TEXT TEXT ========================= //
 
-Test(kstr, add_text_tex_one, .init = kstr_redirect_all_stdout)
+Test(kstr, add_text_tex_one, .init = kstr_redirect_all_stds)
 {
     text get = split_str("Je\nsuis\ncool", '\n');
     text stri2 = split_str("comme\tdev\t!", '\t');
@@ -642,7 +679,7 @@ Test(kstr, add_text_tex_one, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST ADVANCED SPLIT STR ========================= //
 
-Test(kstr, advenced_split_str_one, .init = kstr_redirect_all_stdout)
+Test(kstr, advenced_split_str_one, .init = kstr_redirect_all_stds)
 {
     string stri = copy_str("yo ; je\n ; suis ; \nBenjamin\n");
     string want = "yo\nje\nsuis\nBenjamin\n";
@@ -655,7 +692,7 @@ Test(kstr, advenced_split_str_one, .init = kstr_redirect_all_stdout)
 
 // ========================= TEST STR FORMAT ========================= //
 
-Test(kstr, str_format_one, .init = kstr_redirect_all_stdout)
+Test(kstr, str_format_one, .init = kstr_redirect_all_stds)
 {
     string stri = str_format("Hi my name's %s and I'm %d\n", "Benjamin", 19);
     string want = "Hi my name's Benjamin and I'm 19\n";
