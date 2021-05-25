@@ -24,13 +24,13 @@ static yml_content_t *calc_content_yml(int id, text txt, yml_content_t *yml)
 yml_content_t *search_content_yml(int id, text txt, yml_content_t **li)
 {
     if (li == NULL)
-        return (calc_content_yml(id, txt, create_yml_content(&li, txt[id])));
+        return (calc_content_yml(id, txt, create_yml_content(&li, txt[id], id)));
     for (ksize_t i = 0; li[i] != KNULL; i++) {
         if (str_equality(li[i]->name, txt[id])) {
             return (calc_content_yml(id, txt, li[i]));
         }
     }
-    return (calc_content_yml(id, txt, create_yml_content(&li, txt[id])));
+    return (calc_content_yml(id, txt, create_yml_content(&li, txt[id], id)));
 }
 
 void set_value(kyml_p *parser, string path, string value)

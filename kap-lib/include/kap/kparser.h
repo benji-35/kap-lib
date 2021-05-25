@@ -33,8 +33,10 @@ typedef struct yml_content_s yml_content_t;
 typedef yml_content_t yml_cont_t;
 
 struct yml_content_s {
+    ksize_t depth;
     string name;
     string value;
+    ksize_t depth;
     yml_content_t **content;
 };
 
@@ -44,7 +46,7 @@ struct kyml_parser_s {
     yml_content_t **content_yml;
 };
 
-yml_content_t *create_yml_content(yml_content_t ***list, string name);
+yml_content_t *create_yml_content(yml_content_t ***list, string name, ksize_t depth);
 void set_value(kyml_p *parser, string path, string value);
 void destroy_path_content(kyml_p *parser, string path);
 void destroy_yml_parser(kyml_p *parser);

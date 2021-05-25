@@ -10,28 +10,33 @@
 #include <kap/kutils.h>
 #include <kap/kstr.h>
 
-static void create_sub_node_yml()
+static void sub_init_yml(yml_cont_t *cont, text txt, int *line)
 {
+    int theorics = cont->depth * YML_SPC;
 
+    if (!contain_only_char_tp(txt[*line], ' ', theorics));
+        return;
+    
 }
 
-static void read_yml_extension(text txt, ksize_t *line, yml_cont_t **content)
+static yml_cont_t *read_yml_extension(text txt, ksize_t *line, yml_cont_t **cont, ksize_t depth)
 {
+    ksize_t n_line = *line + 1;
     yml_cont_t *created;
-    text content_t = get_words(txt[*line]);
-    ksize_t len = length_text(content_t);
+    text cont_t = get_words(txt[*line]);
+    ksize_t len = length_text(cont_t);
     if (len <= 0) {
-        free_text(content_t);
+        free_text(cont_t);
         return;
     }
     if (str_contains(txt[*line], ":")) {
-        created = create_yml_content(&content, content_t[0]);
+        created = create_yml_content(&cont, cont_t[0], depth);
         if (len == 1) {
-            
+            sub_init_yml(created, txt, n_line);
         } else if (len == 2) {
-            created->value = copy_str(content_t[1]);
+            created->value = copy_str(cont_t[1]);
         } else {
-            created->value = create_yml_array(content_t + 1);
+            created->value = create_yml_array(cont_t + 1);
         }
     }
 }
@@ -48,6 +53,6 @@ kyml_p *init_yml_parser(string path)
         return (KNULL);
     n_parser->path = path;
     n_parser->content = kopen_file_t(path);
-    read_yml_extension(n_parser->content, &line, n_parser->content_yml);
+    read_yml_extension(n_parser->content, &line, n_parser->content_yml, 0);
     return (n_parser);
 }

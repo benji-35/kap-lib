@@ -443,4 +443,7 @@ text advanced_split_str(string str, string __cmd, ...);
  * @param want > text to add in text txt
  */
 void add_text_text(text *txt, int pos, text want);
+
+int contain_only_char_tp(string str1, char c, int pos);
+int str_equality_tp(string str1, string str2, int nb);
 #endif /* !_KAP_STRING_H */

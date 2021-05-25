@@ -18,3 +18,10 @@ string get_value_yml(kyml_p *parser)
         return (res);
     
 }
+
+yml_cont_t *get_last_depth(kyml_p *parser, ksize_t depth)
+{
+    if (parser == NULL)
+        return NULL;
+    
+}

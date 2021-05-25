@@ -30,7 +30,7 @@ bool resize_yml_list_cont(ksize_t size, yml_cont_t ***curr)
     return (true);
 }
 
-yml_content_t *create_yml_content(yml_content_t ***list, string name)
+yml_content_t *create_yml_content(yml_content_t ***list, string name, ksize_t depth)
 {
     yml_content_t *n_content;
     ksize_t nb_contents = nb_yml_content(*list);
@@ -41,6 +41,7 @@ yml_content_t *create_yml_content(yml_content_t ***list, string name)
     n_content->name = copy_str(name);
     n_content->content = NULL;
     n_content->value = NULL;
+    n_content->depth = depth;
     if (resize_yml_list_cont(nb_contents + 1, list))
         (*list)[nb_contents] = n_content;
 }
