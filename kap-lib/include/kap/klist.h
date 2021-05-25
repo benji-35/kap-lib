@@ -37,6 +37,7 @@ struct klist_s {
 typedef struct khashmap_s khashmap_t;
 typedef struct khash_node_s khash_node_t;
 typedef khash_node_t khnode_t;
+typedef khashmap_t hmap_t;
 
 struct khash_node_s {
     khnode_t *next;
@@ -73,5 +74,10 @@ void list_clear(klist_t *list);
 ///Initiate klist
 ///@return new klist
 klist_t *list_init(void);
+
+///Get last hnode in hash map
+///@param hmap > hash map that contain hnode to find
+///@return khnode > return NULL if an error occured
+khnode_t *get_last_hnode(hmap_t *hmap);
 
 #endif /* !_KAP_LIST_H_ */
