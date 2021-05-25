@@ -96,7 +96,7 @@ C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS)
 
 all: $(OBJ_KAP)
 	@ar rc libkap.a $(OBJ_KAP)
-	rm -f $(OBJ_KAP)
+	@rm -f $(OBJ_KAP)
 
 .PHONY : all
 
