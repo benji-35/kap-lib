@@ -586,6 +586,46 @@ Test(kstr, int_to_str_six, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
+Test(kstr, str_to_int_one, .init = kstr_redirect_all_stdout)
+{
+    int want = 0;
+    int get = str_to_int("0");
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_to_int_two, .init = kstr_redirect_all_stdout)
+{
+    int want = 29;
+    int get = str_to_int("29");
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_to_int_three, .init = kstr_redirect_all_stdout)
+{
+    int want = -16;
+    int get = str_to_int("-16");
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_to_int_four, .init = kstr_redirect_all_stdout)
+{
+    int want = 0;
+    int get = str_to_int("absiefhrf");
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_to_int_five, .init = kstr_redirect_all_stdout)
+{
+    int want = 0;
+    int get = str_to_int(NULL);
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
 // ========================= TEST ADD TEXT TEXT ========================= //
 
 Test(kstr, add_text_tex_one, .init = kstr_redirect_all_stdout)
