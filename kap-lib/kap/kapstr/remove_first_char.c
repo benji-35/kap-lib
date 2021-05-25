@@ -73,7 +73,7 @@ static void get_good_pos_rn(int *pos, int size)
 
 void str_rm_pchar(string *str, int pos)
 {
-    if (str == NULL)
+    if (str == NULL || *str == NULL)
         return;
     int size = length(*str);
     int curr = 0;
