@@ -719,6 +719,17 @@ Test(kstr, advenced_split_str_one, .init = kstr_redirect_all_stds)
     free_text(get);
 }
 
+Test(kstr, advenced_split_str_only_char, .init = kstr_redirect_all_stds)
+{
+    string stri = copy_str("yo\nje\nsuis\nBenjamin\n");
+    string want = "yo\nje\nsuis\nBenjamin\n";
+    text get = advanced_split_str(stri, "%c", '\n');
+
+    my_puttext(get, kstdout);
+    cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
+    free_text(get);
+}
+
 // ========================= TEST STR FORMAT ========================= //
 
 Test(kstr, str_format_one, .init = kstr_redirect_all_stds)

@@ -14,8 +14,8 @@
 #ifndef _KAP_STR_TYPD_
 #define _KAP_STR_TYPD_
 
-typedef char** text;
-typedef char* string;
+typedef char ** text;
+typedef char * string;
 typedef char const * cstring;
 typedef char const ** ctext;
 
