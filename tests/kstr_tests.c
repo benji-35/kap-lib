@@ -492,6 +492,44 @@ Test(kstr, str_equality_null, .init = kstr_redirect_all_stdout)
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
+// ========================= TEST CONCAT STR ========================= //
+
+Test(kstr, concat_str_easy, .init = kstr_redirect_all_stdout)
+{
+    string want = "Hello World";
+    string stri = concat_str("Hello", " World");
+
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, concat_str_easy_two, .init = kstr_redirect_all_stdout)
+{
+    string want = "Hello World";
+    string stri = concat_str("Hello World", NULL);
+
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, concat_str_easy_three, .init = kstr_redirect_all_stdout)
+{
+    string want = "Hello World";
+    string stri = concat_str(NULL, "Hello World");
+
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, concat_str_null, .init = kstr_redirect_all_stdout)
+{
+    string want = NULL;
+    string stri = concat_str(NULL, NULL);
+
+    cr_assert_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
 // ========================= TEST ADD TEXT TEXT ========================= //
 
 Test(kstr, add_text_tex_one, .init = kstr_redirect_all_stdout)
