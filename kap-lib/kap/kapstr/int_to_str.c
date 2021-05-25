@@ -26,7 +26,7 @@ static int size_nb(int nb)
 
 string int_to_str(int nb)
 {
-    bool_t is_neg = false;
+    bool is_neg = false;
     int size = size_nb(nb);
     string result = malloc(sizeof(char) * (size + 1));
 

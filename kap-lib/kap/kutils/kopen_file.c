@@ -31,3 +31,17 @@ string kopen_file(string path)
     res[st.st_size] = 0;
     return (res);
 }
+
+text kopen_file_t(string path)
+{
+    text res;
+    string readed;
+
+    if (!can_open_file(path))
+        return (KNULL);
+    kassert((readed = kopen_file(path)) == KNULL);
+    if (readed == KNULL)
+        return (KNULL);
+    res = split_str(readed, '\n');
+    return (res);
+}

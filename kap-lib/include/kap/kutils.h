@@ -10,20 +10,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
-
-#ifndef _KAP_BOOL_
-#define _KAP_BOOL_
-
-typedef enum bool_e bool_t;
-#define true 1
-#define false 0
-
-enum bool_e {
-    FALSE = 0,
-    TRUE
-};
-
-#endif /*_KAP_BOOL_*/
+#include <stdbool.h>
 
 #ifndef _KAP_SIZE_
 #define _KAP_SIZE_
@@ -45,6 +32,14 @@ typedef char const * cstring;
 typedef char const ** ctext;
 
 #endif /*_KAP_STR_TYPD_*/
+
+#ifndef false
+#define false 0
+#endif
+
+#ifndef true
+#define true 1
+#endif
 
 #ifndef KNULL
 #define KNULL ((void *)0)
@@ -77,17 +72,18 @@ typedef char const ** ctext;
 #define kASSERT_FUNCTION KNULL
 #endif /*kASSERT_FUNCTION*/
 
-extern bool_t kassert_e(bool_t isfail, cstring __expr, cstring __fname, int __line);
-extern bool_t kassert_f(bool_t isfail, cstring __expr, cstring __fname, int __line);
+extern bool kassert_e(bool isfail, cstring __expr, cstring __fname, int __line);
+extern bool kassert_f(bool isfail, cstring __expr, cstring __fname, int __line);
 
 #define kassert(__expr) kassert_f(__expr, #__expr, __FILE__, __LINE__)
 #define keassert(__expr) kassert_e(__expr, #__expr, __FILE__, __LINE__)
 
 #endif /* !_KAP_ASSERT_H_ */
 
-bool_t can_open_file(string path);
+bool can_open_file(string path);
 string kopen_file(string path);
-void kwrite_file(string path, string txt, bool_t append);
+text kopen_file_t(string path);
+void kwrite_file(string path, string txt, bool append);
 void kfree(void *__ptr);
 
 #endif /* !_KAP_UTILS_H */

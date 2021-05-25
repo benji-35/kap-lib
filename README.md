@@ -139,7 +139,7 @@ flag list :
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
 |:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
-| 01 |   kdiv_by   | kssize_t num, kssize_t div | bool_t | return true if num can be divide by div |
+| 01 |   kdiv_by   | kssize_t num, kssize_t div | bool | return true if num can be divide by div |
 | 02 |   kpower   | ksize_t num, ksize_t power | kdsize_t | return result of num power "power" |
 | 03 |   ksquare_root   | kussize_t nb | kussize_t | return value of square root of nb |
 | 04 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |
@@ -149,6 +149,6 @@ flag list :
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
 |:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
 | 01 |   kfree   | void *__ptr | void | if __ptr == null then nothing is done else __ptr is free |
-| 02 |   can_open_file   | string path | bool_t | return true if file can be open else return false |
+| 02 |   can_open_file   | string path | bool | return true if file can be open else return false |
 | 03 |   kopen_file   | string path | string | return string that contain the file content |
 | 04 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |

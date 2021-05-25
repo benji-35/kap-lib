@@ -9,7 +9,7 @@
 #include <kap/kprintf.h>
 #include <stdlib.h>
 
-bool_t kassert_f(bool_t isfail, cstring __expr, cstring __fname, int __line)
+bool kassert_f(bool isfail, cstring __expr, cstring __fname, int __line)
 {
     if (!isfail)
         return (false);
@@ -18,7 +18,7 @@ bool_t kassert_f(bool_t isfail, cstring __expr, cstring __fname, int __line)
     return (true);
 }
 
-bool_t kassert_e(bool_t isfail, cstring __expr, cstring __fname, int __line)
+bool kassert_e(bool isfail, cstring __expr, cstring __fname, int __line)
 {
     if (!isfail)
         return (false);
