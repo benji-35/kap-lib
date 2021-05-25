@@ -18,6 +18,56 @@ void kstr_redirect_all_stdout(void)
 
 // =================================  TEST STR  =================================//
 
+// ========================= TEST PUT STR AND TEXT ========================= //
+Test(kstr, display_str, .init = kstr_redirect_all_stdout)
+{
+    my_putstr("Hello World !");
+    string want = "Hello World !";
+
+    cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
+}
+
+Test(kstr, display_str_null, .init = kstr_redirect_all_stdout)
+{
+    my_putstr(NULL);
+    string want = "NULL";
+
+    cr_assert_stderr_eq_str(want, "Expected [%s]\n", want);
+}
+
+Test(kstr, display_str_fd, .init = kstr_redirect_all_stdout)
+{
+    my_putstr_fd("Hello World !", kstderr);
+    string want = "Hello World !";
+
+    cr_assert_stderr_eq_str(want, "Expected [%s]\n", want);
+}
+
+Test(kstr, display_str_fd_null, .init = kstr_redirect_all_stdout)
+{
+    my_putstr_fd(NULL, kstderr);
+    string want = "NULL";
+
+    cr_assert_stderr_eq_str(want, "Expected [%s]\n", want);
+}
+
+Test(kstr, display_text_fd, .init = kstr_redirect_all_stdout)
+{
+    char *txt[] = {"Hello", "World", "!", NULL};
+    my_puttext(txt, kstdout);
+    string want = "Hello\nWorld\n!\n";
+
+    cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
+}
+
+Test(kstr, display_text_fd_null, .init = kstr_redirect_all_stdout)
+{
+    my_puttext(NULL, kstderr);
+    string want = "NULL";
+
+    cr_assert_stderr_eq_str(want, "Expected [%s]\n", want);
+}
+
 // ========================= TEST LENGTH ========================= //
 Test(kstr, length_str_normal, .init = kstr_redirect_all_stdout)
 {
@@ -114,33 +164,34 @@ Test(kstr, rm_char_str_test, .init = kstr_redirect_all_stdout)
 Test(kstr, split_str_test, .init = kstr_redirect_all_stdout)
 {
     string stri = "Je\nsuis\nbenjamin\n";
-    string want[]  = {"Je", "suis", "benjamin", NULL};
+    string want = "Je\nsuis\nbenjamin\n";
     text get = split_str(stri, '\n');
 
-    for (int i = 0; i < length_text(want); i++)
-        cr_assert_str_eq(get[i], want[i], "The result was [%s]. Expected [%s]\n", stri[i], want[i]);
+    my_puttext(get, kstdout);
+    cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
     free_text(get);
 }
 
 Test(kstr, split_sstr_test, .init = kstr_redirect_all_stdout)
 {
     string stri = copy_str("Je \nsuis \nbenjamin \n");
-    string want[]  = {"Je", "suis", "benjamin", NULL};
+    string want  = "Je\nsuis\nbenjamin\n";
     text get = split_sstr(stri, " \n");
 
-    for (int i = 0; i < length_text(want); i++)
-        cr_assert_str_eq(get[i], want[i], "The result was [%s]. Expected [%s]\n", stri[i], want[i]);
+    my_puttext(get, kstdout);
+    cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
+    free_text(get);
 }
 
 Test(kstr, add_str_text_test, .init = kstr_redirect_all_stdout)
 {
     string stri = "Je\nsuis\nbenjamin\n";
     text get = split_str(stri, '\n');
-    string want[]  = {"Je", "suis", "benjamin", "yo", NULL};
+    string want = "Je\nsuis\nbenjamin\nyo\n";
 
     add_str_text(&get, length_text(get), "yo");
-    for (int i = 0; i < length_text(want); i++)
-        cr_assert_str_eq(get[i], want[i], "The result was [%s]. Expected [%s]\n", stri[i], want[i]);
+    my_puttext(get, kstdout);
+    cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
     free_text(get);
 }
 
@@ -216,4 +267,31 @@ Test(kstr, finish_with_test_three, .init = kstr_redirect_all_stdout)
 
     cr_assert_eq(want, res, "The result was [%d]. Expected [%d]\n", res, want);
 
+}
+
+// ========================= TEST ADD TEXT TEXT ========================= //
+
+Test(kstr, add_text_tex_one, .init = kstr_redirect_all_stdout)
+{
+    text get = split_str("Je\nsuis\ncool", '\n');
+    text stri2 = split_str("comme\tdev\t!", '\t');
+    string want = "Je\nsuis\ncool\ncomme\ndev\n!\n";
+
+    add_text_text(&get, 3, stri2);
+    my_puttext(get, kstdout);
+    cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
+    free_text(get);
+}
+
+// ========================= TEST ADVANCED SPLIT STR ========================= //
+
+Test(kstr, advenced_split_str_one, .init = kstr_redirect_all_stdout)
+{
+    string stri = copy_str("yo ; je\n ; suis ; \nBenjamin\n");
+    string want = "yo\nje\nsuis\nBenjamin\n";
+    text get = advanced_split_str(stri, "%c%s", '\n', " ; ");
+
+    my_puttext(get, kstdout);
+    cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
+    free_text(get);
 }
