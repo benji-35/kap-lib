@@ -324,6 +324,76 @@ Test(kstr, start_with_test_four, .init = kstr_redirect_all_stdout)
 
 }
 
+// ========================= TEST STR CHAR OCCUR ========================= //
+
+Test(kstr, str_char_occur_test_easy, .init = kstr_redirect_all_stdout)
+{
+    string stri = "canab, nop I can't. Just him cut the knife";
+    int want = 3;
+    int get = str_char_occur(stri, 'c');
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_char_occur_test_easy_two, .init = kstr_redirect_all_stdout)
+{
+    string stri = "Canab, nop I can't. Just him cut the knife";
+    int want = 2;
+    int get = str_char_occur(stri, 'i');
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_char_occur_test_no_char, .init = kstr_redirect_all_stdout)
+{
+    string stri = "Canab, nop I can't. Just him cut the knife";
+    int want = 0;
+    int get = str_char_occur(stri, 'y');
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_char_occur_test_null, .init = kstr_redirect_all_stdout)
+{
+    string stri = NULL;
+    int want = 0;
+    int get = str_char_occur(stri, 'c');
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+// ========================= TEST STR LOWER CASE ========================= //
+
+Test(kstr, str_to_lower_case_easy, .init = kstr_redirect_all_stdout)
+{
+    string stri = copy_str("YO JE SUis Le piraTE des ocEANS\n");
+    string want = "yo je suis le pirate des oceans\n";
+
+    str_to_lower_case(stri);
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_to_lower_case_with_special_chars, .init = kstr_redirect_all_stdout)
+{
+    string stri = copy_str("YO JE SUis Le piraTE des ocEANS 123456789*-+\n");
+    string want = "yo je suis le pirate des oceans 123456789*-+\n";
+
+    str_to_lower_case(stri);
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_to_lower_case_npossible, .init = kstr_redirect_all_stdout)
+{
+    string stri = NULL;
+    string want = NULL;
+
+    str_to_lower_case(stri);
+    cr_assert_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
 // ========================= TEST FINISH WITH ========================= //
 
 Test(kstr, finish_with_test_one, .init = kstr_redirect_all_stdout)
