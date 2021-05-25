@@ -382,3 +382,14 @@ Test(kstr, advenced_split_str_one, .init = kstr_redirect_all_stdout)
     cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
     free_text(get);
 }
+
+// ========================= TEST STR FORMAT ========================= //
+
+Test(kstr, str_format_one, .init = kstr_redirect_all_stdout)
+{
+    string stri = str_format("Hi my name's %s and I'm %d\n", "Benjamin", 19);
+    string want = "Hi my name's Benjamin and I'm 19\n";
+
+    cr_assert_str_eq(want, stri, "The result was [%d]. Expected [%d]\n", stri, want);
+    kfree(stri);
+}
