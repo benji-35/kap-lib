@@ -530,6 +530,62 @@ Test(kstr, concat_str_null, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
+// ========================= TEST INT STR ========================= //
+
+Test(kstr, int_to_str_one, .init = kstr_redirect_all_stdout)
+{
+    string want = "0";
+    string stri = int_to_str(0);
+
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, int_to_str_two, .init = kstr_redirect_all_stdout)
+{
+    string want = "23";
+    string stri = int_to_str(23);
+
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, int_to_str_three, .init = kstr_redirect_all_stdout)
+{
+    string want = "125698";
+    string stri = int_to_str(125698);
+
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, int_to_str_four, .init = kstr_redirect_all_stdout)
+{
+    string want = "-1";
+    string stri = int_to_str(-1);
+
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, int_to_str_five, .init = kstr_redirect_all_stdout)
+{
+    string want = "-1260";
+    string stri = int_to_str(-1260);
+
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, int_to_str_six, .init = kstr_redirect_all_stdout)
+{
+    string want = "-125698";
+    string stri = int_to_str(-125698);
+
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
 // ========================= TEST ADD TEXT TEXT ========================= //
 
 Test(kstr, add_text_tex_one, .init = kstr_redirect_all_stdout)
