@@ -394,6 +394,38 @@ Test(kstr, str_to_lower_case_npossible, .init = kstr_redirect_all_stdout)
     kfree(stri);
 }
 
+// ========================= TEST STR UPPER CASE ========================= //
+
+Test(kstr, str_to_upper_case_easy, .init = kstr_redirect_all_stdout)
+{
+    string want = "YO JE SUIS LE PIRATE DES OCEANS\n";
+    string stri = copy_str("yo je suis le pirate des oceans\n");
+
+    str_to_upper_case(stri);
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_to_upper_case_with_special_chars, .init = kstr_redirect_all_stdout)
+{
+    string want = "YO JE SUIS LE PIRATE DES OCEANS 123456789*-+\n";
+    string stri = copy_str("yo je suis le pirate des oceans 123456789*-+\n");
+
+    str_to_upper_case(stri);
+    cr_assert_str_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
+Test(kstr, str_to_upper_case_npossible, .init = kstr_redirect_all_stdout)
+{
+    string stri = NULL;
+    string want = NULL;
+
+    str_to_upper_case(stri);
+    cr_assert_eq(want, stri, "The result was [%s]. Expected [%s]\n", stri, want);
+    kfree(stri);
+}
+
 // ========================= TEST FINISH WITH ========================= //
 
 Test(kstr, finish_with_test_one, .init = kstr_redirect_all_stdout)
