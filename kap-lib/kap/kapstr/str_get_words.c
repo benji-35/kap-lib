@@ -63,6 +63,8 @@ static void rm_o_str(text *txt)
 
 text get_words(string str)
 {
+    if (str == NULL)
+        return NULL;
     int size = length(str);
     int nbsplit = nb_split_w(str);
     text result = malloc(sizeof(char *) * (nbsplit + 2));
