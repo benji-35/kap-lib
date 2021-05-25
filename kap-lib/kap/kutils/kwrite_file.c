@@ -33,7 +33,7 @@ static void kwrite_noappend(string path, string txt)
     close(fd);
 }
 
-void kwrite_file(string path, string txt, bool append)
+void kwrite_file(string path, string txt, bool_t append)
 {
     if (path == NULL)
         return;

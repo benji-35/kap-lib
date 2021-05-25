@@ -8,7 +8,7 @@
 #include <kap/kutils.h>
 #include <kap/kprintf.h>
 
-bool kassert_f(bool isfail, cstring __expr, cstring __fname, int __line)
+bool_t kassert_f(bool_t isfail, cstring __expr, cstring __fname, int __line)
 {
     if (!isfail)
         return (false);

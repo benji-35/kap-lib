@@ -29,5 +29,5 @@ void check_flag(va_list *list, string *__cmd, int *index, int fd)
             return;
         }
     }
-    kput_char('%');
+    kput_char('%', fd);
 }

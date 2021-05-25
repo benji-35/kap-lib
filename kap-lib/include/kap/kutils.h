@@ -9,15 +9,21 @@
 #define _KAP_UTILS_H
 
 #include <stdio.h>
+#include <unistd.h>
 
-#ifndef bool
-#define bool
+#ifndef _KAP_BOOL_
+#define _KAP_BOOL_
 
-#define bool _Bool
-#define true (1)
-#define false (0)
+typedef enum bool_e bool_t;
+#define true 1
+#define false 0
 
-#endif /*bool*/
+enum bool_e {
+    FALSE = 0,
+    TRUE
+};
+
+#endif /*_KAP_BOOL_*/
 
 #ifndef _KAP_SIZE_
 #define _KAP_SIZE_
@@ -73,15 +79,15 @@ typedef char const ** ctext;
 
 #endif /*kASSERT_FUNCTION*/
 
-extern bool kassert_f(bool isfail, cstring __expr, cstring __fname, int __line);
+extern bool_t kassert_f(bool_t isfail, cstring __expr, cstring __fname, int __line);
 
 #define kassert(__expr) kassert_f(__expr, #__expr, __FILE__, __LINE__)
 
 #endif /* !_KAP_ASSERT_H_ */
 
-bool can_open_file(string path);
+bool_t can_open_file(string path);
 string kopen_file(string path);
-void kwrite_file(string path, string txt, bool append);
+void kwrite_file(string path, string txt, bool_t append);
 void kfree(void *__ptr);
 
 #endif /* !_KAP_UTILS_H */

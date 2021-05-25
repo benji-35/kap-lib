@@ -12,7 +12,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-bool can_open_file(string path)
+bool_t can_open_file(string path)
 {
     int fd = open(path, O_RDONLY, stat);
 

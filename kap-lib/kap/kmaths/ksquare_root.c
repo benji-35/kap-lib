@@ -7,7 +7,7 @@
 
 #include <kap/kutils.h>
 
-static bool check_square_root(kussize_t nb1, kussize_t nb2, kussize_t nb)
+static bool_t check_square_root(kussize_t nb1, kussize_t nb2, kussize_t nb)
 {
     if ((nb1 * nb2) == nb) {
         if (nb1 == nb2)
