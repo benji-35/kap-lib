@@ -8,11 +8,11 @@
 #include <kap/kutils.h>
 #include <kap/kprintf.h>
 
-void kassert_f(cstring __expr, cstring __fname, int __line,\
-    void (*err)(cstring))
+bool kassert_f(bool isfail, cstring __expr, cstring __fname, int __line)
 {
-    kfprintf(kstderr, "Assertion : failed in {%s:%s} -> %s\n", __fname,\
-    __line, __expr);
-    if (err != KNULL)
-        err = KNULL;
+    if (!isfail)
+        return (false);
+    kfprintf(kstderr, "Assertion failed in [%s:%d] -> (%s)\n", \
+    __fname, __line, __expr);
+    return (true);
 }

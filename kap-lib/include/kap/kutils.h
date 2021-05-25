@@ -44,6 +44,10 @@ typedef char const ** ctext;
 #define KNULL ((void *)0)
 #endif /*KNULL*/
 
+#ifndef OBJECT
+#define OBJECT void *
+#endif
+
 #ifndef _KAP_FD_
 #define _KAP_FD_
 
@@ -69,13 +73,11 @@ typedef char const ** ctext;
 
 #endif /*kASSERT_FUNCTION*/
 
-extern void kassert_f(cstring __expr, cstring __fname,\
-int __line, void (*err)(cstring));
+extern bool kassert_f(bool isfail, cstring __expr, cstring __fname, int __line);
 
-#define kassert(__expr) if (__expr) kassert_f(#__expr, __FILE__, __LINE__, kASSERT_FUNCTION)
+#define kassert(__expr) kassert_f(__expr, #__expr, __FILE__, __LINE__)
 
 #endif /* !_KAP_ASSERT_H_ */
-
 
 bool can_open_file(string path);
 string kopen_file(string path);
