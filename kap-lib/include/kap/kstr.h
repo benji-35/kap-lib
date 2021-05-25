@@ -16,6 +16,8 @@
 
 typedef char** text;
 typedef char* string;
+typedef char const * cstring;
+typedef char const ** ctext;
 
 #endif /*_KAP_STR_TYPD_*/
 
@@ -349,10 +351,11 @@ extern void my_puttext(text txt, int fd);
 extern text split_sstr(string str, string splitter);
 
 /**
- * display char in terminal 
+ * display char in terminal
  * @param c > char to display
+ * @param fd > file directory
  */
-extern void kput_char(char c);
+extern void kput_char(char c, int fd);
 
 /**
  * add char in specific position
@@ -423,4 +426,21 @@ extern string copy_str_tc(string str, char c);
  * @return string
  */
 extern string str_format(string __cmd, ...);
+
+/**
+ * split a string with how mush you want char and string
+ * @param str > string to split
+ * @param __cmd > %c or %s how much you want
+ * @param ... > all char and string you want
+ * @return text
+ */
+text advanced_split_str(string str, string __cmd, ...);
+
+/**
+ * add text in text at specific position
+ * @param txt > text that will contain the text to add
+ * @param pos > position in text txt to add text want
+ * @param want > text to add in text txt
+ */
+void add_text_text(text *txt, int pos, text want);
 #endif /* !_KAP_STRING_H */

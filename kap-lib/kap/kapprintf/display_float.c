@@ -42,12 +42,12 @@ static void rem_o_str(string *str)
         str_rm_fchar(str);
 }
 
-void display_double(va_list *data, int bef)
+void display_double(va_list *data, int bef, int fd)
 {
     double f = va_arg(*data, double);
     int neg = 0;
     if (f == 0.0) {
-        my_putstr("0.0");
+        my_putstr_fd("0.0", fd);
         return;
     }
     char *str = empty_str();
@@ -62,6 +62,6 @@ void display_double(va_list *data, int bef)
     if (neg)
         add_char_strp(&str, '-', 0);
     rem_o_str(&str);
-    my_putstr(str);
+    my_putstr_fd(str, fd);
     free(str);
 }

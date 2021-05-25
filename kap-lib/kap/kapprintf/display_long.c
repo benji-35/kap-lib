@@ -10,11 +10,11 @@
 #include <kap/kstr.h>
 #include <kap/kutils.h>
 
-void display_long(va_list *data, int bef)
+void display_long(va_list *data, int bef, int fd)
 {
     long nb = va_arg(*data, long);
     if (nb == 0) {
-        my_putstr("0");
+        my_putstr_fd("0", fd);
         return;
     }
     char *str = empty_str();
@@ -24,15 +24,15 @@ void display_long(va_list *data, int bef)
     }
     for (int i = 0; i < bef - length(str); i++)
         add_char_strp(&str, ' ', 0);
-    my_putstr(str);
+    my_putstr_fd(str, fd);
     kfree(str);
 }
 
-void display_ulong(va_list *data, int bef)
+void display_ulong(va_list *data, int bef, int fd)
 {
     unsigned long nb = va_arg(*data, unsigned long);
     if (nb == 0) {
-        my_putstr("0");
+        my_putstr_fd("0", fd);
         return;
     }
     char *str = empty_str();
@@ -42,15 +42,15 @@ void display_ulong(va_list *data, int bef)
     }
     for (int i = 0; i < bef - length(str); i++)
         add_char_strp(&str, ' ', 0);
-    my_putstr(str);
+    my_putstr_fd(str, fd);
     kfree(str);
 }
 
-void display_longlong(va_list *data, int bef)
+void display_longlong(va_list *data, int bef, int fd)
 {
     long long nb = va_arg(*data, long long);
     if (nb == 0) {
-        my_putstr("0");
+        my_putstr_fd("0", fd);
         return;
     }
     char *str = empty_str();
@@ -60,15 +60,15 @@ void display_longlong(va_list *data, int bef)
     }
     for (int i = 0; i < bef - length(str); i++)
         add_char_strp(&str, ' ', 0);
-    my_putstr(str);
+    my_putstr_fd(str, fd);
     kfree(str);
 }
 
-void display_ulonglong(va_list *data, int bef)
+void display_ulonglong(va_list *data, int bef, int fd)
 {
     unsigned long long nb = va_arg(*data, unsigned long long);
     if (nb == 0) {
-        my_putstr("0");
+        my_putstr_fd("0", fd);
         return;
     }
     char *str = empty_str();
@@ -78,6 +78,6 @@ void display_ulonglong(va_list *data, int bef)
     }
     for (int i = 0; i < bef - length(str); i++)
         add_char_strp(&str, ' ', 0);
-    my_putstr(str);
+    my_putstr_fd(str, fd);
     kfree(str);
 }

@@ -11,7 +11,7 @@
 #include <kap/kutils.h>
 #include <kap/kstr.h>
 #include <kap/kmath.h>
-
-void kprintf(string __cmd, ...);
+#include <kap/klist.h>
+#include <kap/kprintf.h>
 
 #endif /* !_KAP_LIB_H */

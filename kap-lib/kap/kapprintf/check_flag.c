@@ -11,9 +11,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-void kprintf(string __cmd, ...);
-
-void check_flag(va_list *list, string *__cmd, int *index)
+void check_flag(va_list *list, string *__cmd, int *index, int fd)
 {
     int nb = str_to_int((*__cmd) + (*index + 1));
     string str_nb = int_to_str(nb);
@@ -26,7 +24,7 @@ void check_flag(va_list *list, string *__cmd, int *index)
         to_avance += to_add;
     for (int i = 0; i < FLAG_LENGTH; i++) {
         if (strat_with((*__cmd) + to_avance, pflags[i].flag)) {
-            pflags[i].display(list, nb);
+            pflags[i].display(list, nb, fd);
             *index = to_avance + length(pflags[i].flag) - 1;
             return;
         }

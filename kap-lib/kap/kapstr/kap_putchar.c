@@ -7,7 +7,7 @@
 
 #include <unistd.h>
 
-void kput_char(char c)
+void kput_char(char c, int fd)
 {
-    write(1, &c, 1);
+    write(fd, &c, 1);
 }

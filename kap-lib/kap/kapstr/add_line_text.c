@@ -53,3 +53,13 @@ void add_str_text(text *text, int pos, string str)
     free((*text)[pos]);
     (*text)[pos] = copy_str(str);
 }
+
+void add_text_text(text *txt, int pos, text want)
+{
+    ksize_t size_w = length_text(want);
+
+    if (want == NULL)
+        return;
+    for (ksize_t i = 0; i < size_w; i++)
+        add_str_text(txt, pos + i, want[i]);
+}

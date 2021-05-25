@@ -50,6 +50,7 @@ SRC_KSTR =	$(PATH_STR)concat_str.c				\
 			$(PATH_STR)kap_putchar.c			\
 			$(PATH_STR)split_str_interv.c		\
 			$(PATH_STR)get_cahrstr_pos.c		\
+			$(PATH_STR)advanced_split_str.c		\
 			$(PATH_STR)string_format.c			\
 			$(PATH_STR_FORM)add_istr.c			\
 			$(PATH_STR_FORM)flag_str_format.c	\
