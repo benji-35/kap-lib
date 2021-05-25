@@ -458,6 +458,40 @@ Test(kstr, finish_with_test_three, .init = kstr_redirect_all_stdout)
 
 }
 
+// ========================= TEST STR EQUALITY ========================= //
+
+Test(kstr, str_equality_easy, .init = kstr_redirect_all_stdout)
+{
+    bool_t get = str_equality("Hello World !", "Hello World !");
+    bool_t want = true;
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_equality_easy_two, .init = kstr_redirect_all_stdout)
+{
+    bool_t get = str_equality("hello World !", "Hello World !");
+    bool_t want = false;
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_equality_easy_three, .init = kstr_redirect_all_stdout)
+{
+    bool_t get = str_equality("Hello World !", NULL);
+    bool_t want = false;
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
+Test(kstr, str_equality_null, .init = kstr_redirect_all_stdout)
+{
+    bool_t get = str_equality(NULL, NULL);
+    bool_t want = true;
+
+    cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
+}
+
 // ========================= TEST ADD TEXT TEXT ========================= //
 
 Test(kstr, add_text_tex_one, .init = kstr_redirect_all_stdout)
