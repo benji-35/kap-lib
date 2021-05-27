@@ -63,7 +63,7 @@ void str_rm_fchar(string *str)
     *str = result;
 }
 
-static void get_good_pos_rn(int *pos, int size)
+static void get_good_pos_rn(ksize_t *pos, ksize_t size)
 {
     if (*pos < 0)
         *pos = 0;
