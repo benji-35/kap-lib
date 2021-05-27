@@ -148,7 +148,18 @@ flag list :
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
 |:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
-| 01 |   kfree   | void *__ptr | void | if __ptr == null then nothing is done else __ptr is free |
-| 02 |   can_open_file   | string path | bool | return true if file can be open else return false |
-| 03 |   kopen_file   | string path | string | return string that contain the file content |
-| 04 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |
+| 01 |   can_open_file   | string path | bool | return true if file can be open else return false |
+| 02 |   kopen_file   | string path | string | return string that contain the file content |
+| 043 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |
+
+# kmem include <kap/kmem.h>
+
+| N° |     Name function     |      Arguments      |  Value return  |            description              |
+|:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
+| 01 |  kmalloc  | ksize_t __size | void * | return a malloc value |
+| 02 |  kmalloc_sec  | ksize_t __size | void * | as kmalloc or malloc BUT if malloc failed, the programm is exit with value 84 |
+| 03 |  krealloc  | void * __ptr, ksize_t __size, ksize_t __new_size | void * | realloc memory for pointer and copy la values of __ptr into new ptr |
+| 04 |  kcalloc  | ksize_t __size | void * | as kmalloc but set pointer value to 0 |
+| 05 |   kfree   | void *__ptr | void | if __ptr == null then nothing is done else __ptr is free |
+| 06 | kmemcpy | void *__ptr, void *__src, ksize_t __size | void * | copy value in __src to __ptr. __size is the src pointer size |
+| 07 | kmemset | void *__ptr, int __val, ksize_t __size | void | set the value __val of pointer __ptr. __size is the __ptr pointer size |
