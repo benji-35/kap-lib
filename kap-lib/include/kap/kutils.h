@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <kap/kmem.h>
+#include <kap/kasserts.h>
 
 #ifndef _KAP_SIZE_
 #define _KAP_SIZE_
@@ -20,6 +22,8 @@ typedef unsigned long long kussize_t;
 typedef long ksize_t;
 typedef long long kssize_t;
 typedef long double kdsize_t;
+typedef unsigned char uchar_t;
+typedef uchar_t uint8_t;
 
 #endif /*_KAP_SIZE_*/
 
@@ -64,21 +68,6 @@ typedef char const ** ctext;
 #define UNUSED __attribute__((unused))
 
 #endif /*_KAP_UNUSED_*/
-
-#ifndef _KAP_ASSERT_H_
-#define _KAP_ASSERT_H_
-
-#ifndef kASSERT_FUNCTION
-#define kASSERT_FUNCTION KNULL
-#endif /*kASSERT_FUNCTION*/
-
-extern bool kassert_e(bool isfail, cstring __expr, cstring __fname, int __line);
-extern bool kassert_f(bool isfail, cstring __expr, cstring __fname, int __line);
-
-#define kassert(__expr) kassert_f(__expr, #__expr, __FILE__, __LINE__)
-#define keassert(__expr) kassert_e(__expr, #__expr, __FILE__, __LINE__)
-
-#endif /* !_KAP_ASSERT_H_ */
 
 bool can_open_file(string path);
 string kopen_file(string path);
