@@ -49,12 +49,24 @@ void kfree(void *__ptr);
 ///@return void * > return result of malloc
 void *kcalloc(ksize_t __size);
 
-///kmalloc_sec return the malloc BUT if malloc return NULL, programm is exit 84
+///same as kcalloc BUT if kcalloc do not work, programm exit with value 84
+///@param __size > size of malloc
+///@return void * > return result of malloc
+void *kcalloc_sec(ksize_t __size);
+
+///krealloc realloc memory for a specific pointer with a new size
 ///@param __ptr > pointer to realloc
 ///@param __size > current size of pointer
 ///@param __new_size > new size of malloc
 ///@return void * > return result of remalloc
 void *krealloc(void *__ptr, ksize_t __size, ksize_t __new_size);
+
+///kmalloc_sec is same as krealloc but if realloc do not work, programm exit with value 84
+///@param __ptr > pointer to realloc
+///@param __size > current size of pointer
+///@param __new_size > new size of malloc
+///@return void * > return result of remalloc
+void *krealloc_sec(void *__ptr, ksize_t __size, ksize_t __new_size);
 
 ///kmalloc return the malloc
 ///@param __size > size of malloc
