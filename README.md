@@ -161,7 +161,9 @@ flag list :
 | 01 |  kmalloc  | ksize_t __size | void * | return a malloc value |
 | 02 |  kmalloc_sec  | ksize_t __size | void * | as kmalloc or malloc BUT if malloc failed, the programm is exit with value 84 |
 | 03 |  krealloc  | void * __ptr, ksize_t __size, ksize_t __new_size | void * | realloc memory for pointer and copy la values of __ptr into new ptr |
-| 04 |  kcalloc  | ksize_t __size | void * | as kmalloc but set pointer value to 0 |
-| 05 |   kfree   | void *__ptr | void | if __ptr == null then nothing is done else __ptr is free |
-| 06 | kmemcpy | void *__ptr, void *__src, ksize_t __size | void * | copy value in __src to __ptr. __size is the src pointer size |
-| 07 | kmemset | void *__ptr, int __val, ksize_t __size | void | set the value __val of pointer __ptr. __size is the __ptr pointer size |
+| 04 | krealloc_sec | void * __ptr, ksize_t __size, ksize_t __new_size | void * | same as krealloc BUT if do not work, programm exit with value 84 |
+| 05 |  kcalloc  | ksize_t __size | void * | same as kmalloc but set pointer value to 0 |
+| 06 |  kcalloc  | ksize_t __size | void * | same as kcalloc BUT if do not work, programm exit with value 84 |
+| 07 |   kfree   | void *__ptr | void | if __ptr == null then nothing is done else __ptr is free |
+| 08 | kmemcpy | void *__ptr, void *__src, ksize_t __size | void * | copy value in __src to __ptr. __size is the src pointer size |
+| 09 | kmemset | void *__ptr, int __val, ksize_t __size | void | set the value __val of pointer __ptr. __size is the __ptr pointer size |
