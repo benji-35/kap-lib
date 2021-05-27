@@ -90,10 +90,10 @@ text kopen_file_t(string path);
 /// @param append > if true : the str will write after file content. If false : the file will clear and then write str
 void kwrite_file(string path, string str, bool append);
 
-/// write in file
+/// check the extension of a file
 /// @param path > path of file
 /// @param __exten > extension want
-/// @return true if file have the good extension. False if note
+/// @return true if file have the good extension. False if it doesn't
 bool check_extension_file(string path, string __exten);
 
 #endif /* !_KAP_UTILS_H */

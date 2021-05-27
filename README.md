@@ -152,7 +152,9 @@ flag list :
 |:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
 | 01 |   can_open_file   | string path | bool | return true if file can be open else return false |
 | 02 |   kopen_file   | string path | string | return string that contain the file content |
-| 043 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |
+| 03 | kopen_file_t | string path | text | same as kopen_file but return content as text |
+| 04 | kwrite_file | string path, string str, bool append | void | write in file |
+| 05 | check_extension_file | string path, string __exten | bool | return true if file have the good extension. False if it doesn't |
 
 # kmem include <kap/kmem.h>
 
