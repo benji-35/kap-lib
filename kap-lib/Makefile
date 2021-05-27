@@ -25,6 +25,8 @@ PATH_PARSER_YML	=	kap/kapparser/yml/
 
 PATH_PARSER_JSON	=	kap/kapparser/json/
 
+PATH_MEMORY	=	kap/kmem/
+
 SRC_KAP =	
 
 SRC_KSTR =	$(PATH_STR)concat_str.c				\
@@ -67,10 +69,15 @@ SRC_KSTR =	$(PATH_STR)concat_str.c				\
 			$(PATH_STR_FORM)str_flag_list.c
 
 SRC_KUTILS =	$(PATH_UTILS)kan_open_file.c	\
-				$(PATH_UTILS)kfree.c			\
 				$(PATH_UTILS)kopen_file.c		\
 				$(PATH_UTILS)kwrite_file.c		\
 				$(PATH_UTILS)check_file_extension.c
+
+SRC_KMEM	=	$(PATH_MEMORY)kfree.c			\
+				$(PATH_MEMORY)kcalloc.c			\
+				$(PATH_MEMORY)kmemecpy.c		\
+				$(PATH_MEMORY)kmemset.c			\
+				$(PATH_MEMORY)krealloc.c
 
 SRC_KPRINTF =	$(PATH_PRINTF)check_flag.c				\
 				$(PATH_PRINTF)display_base.c			\
@@ -115,6 +122,7 @@ SRC_KAP +=	$(SRC_PARSER_JSON)
 SRC_KAP += $(SRC_PARSER_XML)
 SRC_KAP += $(SRC_PARSER_YML)
 SRC_KAP	+= $(SRC_REGEX)
+SRC_KAP += $(SRC_KMEM)
 
 OBJ_KAP = $(SRC_KAP:.c=.o)
 
