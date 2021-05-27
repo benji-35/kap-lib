@@ -16,8 +16,8 @@ void free_text(text split)
         return;
     for (ksize_t i = 0; split[i] != NULL; i++) {
         u = i;
-        free(split[i]);
+        kfree(split[i]);
     }
-    free(split[u + 1]);
-    free(split);
+    kfree(split[u + 1]);
+    kfree(split);
 }

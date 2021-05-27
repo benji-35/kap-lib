@@ -20,6 +20,6 @@ void insert_char_str(string *str, ksize_t position, char c)
         new_str[i + 1] = (*str)[i];
     new_str[position] = c;
     new_str[size + 1] = 0;
-    free(*str);
+    kfree(*str);
     *str = new_str;
 }

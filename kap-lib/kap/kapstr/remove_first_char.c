@@ -25,7 +25,7 @@ void str_rm_occhar(string *str, char c)
         }
     }
     result[size - nb_c] = 0;
-    free(*str);
+    kfree(*str);
     *str = result;
 }
 
@@ -46,7 +46,7 @@ void str_rm_fochar(string *str, char c)
         }
     }
     res[size - 1] = 0;
-    free(*str);
+    kfree(*str);
     *str = res;
 }
 
@@ -59,7 +59,7 @@ void str_rm_fchar(string *str)
     for (ksize_t i = 1; i < size; i++)
         result[i - 1] = (*str)[i];
     result[size - 1] = 0;
-    free(*str);
+    kfree(*str);
     *str = result;
 }
 
@@ -89,6 +89,6 @@ void str_rm_pchar(string *str, ksize_t pos)
         curr++;
     }
     res[size - 1] = 0;
-    free(*str);
+    kfree(*str);
     *str = res;
 }

@@ -28,7 +28,7 @@ static void delete_o(string *str)
     char *new_str = malloc(sizeof(char) * (size - nb));
     for (int i = nb; i < size; i++)
         new_str[i - nb] = (*str)[i];
-    free(*str);
+    kfree(*str);
     new_str[size - nb - 1] = 0;
     *str = new_str;
 }

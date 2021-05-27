@@ -40,7 +40,7 @@ static char val_hex(string str)
     if (str[3] == '1')
         res += 1;
     result = tab[res];
-    free(tab);
+    kfree(tab);
     return (result);
 }
 

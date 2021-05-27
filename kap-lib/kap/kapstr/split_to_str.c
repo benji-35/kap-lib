@@ -15,12 +15,12 @@ string text_to_str(text split, string separator)
 
     for (ksize_t i = 0; split[i] != NULL; i++) {
         tampon = concat_str(str, split[i]);
-        free(str);
+        kfree(str);
         if (split[i + 1] == NULL) {
             str = tampon;
         } else {
             str = concat_str(tampon, separator);
-            free(tampon);
+            kfree(tampon);
         }
     }
     return (str);

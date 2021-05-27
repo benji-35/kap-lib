@@ -27,6 +27,6 @@ void insert_str_s(string *str, string to_insert, ksize_t pos)
     for (ksize_t i = 0; i < size_insert; i++)
         res[i + pos] = to_insert[i];
     res[size_insert + size_str] = 0;
-    free(*str);
+    kfree(*str);
     *str = res;
 }

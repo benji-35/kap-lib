@@ -50,7 +50,7 @@ void add_str_text(text *text, ksize_t pos, string str)
     if (pos <= 0)
         pos = 0;
     add_line_ptext(text, pos);
-    free((*text)[pos]);
+    kfree((*text)[pos]);
     (*text)[pos] = copy_str(str);
 }
 

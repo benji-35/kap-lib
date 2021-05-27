@@ -18,7 +18,7 @@ void str_format_flag(va_list *list, string *__cmd, ksize_t *index,\
     ksize_t to_avance = *index + 1;
 
     if (str_nb != NULL)
-        free(str_nb);
+        kfree(str_nb);
     if (nb > 0)
         to_avance += to_add;
     for (ksize_t i = 0; i < SFLAG_LENGTH; i++) {

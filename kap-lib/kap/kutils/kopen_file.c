@@ -25,7 +25,7 @@ string kopen_file(string path)
     rd = read(fd, res, st.st_size);
     close(fd);
     if (rd < 0) {
-        free(res);
+        kfree(res);
         return (NULL);
     }
     res[st.st_size] = 0;

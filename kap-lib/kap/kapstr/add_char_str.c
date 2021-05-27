@@ -17,7 +17,7 @@ void add_char_str(string *str, char c)
         new_str[i] = (*str)[i];
     new_str[size] = c;
     new_str[size + 1] = 0;
-    free(*str);
+    kfree(*str);
     *str = new_str;
 }
 
@@ -37,7 +37,7 @@ void add_char_strp(string *str, char c, ksize_t pos)
         new_str[i + 1] = (*str)[i];
     new_str[pos] = c;
     new_str[size + 1] = 0;
-    free(*str);
+    kfree(*str);
     *str = new_str;
 }
 
@@ -52,6 +52,6 @@ void remove_char_str(string *str, ksize_t pos)
     for (ksize_t i = pos + 1; i < size; i++)
         new_str[i - 1] = (*str)[i];
     new_str[size - 1] = 0;
-    free(*str);
+    kfree(*str);
     *str = new_str;
 }

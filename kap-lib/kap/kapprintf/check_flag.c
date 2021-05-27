@@ -19,7 +19,7 @@ void check_flag(va_list *list, string *__cmd, int *index, int fd)
     int to_avance = *index + 1;
 
     if (str_nb != NULL)
-        free(str_nb);
+        kfree(str_nb);
     if (nb > 0)
         to_avance += to_add;
     for (int i = 0; i < FLAG_LENGTH; i++) {

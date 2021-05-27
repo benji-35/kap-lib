@@ -63,5 +63,5 @@ void display_double(va_list *data, int bef, int fd)
         add_char_strp(&str, '-', 0);
     rem_o_str(&str);
     my_putstr_fd(str, fd);
-    free(str);
+    kfree(str);
 }

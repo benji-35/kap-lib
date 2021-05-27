@@ -22,7 +22,7 @@ void display_binary(va_list *data, int nb, int fd)
     for (int i = 0; i < nb - length(str); i++)
         add_char_strp(&str, ' ', 0);
     my_putstr_fd(str, fd);
-    free(str);
+    kfree(str);
 }
 
 void display_hexa(va_list *data, int nb, int fd)
@@ -33,7 +33,7 @@ void display_hexa(va_list *data, int nb, int fd)
     for (int i = 0; i < nb - length(str); i++)
         add_char_strp(&str, ' ', 0);
     my_putstr_fd(str, fd);
-    free(str);
+    kfree(str);
 }
 
 void display_pointer(va_list *data, int nb, int fd)
@@ -44,7 +44,7 @@ void display_pointer(va_list *data, int nb, int fd)
     for (int i = 0; i < nb - length(str); i++)
         add_char_strp(&str, ' ', 0);
     my_putstr_fd(str, fd);
-    free(str);
+    kfree(str);
 }
 
 void display_char(va_list *data, int nb, int fd)
