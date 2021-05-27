@@ -77,7 +77,8 @@ SRC_KMEM	=	$(PATH_MEMORY)kfree.c			\
 				$(PATH_MEMORY)kcalloc.c			\
 				$(PATH_MEMORY)kmemecpy.c		\
 				$(PATH_MEMORY)kmemset.c			\
-				$(PATH_MEMORY)krealloc.c
+				$(PATH_MEMORY)krealloc.c		\
+				$(PATH_MEMORY)kmalloc.c
 
 SRC_KPRINTF =	$(PATH_PRINTF)check_flag.c				\
 				$(PATH_PRINTF)display_base.c			\
