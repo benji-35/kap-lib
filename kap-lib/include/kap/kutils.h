@@ -69,11 +69,31 @@ typedef char const ** ctext;
 
 #endif /*_KAP_UNUSED_*/
 
+/// check if file can be open or not
+/// @param path > path of file
+/// @return true if file can be open or false if file can't be open
 bool can_open_file(string path);
+
+/// open file and return content
+/// @param path > path of file
+/// @return content. If file can't be open return NULL
 string kopen_file(string path);
+
+/// open file and return content
+/// @param path > path of file
+/// @return content as text format. If file can't be open return NULL
 text kopen_file_t(string path);
-void kwrite_file(string path, string txt, bool append);
-void kfree(void *__ptr);
+
+/// write in file
+/// @param path > path of file
+/// @param str > string that will write in file
+/// @param append > if true : the str will write after file content. If false : the file will clear and then write str
+void kwrite_file(string path, string str, bool append);
+
+/// write in file
+/// @param path > path of file
+/// @param __exten > extension want
+/// @return true if file have the good extension. False if note
 bool check_extension_file(string path, string __exten);
 
 #endif /* !_KAP_UTILS_H */
