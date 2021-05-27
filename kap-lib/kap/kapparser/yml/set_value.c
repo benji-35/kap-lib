@@ -9,8 +9,6 @@
 #include <kap/kstr.h>
 #include <kap/kutils.h>
 
-static yml_content_t *search_content_yml(int id, text txt, yml_content_t **li);
-
 static yml_content_t *calc_content_yml(int id, text txt, yml_content_t *yml)
 {
     int n_id = id + 1;

@@ -89,6 +89,18 @@ ksize_t nb_yml_content(yml_cont_t **cont);
 /// @param path > path of yml file
 /// @return the parser
 kyml_p *init_yml_parser(string path);
+
+/// find last yml node added with a specific depth
+/// @param parser > parser yml
+/// @param depth > depth of last node want
+/// @return yml node found. If function not found node, return NULL
+yml_cont_t *find_last_yml_node_by_index(kyml_p *parser, ksize_t depth);
+
+/// find last yml node added with a specific depth with list of yml node
+/// @param list > parser yml
+/// @param depth > depth of last node want
+/// @return yml node found. If function not found node, return NULL
+yml_cont_t *flast_nyml_bindex(yml_cont_t **list, ksize_t depth);
 #endif /*!_KYML_PARSER*/
 
 #endif /* !KPARSER_H_ */
