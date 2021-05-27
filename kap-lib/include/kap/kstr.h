@@ -434,7 +434,7 @@ extern string str_format(string __cmd, ...);
  * @param ... > all char and string you want
  * @return text
  */
-text advanced_split_str(string str, string __cmd, ...);
+extern text advanced_split_str(string str, string __cmd, ...);
 
 /**
  * add text in text at specific position
@@ -442,8 +442,23 @@ text advanced_split_str(string str, string __cmd, ...);
  * @param pos > position in text txt to add text want
  * @param want > text to add in text txt
  */
-void add_text_text(text *txt, int pos, text want);
+extern void add_text_text(text *txt, int pos, text want);
 
-int contain_only_char_tp(string str1, char c, int pos);
-int str_equality_tp(string str1, string str2, int nb);
+/**
+ * check if str contain only char c until pos
+ * @param str > string to check
+ * @param c > char that is contain
+ * @param pos > from 0 to pos in str
+ * @return 1 if str contain only char c until pos else return 0
+ */
+extern int contain_only_char_tp(string str, char c, int pos);
+
+/**
+ * check equality of str1 and str2 from 0 until nb
+ * @param str1 > first str
+ * @param str2 > second str
+ * @param nb > from 0 until nb
+ * @return 1 if it's equal or 0 if it's not
+ */
+extern int str_equality_tp(string str1, string str2, int nb);
 #endif /* !_KAP_STRING_H */
