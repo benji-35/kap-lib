@@ -12,7 +12,8 @@ string text_to_str(text split, string separator)
 {
     string str = NULL;
     string tampon = NULL;
-    for (int i = 0; split[i] != NULL; i++) {
+
+    for (ksize_t i = 0; split[i] != NULL; i++) {
         tampon = concat_str(str, split[i]);
         free(str);
         if (split[i + 1] == NULL) {

@@ -8,12 +8,12 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 
-void remove_line_text(text *txt, int pos)
+void remove_line_text(text *txt, ksize_t pos)
 {
     if (*txt == NULL)
         return;
-    int size = length_text(*txt);
-    int curr = 0;
+    ksize_t size = length_text(*txt);
+    ksize_t curr = 0;
     if (pos < 0)
         pos = 0;
     if (pos >= size)
@@ -33,7 +33,7 @@ void remove_line_text(text *txt, int pos)
 
 void remove_line_text_string(text *txt, string str)
 {
-    for (int i = 0; (*txt)[i] != NULL; i++) {
+    for (ksize_t i = 0; (*txt)[i] != NULL; i++) {
         if (str_contains((*txt)[i], str)) {
             remove_line_text(txt, i);
             remove_line_text_string(txt, str);

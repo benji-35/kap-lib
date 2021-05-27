@@ -8,18 +8,18 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 
-void add_line_ptext(text *txt, int pos)
+void add_line_ptext(text *txt, ksize_t pos)
 {
-    int size = length_text(*txt);
+    ksize_t size = length_text(*txt);
     text new_text = malloc(sizeof(char *) * (size + 2));
 
     if (pos >= size)
         pos = size;
     if (pos <= 0)
         pos = 0;
-    for (int i = 0; i < pos; i++)
+    for (ksize_t i = 0; i < pos; i++)
         new_text[i] = copy_str((*txt)[i]);
-    for (int i = pos; i < size; i++)
+    for (ksize_t i = pos; i < size; i++)
         new_text[i + 1] = copy_str((*txt)[i]);
     new_text[pos] = empty_str();
     new_text[size + 1] = NULL;
@@ -40,11 +40,11 @@ void add_line_text(text *txt)
     *txt = new_text;
 }
 
-void add_str_text(text *text, int pos, string str)
+void add_str_text(text *text, ksize_t pos, string str)
 {
     if (text == NULL)
         return;
-    int size = length_text(*text);
+    ksize_t size = length_text(*text);
     if (pos >= size)
         pos = size;
     if (pos <= 0)
@@ -54,7 +54,7 @@ void add_str_text(text *text, int pos, string str)
     (*text)[pos] = copy_str(str);
 }
 
-void add_text_text(text *txt, int pos, text want)
+void add_text_text(text *txt, ksize_t pos, text want)
 {
     ksize_t size_w = length_text(want);
 

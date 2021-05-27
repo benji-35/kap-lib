@@ -10,7 +10,7 @@
 
 void replace_char_str(string str, char target, char replace)
 {
-    for (int i = 0; str[i]; i++) {
+    for (ksize_t i = 0; str[i]; i++) {
         if (str[i] == target)
             str[i] = replace;
     }
@@ -18,6 +18,6 @@ void replace_char_str(string str, char target, char replace)
 
 void replace_char_text(text txt, char target, char replace)
 {
-    for (int i = 0; txt[i] != NULL; i++)
+    for (ksize_t i = 0; txt[i] != NULL; i++)
         replace_char_str(txt[i], target, replace);
 }

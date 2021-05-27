@@ -8,10 +8,10 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 
-void insert_str_s(string *str, string to_insert, int pos)
+void insert_str_s(string *str, string to_insert, ksize_t pos)
 {
-    int size_str = length(*str);
-    int size_insert = length(to_insert);
+    ksize_t size_str = length(*str);
+    ksize_t size_insert = length(to_insert);
 
     if (str == NULL && to_insert == NULL)
         return;
@@ -20,11 +20,11 @@ void insert_str_s(string *str, string to_insert, int pos)
     if (pos > size_str)
         pos = size_str;
     string res = malloc(sizeof(char) * (size_insert + size_str + 1));
-    for (int i = 0; i < pos; i++)
+    for (ksize_t i = 0; i < pos; i++)
         res[i] = (*str)[i];
-    for (int i = pos; i < size_str; i++)
+    for (ksize_t i = pos; i < size_str; i++)
         res[i + size_insert] = (*str)[i];
-    for (int i = 0; i < size_insert; i++)
+    for (ksize_t i = 0; i < size_insert; i++)
         res[i + pos] = to_insert[i];
     res[size_insert + size_str] = 0;
     free(*str);

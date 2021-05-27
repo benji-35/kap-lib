@@ -10,9 +10,9 @@
 #include <kap/kutils.h>
 #include <kap/kmath.h>
 
-static int size_nb(int nb)
+static ksize_t size_nb(int nb)
 {
-    int r = 0;
+    ksize_t r = 0;
 
     nb = ABS(nb);
     if (nb == 0)
@@ -27,7 +27,7 @@ static int size_nb(int nb)
 string int_to_str(int nb)
 {
     bool is_neg = false;
-    int size = size_nb(nb);
+    ksize_t size = size_nb(nb);
     string result = malloc(sizeof(char) * (size + 1));
 
     if (nb < 0) {
@@ -38,7 +38,7 @@ string int_to_str(int nb)
         kfree(result);
         return (copy_str("0"));
     }
-    for (int i = size - 1; i >= 0; i--) {
+    for (ksize_t i = size - 1; i >= 0; i--) {
         result[i] = (nb % 10) + 48;
         nb = nb / 10;
     }

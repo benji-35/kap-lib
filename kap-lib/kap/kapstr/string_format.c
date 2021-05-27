@@ -10,7 +10,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void str_format_flag(va_list *list, string *__cmd, int *index, string *str);
+void str_format_flag(va_list *list, string *__cmd, ksize_t *index,\
+    string *str);
 
 string str_format(string __cmd, ...)
 {
@@ -18,7 +19,7 @@ string str_format(string __cmd, ...)
     va_list list;
     va_start(list, __cmd);
 
-    for (int i = 0; __cmd[i]; i++) {
+    for (ksize_t i = 0; __cmd[i]; i++) {
         if (__cmd[i] == '%') {
             str_format_flag(&list, &__cmd, &i, &res);
         } else {

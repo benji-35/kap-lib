@@ -7,15 +7,15 @@
 
 #include <kap/kstr.h>
 
-int strat_with(string str1, string str2)
+bool strat_with(string str1, string str2)
 {
-    int s1 = length(str1);
-    int s2 = length(str2);
+    ksize_t s1 = length(str1);
+    ksize_t s2 = length(str2);
     if (s2 > s1)
-        return (0);
-    for (int i = 0; i < s2; i++) {
+        return (false);
+    for (ksize_t i = 0; i < s2; i++) {
         if (str1[i] != str2[i])
-            return (0);
+            return (false);
     }
-    return (1);
+    return (true);
 }

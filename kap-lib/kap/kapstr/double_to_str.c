@@ -8,10 +8,10 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 
-static int nb_o(string str, int size)
+static int nb_o(string str, ksize_t size)
 {
-    int res = 0;
-    for (int i = 0; i < size; i++) {
+    ksize_t res = 0;
+    for (ksize_t i = 0; i < size; i++) {
         if (str[i] != '0')
             break;
         res++;

@@ -10,11 +10,11 @@
 
 void free_text(text split)
 {
-    int u = 0;
+    ksize_t u = 0;
 
     if (split == NULL)
         return;
-    for (int i = 0; split[i] != NULL; i++) {
+    for (ksize_t i = 0; split[i] != NULL; i++) {
         u = i;
         free(split[i]);
     }

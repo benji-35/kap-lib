@@ -10,38 +10,38 @@
 
 string copy_str(cstring str)
 {
-    int size = length((string) str);
+    ksize_t size = length((string) str);
     string result = malloc(sizeof(char) * (size + 1));
 
-    for (int i = 0; i < size; i++)
+    for (ksize_t i = 0; i < size; i++)
         result[i] = str[i];
     result[size] = 0;
     return (result);
 }
 
-string copy_str_fp(string str, int pos)
+string copy_str_fp(string str, ksize_t pos)
 {
-    int size = length(str);
+    ksize_t size = length(str);
     if (size <= pos)
         return (NULL);
     if (pos < 0)
         pos = 0;
     string cpy = malloc(sizeof(char) * ((size - pos) + 1));
-    for (int i = pos; i < size; i++)
+    for (ksize_t i = pos; i < size; i++)
         cpy[i - pos] = str[i];
     cpy[size - pos] = 0;
     return (cpy);
 }
 
-string copy_str_tp(string str, int pos)
+string copy_str_tp(string str, ksize_t pos)
 {
     if (pos <= 0)
         return (NULL);
-    int size = length(str);
+    ksize_t size = length(str);
     if (pos >= size)
         pos = size - 1;
     string cpy = malloc(sizeof(char) * (pos + 1));
-    for (int i = 0; i < pos; i++)
+    for (ksize_t i = 0; i < pos; i++)
         cpy[i] = str[i];
     cpy[pos] = 0;
     return (cpy);
@@ -52,7 +52,7 @@ string copy_str_tc(string str, char c)
     if (str == NULL)
         return (NULL);
     string res = NULL;
-    int pos_c = pos_char_str(str, c);
+    ksize_t pos_c = pos_char_str(str, c);
 
     if (pos_c == -1)
         return (NULL);

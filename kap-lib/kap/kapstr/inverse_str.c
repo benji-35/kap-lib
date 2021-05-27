@@ -12,9 +12,9 @@ void reverse_str(string *str)
 {
     if (str == NULL)
         return;
-    int size = length(*str);
+    ksize_t size = length(*str);
     char tampon = 0;
-    for (int i = 0; i < size / 2; i++) {
+    for (ksize_t i = 0; i < size / 2; i++) {
         tampon = (*str)[i];
         (*str)[i] = (*str)[(size - 1) - i];
         (*str)[(size - 1) - i] = tampon;

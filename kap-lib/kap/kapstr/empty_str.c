@@ -15,7 +15,7 @@ string empty_str(void)
     return (str);
 }
 
-string empty_str_size(int size)
+string empty_str_size(ksize_t size)
 {
     if (size < 0)
         return (NULL);

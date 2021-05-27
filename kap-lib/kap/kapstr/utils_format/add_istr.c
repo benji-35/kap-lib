@@ -15,7 +15,7 @@ void add_intstr(string *str, va_list *list, int spaces)
     string int_str = int_to_str(i);
     string tampon = NULL;
 
-    for (int i = length(int_str); i < spaces; i++)
+    for (ksize_t i = length(int_str); i < spaces; i++)
         add_char_strp(&int_str, ' ', 0);
     tampon = concat_str(*str, int_str);
     kfree(*str);
@@ -29,7 +29,7 @@ void add_doublestr(string *str, va_list *list, int spaces)
     string int_str = double_to_str(i, 15);
     string tampon = NULL;
 
-    for (int i = length(int_str); i < spaces; i++)
+    for (ksize_t i = length(int_str); i < spaces; i++)
         add_char_strp(&int_str, ' ', 0);
     tampon = concat_str(*str, int_str);
     kfree(*str);
@@ -43,7 +43,7 @@ void add_charstr(string *str, va_list *list, int spaces)
     
     add_char_strp(str, c, length(*str));
 
-    for (int i = length(*str); i < spaces; i++)
+    for (ksize_t i = length(*str); i < spaces; i++)
         add_char_strp(str, ' ', length(*str) - 1);
 }
 
@@ -52,7 +52,7 @@ void add_strstr(string *str, va_list *list, int spaces)
     string s = va_arg(*list, string);
     string tampon = NULL;
 
-    for (int i = length(s); i < spaces; i++)
+    for (ksize_t i = length(s); i < spaces; i++)
         add_char_strp(&s, ' ', 0);
     tampon = concat_str(*str, s);
     kfree(*str);
@@ -65,7 +65,7 @@ void add_binstr(string *str, va_list *list, int spaces)
     string bin = int_to_binary(nb, 0, 1);
     string tampon = NULL;
 
-    for (int i = length(bin); i < spaces; i++)
+    for (ksize_t i = length(bin); i < spaces; i++)
         add_char_strp(&bin, ' ', 0);
     tampon = concat_str(*str, bin);
     kfree(*str);
@@ -78,7 +78,7 @@ void add_binfstr(string *str, va_list *list, int spaces)
     string bin = int_to_binary(nb, 1, 1);
     string tampon = NULL;
 
-    for (int i = length(bin); i < spaces; i++)
+    for (ksize_t i = length(bin); i < spaces; i++)
         add_char_strp(&bin, ' ', 0);
     tampon = concat_str(*str, bin);
     kfree(*str);
@@ -91,7 +91,7 @@ void add_hexstr(string *str, va_list *list, int spaces)
     string bin = int_to_hex(nb, 0);
     string tampon = NULL;
 
-    for (int i = length(bin); i < spaces; i++)
+    for (ksize_t i = length(bin); i < spaces; i++)
         add_char_strp(&bin, ' ', 0);
     tampon = concat_str(*str, bin);
     kfree(*str);
@@ -104,7 +104,7 @@ void add_hexfstr(string *str, va_list *list, int spaces)
     string bin = int_to_hex(nb, 1);
     string tampon = NULL;
 
-    for (int i = length(bin); i < spaces; i++)
+    for (ksize_t i = length(bin); i < spaces; i++)
         add_char_strp(&bin, ' ', 0);
     tampon = concat_str(*str, bin);
     kfree(*str);

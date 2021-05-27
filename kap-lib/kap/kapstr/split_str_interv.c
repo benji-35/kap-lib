@@ -9,13 +9,13 @@
 #include <kap/kstr.h>
 #include <kap/kutils.h>
 
-static int knb_interv(string str, int nb)
+static ksize_t knb_interv(string str, ksize_t nb)
 {
-    int res = 0;
-    int curr = nb;
-    int size = length(str);
+    ksize_t res = 0;
+    ksize_t curr = nb;
+    ksize_t size = length(str);
 
-    for (int i = size - 1; i >= 0; i--) {
+    for (ksize_t i = size - 1; i >= 0; i--) {
         curr--;
         if (curr == 0) {
             curr = nb;
@@ -26,11 +26,12 @@ static int knb_interv(string str, int nb)
     return (res);
 }
 
-static void kcomplete_interv(text splitted, string str, int nb, int nb_spl)
+static void kcomplete_interv(text splitted, string str, ksize_t nb,\
+    ksize_t nb_spl)
 {
-    int val_index = 0;
+    ksize_t val_index = 0;
 
-    for (int i = 0; i < nb_spl; i++) {
+    for (ksize_t i = 0; i < nb_spl; i++) {
         splitted[i] = malloc(sizeof(char) * (nb + 1));
         for (int a = 0; a < nb; a++) {
             val_index = i * nb + a;
@@ -40,11 +41,11 @@ static void kcomplete_interv(text splitted, string str, int nb, int nb_spl)
     }
 }
 
-text ksplit_interv(string str, int nb)
+text ksplit_interv(string str, ksize_t nb)
 {
     if (str == NULL)
         return (NULL);
-    int nb_split = knb_interv(str, nb);
+    ksize_t nb_split = knb_interv(str, nb);
     text splitted = malloc(sizeof(string ) * (nb_split));
 
     kcomplete_interv(splitted, str, nb, nb_split - 1);

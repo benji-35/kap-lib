@@ -8,15 +8,15 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 
-void insert_char_str(string *str, int position, char c)
+void insert_char_str(string *str, ksize_t position, char c)
 {
-    int size = length(*str);
+    ksize_t size = length(*str);
     if (position > size)
         return;
     string new_str = malloc(sizeof(char) * (size + 2));
-    for (int i = 0; i < position; i++)
+    for (ksize_t i = 0; i < position; i++)
         new_str[i] = (*str)[i];
-    for (int i = position; i < size; i++)
+    for (ksize_t i = position; i < size; i++)
         new_str[i + 1] = (*str)[i];
     new_str[position] = c;
     new_str[size + 1] = 0;
