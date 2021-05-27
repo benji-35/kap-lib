@@ -84,6 +84,11 @@ string create_yml_array(text txt);
 /// @param cont > list of nodes
 /// @return the number of nodes
 ksize_t nb_yml_content(yml_cont_t **cont);
+
+/// init a new yml parser
+/// @param path > path of yml file
+/// @return the parser
+kyml_p *init_yml_parser(string path);
 #endif /*!_KYML_PARSER*/
 
 #endif /* !KPARSER_H_ */
