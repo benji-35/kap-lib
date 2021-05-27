@@ -26,7 +26,7 @@ typedef char const ** ctext;
  * @param str > string
  * @return size (int) of the string
  */
-extern int length(string str);
+extern ksize_t length(string str);
 
 /**
  * Check if str1 finish with str2
@@ -35,7 +35,7 @@ extern int length(string str);
  * @return 1 if string str 1 finish with string str2
  * otherwise return 0
  */
-extern int finish_with(string str1, string str2);
+extern bool finish_with(string str1, string str2);
 
 /**
  * Check string equality
@@ -44,7 +44,7 @@ extern int finish_with(string str1, string str2);
  * @return 1 if str1 and str2 are equal
  * otherwise return 0
  */
-extern int str_equality(string str1, string str2);
+extern bool str_equality(string str1, string str2);
 
 /**
  * Split string by occurence of splitter
@@ -61,7 +61,7 @@ extern text split_str(string str, char spliter);
  * @return 1 if string str1 contain string contain
  * othewise return 0
  */
-extern int str_contains(string str1, string contain);
+extern bool str_contains(string str1, string contain);
 
 /**
  * Check if str1 start with str2
@@ -70,7 +70,7 @@ extern int str_contains(string str1, string contain);
  * @return 1 if string str 1 start with string str2
  * otherwise return 0
  */
-extern int strat_with(string str1, string str2);
+extern bool strat_with(string str1, string str2);
 
 /**
  * Copy string
@@ -126,7 +126,7 @@ extern text get_words(string str);
  * @param split > text type
  * @return size of text
  */
-extern int length_text(text split);
+extern ksize_t length_text(text split);
 
 /**
  * free text
@@ -140,7 +140,7 @@ extern void free_text(text split);
  * @param position > position in str
  * @param c > char to insert
  */
-extern void insert_char_str(string *str, int position, char c);
+extern void insert_char_str(string *str, ksize_t position, char c);
 
 /**
  * get number of occurences of char in str
@@ -148,7 +148,7 @@ extern void insert_char_str(string *str, int position, char c);
  * @param c > char
  * @return nunber of occurences of char
  */
-extern int str_char_occur(string str, char c);
+extern ksize_t str_char_occur(string str, char c);
 
 /**
  * remove first occurence of char in str
@@ -170,7 +170,7 @@ extern void str_rm_occhar(string *str, char c);
  * @return 1 if char is alphanumeric
  * 0 if char is not alphanumeric
  */
-extern int is_alphanumeric(char c);
+extern bool is_alphanumeric(char c);
 
 /**
  * create empty string
@@ -204,7 +204,7 @@ extern void reverse_str(string *str);
  * @param txt > text pointer
  * @param pos > line in text
  */
-extern void add_line_ptext(text *txt, int pos);
+extern void add_line_ptext(text *txt, ksize_t pos);
 
 /**
  * add empty str in text at end
@@ -218,14 +218,14 @@ extern void add_line_text(text *txt);
  * @param str > string
  * @param pos > line in text
  */
-extern void add_str_text(text *txt, int pos, string str);
+extern void add_str_text(text *txt, ksize_t pos, string str);
 
 /**
  * remove line in text
  * @param txt > text pointer
  * @param pos > line in text
  */
-extern void remove_line_text(text *txt, int pos);
+extern void remove_line_text(text *txt, ksize_t pos);
 
 /**
  * remove all line that contains str
@@ -261,7 +261,7 @@ extern void str_rm_fchar(string *str);
  * @param str > string pointer
  * @param pos > position of char
  */
-extern void str_rm_pchar(string *str, int pos);
+extern void str_rm_pchar(string *str, ksize_t pos);
 
 /**
  * remove all occurences of string in text
@@ -300,14 +300,14 @@ extern string text_to_str(text split, string separator);
  * @param to_insert > string to insert in string str
  * @param pos > position in string
  */
-extern void insert_str_s(string *str, string to_insert, int pos);
+extern void insert_str_s(string *str, string to_insert, ksize_t pos);
 
 /**
  * number of empty line in text
  * @param str > text
  * @return int with number of empty line in text
  */
-extern int nb_o_split(text str);
+extern ksize_t nb_o_split(text str);
 
 /**
  * remove all occurences of "to_rem" in string "str"
@@ -363,14 +363,14 @@ extern void kput_char(char c, int fd);
  * @param c > char to add in str
  * @param pos > position in string
  */
-extern void add_char_strp(string *str, char c, int pos);
+extern void add_char_strp(string *str, char c, ksize_t pos);
 
 /**
  * create an empty string with specific size
  * @param size > size of the string
  * @return string with good size
  */
-extern string empty_str_size(int size);
+extern string empty_str_size(ksize_t size);
 
 /**
  * split text all nb chars in string
@@ -378,14 +378,14 @@ extern string empty_str_size(int size);
  * @param nb > interval of splitting
  * @return text
  */
-extern text ksplit_interv(string str, int nb);
+extern text ksplit_interv(string str, ksize_t nb);
 
 /**
  * remove char in string at specific position
  * @param str > pointer on string
  * @param pos > position in str
  */
-extern void remove_char_str(string *str, int pos);
+extern void remove_char_str(string *str, ksize_t pos);
 
 /**
  * copy str from specific position to end of string
@@ -393,7 +393,7 @@ extern void remove_char_str(string *str, int pos);
  * @param pos > position for the begining of copy
  * @return copied string
  */
-extern string copy_str_fp(string str, int pos);
+extern string copy_str_fp(string str, ksize_t pos);
 
 /**
  * copy str to specific position from the begining
@@ -401,7 +401,7 @@ extern string copy_str_fp(string str, int pos);
  * @param pos > position for the end of copy
  * @return copied string
  */
-extern string copy_str_tp(string str, int pos);
+extern string copy_str_tp(string str, ksize_t pos);
 
 /**
  * return position of first occurence of char in string
@@ -442,7 +442,7 @@ extern text advanced_split_str(string str, string __cmd, ...);
  * @param pos > position in text txt to add text want
  * @param want > text to add in text txt
  */
-extern void add_text_text(text *txt, int pos, text want);
+extern void add_text_text(text *txt, ksize_t pos, text want);
 
 /**
  * check if str contain only char c until pos
@@ -451,14 +451,16 @@ extern void add_text_text(text *txt, int pos, text want);
  * @param pos > from 0 to pos in str
  * @return 1 if str contain only char c until pos else return 0
  */
-extern int contain_only_char_tp(string str, char c, int pos);
+extern bool contain_only_char_tp(string str, char c, ksize_t pos);
 
 /**
  * check equality of str1 and str2 from 0 until nb
  * @param str1 > first str
  * @param str2 > second str
- * @param nb > from 0 until nb
- * @return 1 if it's equal or 0 if it's not
+ * @param pos > from 0 until pos
+ * @return true if it's equal or false if it's not
  */
-extern int str_equality_tp(string str1, string str2, int nb);
+extern bool str_equality_tp(string str1, string str2, ksize_t pos);
+
+bool str_isempty(string str);
 #endif /* !_KAP_STRING_H */
