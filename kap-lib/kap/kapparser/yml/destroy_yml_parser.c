@@ -32,7 +32,7 @@ static void destroy_specific_content(yml_cont_t *content)
     free_content_yml(content->content);
 }
 
-void destroy_path_content(kyml_p *parser, string path)
+void destroy_yml_node(kyml_p *parser, string path)
 {
     if (parser == NULL || path == NULL)
         return;

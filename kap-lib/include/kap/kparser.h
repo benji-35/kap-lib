@@ -46,13 +46,43 @@ struct kyml_parser_s {
     yml_content_t **content_yml;
 };
 
+/// create new node of yml
+/// @param list > pointer on current list of node
+/// @param name > name of the node
+/// @param depth > current depth
+/// @return yml_node created
 yml_content_t *create_yml_content(yml_content_t ***list, string name, ksize_t depth);
+
+/// set value to node
+/// @param parser > pointer on yml parser
+/// @param path > path of node
+/// @param value > value to give (string value)
 void set_value(kyml_p *parser, string path, string value);
-void destroy_path_content(kyml_p *parser, string path);
+
+/// destroy a yml node
+/// @param parser > pointer on yml parser
+/// @param path > path of node
+void destroy_yml_node(kyml_p *parser, string path);
+
+/// free all yml parser
+/// @param parser > pointer on yml parser
 void destroy_yml_parser(kyml_p *parser);
+
+/// search a yml node in parser
+/// @param id > current id node detected
+/// @param txt > list of name node (path but split)
+/// @param li > list of nodes in current node
+/// @return yml_node created
 yml_content_t *search_content_yml(int id, text txt, yml_content_t **li);
+
+/// create an array for yml parser with a text
+/// @param txt > list of informations as string
+/// @return the array created
 string create_yml_array(text txt);
 
+/// calcul nb yml node in list of nodes
+/// @param cont > list of nodes
+/// @return the number of nodes
 ksize_t nb_yml_content(yml_cont_t **cont);
 #endif /*!_KYML_PARSER*/
 
