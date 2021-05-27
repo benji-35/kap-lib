@@ -1,7 +1,9 @@
-# C-Lib
-My C-lib
+# Kap-Lib
+Kap-lib is a C lib that contain intresting things and complex action as string functions
 
 # kprintf include <kap/klib.h>
+klib contain all includes that appear after.
+
 kprintf is printf in kap lib.
 flag list :
 | N° | Flag |            description              |
