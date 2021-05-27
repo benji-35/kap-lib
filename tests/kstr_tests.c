@@ -79,16 +79,16 @@ Test(kstr, display_char_fd, .init = kstr_redirect_all_stds)
 // ========================= TEST LENGTH ========================= //
 Test(kstr, length_str_normal, .init = kstr_redirect_all_stds)
 {
-    int size = length("Je suis une string de X caracteres");
-    int want = 34;
+    ksize_t size = length("Je suis une string de X caracteres");
+    ksize_t want = 34;
 
     cr_assert_eq(want, size, "The result was [%d]. Expected [%d]\n", size, want);
 }
 
 Test(kstr, length_str_null, .init = kstr_redirect_all_stds)
 {
-    int size = length(NULL);
-    int want = 0;
+    ksize_t size = length(NULL);
+    ksize_t want = 0;
 
     cr_assert_eq(want, size, "The result was [%d]. Expected [%d]\n", size, want);
 }
@@ -287,8 +287,8 @@ Test(kstr, add_str_text_test, .init = kstr_redirect_all_stds)
 Test(kstr, start_with_test_one, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
-    int want = 1;
-    int res = strat_with(stri, "Je");
+    bool want = true;
+    bool res = strat_with(stri, "Je");
 
     cr_assert_eq(want, res, "The result was [%d]. Expected [%d]\n", res, want);
 
@@ -297,8 +297,8 @@ Test(kstr, start_with_test_one, .init = kstr_redirect_all_stds)
 Test(kstr, start_with_test_two, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
-    int want = 1;
-    int res = strat_with(stri, "Je suis un");
+    bool want = true;
+    bool res = strat_with(stri, "Je suis un");
 
     cr_assert_eq(want, res, "The result was [%d]. Expected [%d]\n", res, want);
 
@@ -307,8 +307,8 @@ Test(kstr, start_with_test_two, .init = kstr_redirect_all_stds)
 Test(kstr, start_with_test_three, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
-    int want = 1;
-    int res = strat_with(stri, "Je suis un dev\n");
+    bool want = true;
+    bool res = strat_with(stri, "Je suis un dev\n");
 
     cr_assert_eq(want, res, "The result was [%d]. Expected [%d]\n", res, want);
 
@@ -317,8 +317,8 @@ Test(kstr, start_with_test_three, .init = kstr_redirect_all_stds)
 Test(kstr, start_with_test_four, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
-    int want = 0;
-    int res = strat_with(stri, "Je  suis une dev");
+    bool want = false;
+    bool res = strat_with(stri, "Je  suis une dev");
 
     cr_assert_eq(want, res, "The result was [%d]. Expected [%d]\n", res, want);
 
@@ -329,8 +329,8 @@ Test(kstr, start_with_test_four, .init = kstr_redirect_all_stds)
 Test(kstr, str_char_occur_test_easy, .init = kstr_redirect_all_stds)
 {
     string stri = "canab, nop I can't. Just him cut the knife";
-    int want = 3;
-    int get = str_char_occur(stri, 'c');
+    ksize_t want = 3;
+    ksize_t get = str_char_occur(stri, 'c');
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
@@ -338,8 +338,8 @@ Test(kstr, str_char_occur_test_easy, .init = kstr_redirect_all_stds)
 Test(kstr, str_char_occur_test_easy_two, .init = kstr_redirect_all_stds)
 {
     string stri = "Canab, nop I can't. Just him cut the knife";
-    int want = 2;
-    int get = str_char_occur(stri, 'i');
+    ksize_t want = 2;
+    ksize_t get = str_char_occur(stri, 'i');
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
@@ -347,8 +347,8 @@ Test(kstr, str_char_occur_test_easy_two, .init = kstr_redirect_all_stds)
 Test(kstr, str_char_occur_test_no_char, .init = kstr_redirect_all_stds)
 {
     string stri = "Canab, nop I can't. Just him cut the knife";
-    int want = 0;
-    int get = str_char_occur(stri, 'y');
+    ksize_t want = 0;
+    ksize_t get = str_char_occur(stri, 'y');
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
@@ -356,8 +356,8 @@ Test(kstr, str_char_occur_test_no_char, .init = kstr_redirect_all_stds)
 Test(kstr, str_char_occur_test_null, .init = kstr_redirect_all_stds)
 {
     string stri = NULL;
-    int want = 0;
-    int get = str_char_occur(stri, 'c');
+    ksize_t want = 0;
+    ksize_t get = str_char_occur(stri, 'c');
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
@@ -431,8 +431,8 @@ Test(kstr, str_to_upper_case_npossible, .init = kstr_redirect_all_stds)
 Test(kstr, finish_with_test_one, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
-    int want = 1;
-    int res = finish_with(stri, "\n");
+    bool want = true;
+    bool res = finish_with(stri, "\n");
 
     cr_assert_eq(want, res, "The result was [%d]. Expected [%d]\n", res, want);
 
@@ -441,8 +441,8 @@ Test(kstr, finish_with_test_one, .init = kstr_redirect_all_stds)
 Test(kstr, finish_with_test_two, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
-    int want = 1;
-    int res = finish_with(stri, "Je suis un dev\n");
+    bool want = true;
+    bool res = finish_with(stri, "Je suis un dev\n");
 
     cr_assert_eq(want, res, "The result was [%d]. Expected [%d]\n", res, want);
 
@@ -451,8 +451,8 @@ Test(kstr, finish_with_test_two, .init = kstr_redirect_all_stds)
 Test(kstr, finish_with_test_three, .init = kstr_redirect_all_stds)
 {
     string stri = "Je suis un dev\n";
-    int want = 0;
-    int res = finish_with(stri, "dev");
+    bool want = false;
+    bool res = finish_with(stri, "dev");
 
     cr_assert_eq(want, res, "The result was [%d]. Expected [%d]\n", res, want);
 
@@ -667,27 +667,27 @@ Test(kstr, get_words_null, .init = kstr_redirect_all_stds)
 
 Test(kstr, length_text_one, .init = kstr_redirect_all_stds)
 {
-    int want = 6;
+    ksize_t want = 6;
     string txt[] = {"1", "2", "3", "4", "5", "6", NULL};
-    int get = length_text(txt);
+    ksize_t get = length_text(txt);
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
 Test(kstr, length_text_two, .init = kstr_redirect_all_stds)
 {
-    int want = 0;
+    ksize_t want = 0;
     string txt[] = {NULL};
-    int get = length_text(txt);
+    ksize_t get = length_text(txt);
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
 
 Test(kstr, length_text_three, .init = kstr_redirect_all_stds)
 {
-    int want = 0;
+    ksize_t want = 0;
     char** txt = NULL;
-    int get = length_text(txt);
+    ksize_t get = length_text(txt);
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
