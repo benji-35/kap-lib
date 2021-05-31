@@ -26,11 +26,24 @@ string concat_str(string str1, string str2)
     return (result);
 }
 
+static ksize_t check_pos_concat(string str1, ksize_t pos)
+{
+    int size;
+
+    if (pos < 0)
+        return 0;
+    size = length(str1);
+    if (pos >= size)
+        return size - 1;
+    return pos;
+}
+
 string concat_str_pos(string str1, string str2, ksize_t pos)
 {
     ksize_t s1 = length(str1);
     ksize_t s2 = length(str2);
     char *result = kmalloc(sizeof(char) * (s1 + s2 + 1));
+    pos = check_pos_concat(str1, pos);
 
     if ((str1 == NULL && str2 == NULL) || result == NULL) {
         kfree(result);
