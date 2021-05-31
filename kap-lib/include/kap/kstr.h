@@ -350,7 +350,15 @@ extern bool contain_only_char_tp(string str, char c, ksize_t pos);
 ///@return true if it's equal or false if it's not
 extern bool str_equality_tp(string str1, string str2, ksize_t pos);
 
+///check if a string is empty or not
+///@param str > string to check
+///@return true if string is empty or false is it's not
 extern bool str_isempty(string str);
+
+///concat two strings and set the new content in str1
+///@param str1 > pointer on string
+///@param str2 > string to add at the end of str1
+extern void concat_str_nm(string *str1, string str2);
 
 #ifdef __cpluplus
 }
