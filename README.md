@@ -2,35 +2,35 @@
 Kap-lib is a C lib that contain intresting things and complex action as string functions
 
 ## INCLUDE MAP
-kaplib.h
-|
-+-> kasserts.h
-|
-+->kutils.h
-|  |
-|  +->kmem.h
-|  |
-|  \\->kasserts.h
-|
-+->kstr.h
-|  |
-|  \\->kutils.h
-|
-+->kmath.h
-|  |
-|  \\->kutils.h
-|
-+->klist.h
-|  |
-|  \\->kutils.h
-|
-+->kprintf.h
-|  |
-|  \\->kutils.h
-|
-\\->kmem.h
-   |
-   \\->kasserts.h
+<h4>kaplib.h</h4>
+<h4>|</h4>
+<h4>+-> kasserts.h</h4>
+<h4>|</h4>
+<h4>+->kutils.h</h4>
+<h4>|  |</h4>
+<h4>|  +->kmem.h</h4>
+<h4>|  |</h4>
+<h4>|  \->kasserts.h</h4>
+<h4>|</h4>
+<h4>+->kstr.h</h4>
+<h4>|  |</h4>
+<h4>|  \->kutils.h</h4>
+<h4>|</h4>
+<h4>+->kmath.h</h4>
+<h4>|  |</h4>
+<h4>|  \->kutils.h</h4>
+<h4>|</h4>
+<h4>+->klist.h</h4>
+<h4>|  |</h4>
+<h4>|  \->kutils.h</h4>
+<h4>|</h4>
+<h4>+->kprintf.h</h4>
+<h4>|  |</h4>
+<h4>|  \->kutils.h</h4>
+<h4>|</h4>
+<h4>\->kmem.h</h4>
+<h4>   |</h4>
+<h4>   \->kasserts.h</h4>
 
 # kprintf include <kap/klib.h>
 <span style="color:red">klib contain all includes that appear after.</span>
