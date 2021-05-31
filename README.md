@@ -2,35 +2,16 @@
 Kap-lib is a C lib that contain intresting things and complex action as string functions
 
 ## INCLUDE MAP
-<h4>kaplib.h</h4>
-<h4>|</h4>
-<h4>+-> kasserts.h</h4>
-<h4>|</h4>
-<h4>+->kutils.h</h4>
-<h4>|  |</h4>
-<h4>|  +->kmem.h</h4>
-<h4>|  |</h4>
-<h4>|  \->kasserts.h</h4>
-<h4>|</h4>
-<h4>+->kstr.h</h4>
-<h4>|  |</h4>
-<h4>|  \->kutils.h</h4>
-<h4>|</h4>
-<h4>+->kmath.h</h4>
-<h4>|  |</h4>
-<h4>|  \->kutils.h</h4>
-<h4>|</h4>
-<h4>+->klist.h</h4>
-<h4>|  |</h4>
-<h4>|  \->kutils.h</h4>
-<h4>|</h4>
-<h4>+->kprintf.h</h4>
-<h4>|  |</h4>
-<h4>|  \->kutils.h</h4>
-<h4>|</h4>
-<h4>\->kmem.h</h4>
-<h4>   |</h4>
-<h4>   \->kasserts.h</h4>
+| HEADER NAME | HEADERS CALL |
+|:-----------:|:------------:|
+| kap/klib.h | kap/kasserts/h ; kap/kutils.h ; kap/kstr.h ; kap/kmath.h ; kap/klist.h ; kap/kprintf.h ; kap/kmem.h |
+| kap/kasserts.h | NONE |
+| kap/kutils.h | kap/kmem.h ; kap/kasserts.h |
+| kap/kstr.h | kap/kutils.h |
+| kap/kmath.h | kap/kutils.h |
+| kap/klist.h | kap/kutils.h |
+| kap/kprintf.h | kap/kutils.h |
+| kap/kmem.h | kap/kasserts.h |
 
 # kprintf include <kap/klib.h>
 <span style="color:red">klib contain all includes that appear after.</span>
