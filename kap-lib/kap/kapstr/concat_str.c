@@ -33,8 +33,8 @@ static ksize_t check_pos_concat(string str1, ksize_t pos)
     if (pos < 0)
         return 0;
     size = length(str1);
-    if (pos >= size)
-        return size - 1;
+    if (pos > size)
+        return size;
     return pos;
 }
 
@@ -51,8 +51,8 @@ string concat_str_pos(string str1, string str2, ksize_t pos)
     }
     for (ksize_t i = 0; i < pos; i++)
         result[i] = str1[i];
-    for (ksize_t i = pos + s2; i < s1 - pos; i++)
-        result[i] = str1[i - (pos + s2)];
+    for (ksize_t i = pos + s2; i < s1 + s2; i++)
+        result[i] = str1[i - s2];
     for (ksize_t i = pos; i < pos + s2; i++)
         result[i] = str2[i - pos];
     result[s1 + s2] = 0;
