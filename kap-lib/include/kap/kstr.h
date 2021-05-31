@@ -360,6 +360,19 @@ extern bool str_isempty(string str);
 ///@param str2 > string to add at the end of str1
 extern void concat_str_nm(string *str1, string str2);
 
+///concat the second string at specific pos in the first string and return the new content
+///@param str1 > first string
+///@param str2 > second string
+///@param pos > position that take the second string in the first
+///@return the result of the concat as a string
+extern string concat_str_pos(string str1, string str2, ksize_t pos);
+
+///concat the second string at specific pos in the first string and set the new content in str1
+///@param str1 > pointer on first string
+///@param str2 > second string
+///@param pos > position that take the second string in the first
+extern void concat_str_pos_nm(string *str1, string str2, ksize_t pos);
+
 #ifdef __cpluplus
 }
 #endif
