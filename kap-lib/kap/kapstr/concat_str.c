@@ -25,3 +25,11 @@ string concat_str(string str1, string str2)
     result[s1 + s2] = 0;
     return (result);
 }
+
+void concat_str_nm(string *str1, string str2)
+{
+    string tampon = concat_str(*str1, str2);
+
+    kfree(*str1);
+    *str1 = tampon;
+}
