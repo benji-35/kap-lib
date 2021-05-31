@@ -68,10 +68,11 @@ SRC_KSTR =	$(PATH_STR)concat_str.c				\
 			$(PATH_STR_FORM)flag_str_format.c	\
 			$(PATH_STR_FORM)str_flag_list.c
 
-SRC_KUTILS =	$(PATH_UTILS)kan_open_file.c	\
-				$(PATH_UTILS)kopen_file.c		\
-				$(PATH_UTILS)kwrite_file.c		\
-				$(PATH_UTILS)check_file_extension.c
+SRC_KUTILS =	$(PATH_UTILS)kan_open_file.c		\
+				$(PATH_UTILS)kopen_file.c			\
+				$(PATH_UTILS)kwrite_file.c			\
+				$(PATH_UTILS)check_file_extension.c	\
+				$(PATH_UTILS)kassert.c
 
 SRC_KMEM	=	$(PATH_MEMORY)kfree.c			\
 				$(PATH_MEMORY)kcalloc.c			\
