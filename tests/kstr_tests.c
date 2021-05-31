@@ -530,6 +530,42 @@ Test(kstr, concat_str_null, .init = kstr_redirect_all_stds)
     kfree(stri);
 }
 
+Test(kstr, concat_str_pos_easy, .init = kstr_redirect_all_stds)
+{
+    string get = concat_str_pos("Hello", " World", 5);
+    string want = "Hello World";
+
+    cr_assert_str_eq(get, want, "The result was [%s]. Expected [%s]\n", get, want);
+    kfree(get);
+}
+
+Test(kstr, concat_str_pos_medium, .init = kstr_redirect_all_stds)
+{
+    string get = concat_str_pos("Helrld", "lo Wo", 3);
+    string want = "Hello World";
+
+    cr_assert_str_eq(get, want, "The result was [%s]. Expected [%s]\n", get, want);
+    kfree(get);
+}
+
+Test(kstr, concat_str_pos_null, .init = kstr_redirect_all_stds)
+{
+    string get = concat_str_pos(NULL, "Hello World", 3);
+    string want = "Hello World";
+
+    cr_assert_str_eq(get, want, "The result was [%s]. Expected [%s]\n", get, want);
+    kfree(get);
+}
+
+Test(kstr, concat_str_pos_both_null, .init = kstr_redirect_all_stds)
+{
+    string get = concat_str_pos(NULL, NULL, 3);
+    string want = NULL;
+
+    cr_assert_eq(get, want, "The result was [%s]. Expected [%s]\n", get, want);
+    kfree(get);
+}
+
 // ========================= TEST INT STR ========================= //
 
 Test(kstr, int_to_str_one, .init = kstr_redirect_all_stds)
