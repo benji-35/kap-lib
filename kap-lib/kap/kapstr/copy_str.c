@@ -11,7 +11,7 @@
 string copy_str(cstring str)
 {
     ksize_t size = length((string) str);
-    string result = malloc(sizeof(char) * (size + 1));
+    string result = kmalloc(sizeof(char) * (size + 1));
 
     for (ksize_t i = 0; i < size; i++)
         result[i] = str[i];
@@ -26,7 +26,7 @@ string copy_str_fp(string str, ksize_t pos)
         return (NULL);
     if (pos < 0)
         pos = 0;
-    string cpy = malloc(sizeof(char) * ((size - pos) + 1));
+    string cpy = kmalloc(sizeof(char) * ((size - pos) + 1));
     for (ksize_t i = pos; i < size; i++)
         cpy[i - pos] = str[i];
     cpy[size - pos] = 0;
@@ -40,7 +40,7 @@ string copy_str_tp(string str, ksize_t pos)
     ksize_t size = length(str);
     if (pos >= size)
         pos = size - 1;
-    string cpy = malloc(sizeof(char) * (pos + 1));
+    string cpy = kmalloc(sizeof(char) * (pos + 1));
     for (ksize_t i = 0; i < pos; i++)
         cpy[i] = str[i];
     cpy[pos] = 0;
@@ -56,7 +56,7 @@ string copy_str_tc(string str, char c)
 
     if (pos_c == -1)
         return (NULL);
-    res = malloc(sizeof(char) * (pos_c + 1));
+    res = kmalloc(sizeof(char) * (pos_c + 1));
     for (ksize_t i = 0; i < pos_c; i++)
         res[i] = str[i];
     res[pos_c] = 0;

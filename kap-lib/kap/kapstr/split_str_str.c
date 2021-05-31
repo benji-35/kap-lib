@@ -44,7 +44,7 @@ static void complete_sstr_split(string str, string split, string *res,\
     ksize_t size_s = length(split);
     ksize_t size = ssize_before_splitter(str, split);
 
-    *res = malloc(sizeof(char) * (size + 1));
+    *res = kmalloc(sizeof(char) * (size + 1));
     if (*res == NULL)
         return;
     for (ksize_t i = 0; i < size; i++)
@@ -58,7 +58,7 @@ text split_sstr(string str, string splitter)
     ksize_t curr = 0;
     ksize_t size = length(str);
     ksize_t nb_split = nb_ssplit(str, splitter);
-    text split = malloc(sizeof(string) * (nb_split + 2));
+    text split = kmalloc(sizeof(string) * (nb_split + 2));
 
     for (ksize_t i = 0; i < size; i++) {
         complete_sstr_split(str + i, splitter, &split[curr], &i);

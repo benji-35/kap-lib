@@ -10,7 +10,7 @@
 
 string empty_str(void)
 {
-    string str = malloc(sizeof(char) * 1);
+    string str = kmalloc(sizeof(char) * 1);
     str[0] = 0;
     return (str);
 }
@@ -19,7 +19,7 @@ string empty_str_size(ksize_t size)
 {
     if (size < 0)
         return (NULL);
-    string str = malloc(sizeof(char) * (size + 1));
+    string str = kmalloc(sizeof(char) * (size + 1));
 
     for (int i = 0; i < size; i++)
         str[i] = ' ';

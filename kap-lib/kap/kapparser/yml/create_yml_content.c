@@ -15,7 +15,7 @@ bool resize_yml_list_cont(ksize_t size, yml_cont_t ***curr)
     ksize_t curr_s = nb_yml_content(*curr);
     yml_cont_t **n_list;
 
-    kassert((n_list = malloc(sizeof(size + 1))) == NULL);
+    kassert((n_list = kmalloc(sizeof(size + 1))) == NULL);
     if (n_list == NULL)
         return (false);
     for (ksize_t i = 0; i < size; i++) {
@@ -35,7 +35,7 @@ yml_content_t *create_yml_content(yml_content_t ***list, string name, ksize_t de
     yml_content_t *n_content;
     ksize_t nb_contents = nb_yml_content(*list);
 
-    kassert((n_content = malloc(sizeof(yml_content_t))) == NULL);
+    kassert((n_content = kmalloc(sizeof(yml_content_t))) == NULL);
     if (n_content == NULL)
         return (NULL);
     n_content->name = copy_str(name);

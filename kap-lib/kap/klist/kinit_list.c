@@ -10,7 +10,7 @@
 
 klist_t *list_init(void)
 {
-    klist_t *res = malloc(sizeof(klist_t));
+    klist_t *res = kmalloc(sizeof(klist_t));
 
     if (res == NULL)
         return (res);

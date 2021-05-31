@@ -11,7 +11,7 @@
 void add_line_ptext(text *txt, ksize_t pos)
 {
     ksize_t size = length_text(*txt);
-    text new_text = malloc(sizeof(char *) * (size + 2));
+    text new_text = kmalloc(sizeof(char *) * (size + 2));
 
     if (pos >= size)
         pos = size;
@@ -30,7 +30,7 @@ void add_line_ptext(text *txt, ksize_t pos)
 void add_line_text(text *txt)
 {
     int size = length_text(*txt);
-    text new_text = malloc(sizeof(char *) * (size + 2));
+    text new_text = kmalloc(sizeof(char *) * (size + 2));
 
     for (int i = 0; i < size; i++)
         new_text[i] = copy_str((*txt)[i]);

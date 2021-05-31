@@ -21,7 +21,7 @@ string kopen_file(string path)
     if (fd < 0)
         return (res);
     stat(path, &st);
-    res = malloc(sizeof(char) * (st.st_size + 1));
+    res = kmalloc(sizeof(char) * (st.st_size + 1));
     rd = read(fd, res, st.st_size);
     close(fd);
     if (rd < 0) {

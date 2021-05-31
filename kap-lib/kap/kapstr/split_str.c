@@ -45,13 +45,13 @@ text split_str(string str, char spliter)
 {
     ksize_t size = length(str);
     ksize_t nbsplit = nb_split(str, spliter);
-    text result = malloc(sizeof(char *) * (nbsplit + 2));
+    text result = kmalloc(sizeof(char *) * (nbsplit + 2));
     ksize_t to_mal;
     ksize_t curr = 0;
 
     for (ksize_t i = 0; i < size; i++) {
         to_mal = size_before_splitter(str + i, spliter);
-        result[curr] = malloc(sizeof(char) * (to_mal + 1));
+        result[curr] = kmalloc(sizeof(char) * (to_mal + 1));
         complete_str_split(str + i, to_mal, result[curr]);
         curr ++;
         i += to_mal;

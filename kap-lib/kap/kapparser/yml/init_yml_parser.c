@@ -48,7 +48,7 @@ kyml_p *init_yml_parser(string path)
 
     if (!check_extension_file(path, "yml"))
         return (KNULL);
-    kassert((n_parser = malloc(sizeof(kyml_p))) == KNULL);
+    kassert((n_parser = kmalloc(sizeof(kyml_p))) == KNULL);
     if (n_parser == KNULL)
         return (KNULL);
     n_parser->path = path;

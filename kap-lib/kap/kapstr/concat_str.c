@@ -12,7 +12,7 @@ string concat_str(string str1, string str2)
 {
     ksize_t s1 = length(str1);
     ksize_t s2 = length(str2);
-    char *result = malloc(sizeof(char) * (s1 + s2 + 1));
+    char *result = kmalloc(sizeof(char) * (s1 + s2 + 1));
 
     if ((str1 == NULL && str2 == NULL) || result == NULL) {
         kfree(result);

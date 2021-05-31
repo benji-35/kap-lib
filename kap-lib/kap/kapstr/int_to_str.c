@@ -28,7 +28,7 @@ string int_to_str(int nb)
 {
     bool is_neg = false;
     ksize_t size = size_nb(nb);
-    string result = malloc(sizeof(char) * (size + 1));
+    string result = kmalloc(sizeof(char) * (size + 1));
 
     if (nb < 0) {
         is_neg = true;

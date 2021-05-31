@@ -18,7 +18,7 @@ void remove_line_text(text *txt, ksize_t pos)
         pos = 0;
     if (pos >= size)
         pos = size - 1;
-    text new_text = malloc(sizeof(char *) * (size));
+    text new_text = kmalloc(sizeof(char *) * (size));
     for (int i = 0; i < size; i++) {
         if (i == pos) {
             curr++;

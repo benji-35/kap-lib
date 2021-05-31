@@ -13,7 +13,7 @@ void insert_char_str(string *str, ksize_t position, char c)
     ksize_t size = length(*str);
     if (position > size)
         return;
-    string new_str = malloc(sizeof(char) * (size + 2));
+    string new_str = kmalloc(sizeof(char) * (size + 2));
     for (ksize_t i = 0; i < position; i++)
         new_str[i] = (*str)[i];
     for (ksize_t i = position; i < size; i++)

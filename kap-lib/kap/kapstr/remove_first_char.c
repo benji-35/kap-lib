@@ -16,7 +16,7 @@ void str_rm_occhar(string *str, char c)
     ksize_t curr = 0;
     if (nb_c == 0)
         return;
-    result = malloc(sizeof(char) * (size - nb_c + 1));
+    result = kmalloc(sizeof(char) * (size - nb_c + 1));
     for (ksize_t i = 0; i < size; i++) {
         if ((*str)[i] != c) {
             result[i - curr] = (*str)[i];
@@ -37,7 +37,7 @@ void str_rm_fochar(string *str, char c)
 
     if (nb_c == 0)
         return;
-    string res = malloc(sizeof(char) * (size));
+    string res = kmalloc(sizeof(char) * (size));
     for (ksize_t i = 0; i < size; i++) {
         if (curr == 0 && (*str)[i] == c) {
             curr ++;
@@ -55,7 +55,7 @@ void str_rm_fchar(string *str)
     if (str == NULL || *str == NULL)
         return;
     ksize_t size = length(*str);
-    string result = malloc(sizeof(char) * size);
+    string result = kmalloc(sizeof(char) * size);
     for (ksize_t i = 1; i < size; i++)
         result[i - 1] = (*str)[i];
     result[size - 1] = 0;
@@ -77,7 +77,7 @@ void str_rm_pchar(string *str, ksize_t pos)
         return;
     ksize_t size = length(*str);
     ksize_t curr = 0;
-    string res = malloc(sizeof(char) * size);
+    string res = kmalloc(sizeof(char) * size);
 
     get_good_pos_rn(&pos, size);
     for (ksize_t i = 0; i < pos; i++) {

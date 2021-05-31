@@ -45,7 +45,7 @@ static void rm_o_str(text *txt)
     ksize_t size = length_text(*txt);
     ksize_t nb_o = nb_o_split(*txt);
     ksize_t curr = 0;
-    char **res = malloc(sizeof(char *) * ((size - nb_o) + 1));
+    char **res = kmalloc(sizeof(char *) * ((size - nb_o) + 1));
 
     for (ksize_t i = 0; (*txt)[i] != NULL; i++) {
         if (str_equality((*txt)[i], "\0")) {
@@ -65,13 +65,13 @@ text get_words(string str)
         return NULL;
     ksize_t size = length(str);
     ksize_t nbsplit = nb_split_w(str);
-    text result = malloc(sizeof(char *) * (nbsplit + 2));
+    text result = kmalloc(sizeof(char *) * (nbsplit + 2));
     ksize_t curr = 0;
     ksize_t to_mal;
 
     for (ksize_t i = 0; i < size; i++) {
         to_mal = size_before_splitterw(str + i);
-        result[curr] = malloc(sizeof(char) * (to_mal + 1));
+        result[curr] = kmalloc(sizeof(char) * (to_mal + 1));
         complete_str_splitw(str + i, to_mal, result[curr]);
         curr ++;
         i += to_mal;

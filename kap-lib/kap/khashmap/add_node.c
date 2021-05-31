@@ -32,7 +32,7 @@ void hmap_add(hmap_t *hmap, cstring key, OBJECT data)
 
     kassert(key == NULL && "[key] -> NULL pointer");
     kassert(hmap == NULL && "[hmap] -> NULL pointer");
-    kassert((n_node = malloc(sizeof(khnode_t))) == NULL);
+    kassert((n_node = kmalloc(sizeof(khnode_t))) == NULL);
     if (n_node == NULL || hmap == NULL || key == NULL)
         return;
     n_node->next = NULL;

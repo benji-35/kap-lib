@@ -12,7 +12,7 @@ hmap_t *create_hashmap(void)
 {
     hmap_t *map;
 
-    kassert((map = malloc(sizeof(hmap_t))) == NULL);
+    kassert((map = kmalloc(sizeof(hmap_t))) == NULL);
     if (map == NULL)
         return (NULL);
     map->len = 0;

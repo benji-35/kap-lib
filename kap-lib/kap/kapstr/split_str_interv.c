@@ -32,7 +32,7 @@ static void kcomplete_interv(text splitted, string str, ksize_t nb,\
     ksize_t val_index = 0;
 
     for (ksize_t i = 0; i < nb_spl; i++) {
-        splitted[i] = malloc(sizeof(char) * (nb + 1));
+        splitted[i] = kmalloc(sizeof(char) * (nb + 1));
         for (int a = 0; a < nb; a++) {
             val_index = i * nb + a;
             splitted[i][a] = str[val_index];
@@ -46,10 +46,10 @@ text ksplit_interv(string str, ksize_t nb)
     if (str == NULL)
         return (NULL);
     ksize_t nb_split = knb_interv(str, nb);
-    text splitted = malloc(sizeof(string ) * (nb_split));
+    text splitted = kmalloc(sizeof(string ) * (nb_split));
 
     kcomplete_interv(splitted, str, nb, nb_split - 1);
-    splitted[nb_split - 1] = malloc(sizeof(char));
+    splitted[nb_split - 1] = kmalloc(sizeof(char));
     splitted[nb_split - 1] = NULL;
     return (splitted);
 }

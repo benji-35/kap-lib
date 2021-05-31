@@ -19,7 +19,7 @@ void insert_str_s(string *str, string to_insert, ksize_t pos)
         pos = 0;
     if (pos > size_str)
         pos = size_str;
-    string res = malloc(sizeof(char) * (size_insert + size_str + 1));
+    string res = kmalloc(sizeof(char) * (size_insert + size_str + 1));
     for (ksize_t i = 0; i < pos; i++)
         res[i] = (*str)[i];
     for (ksize_t i = pos; i < size_str; i++)
