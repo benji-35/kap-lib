@@ -1,6 +1,37 @@
 # Kap-Lib
 Kap-lib is a C lib that contain intresting things and complex action as string functions
 
+## INCLUDE MAP
+kaplib.h
+|
++-> kasserts.h
+|
++->kutils.h
+|  |
+|  +->kmem.h
+|  |
+|  \\->kasserts.h
+|
++->kstr.h
+|  |
+|  \\->kutils.h
+|
++->kmath.h
+|  |
+|  \\->kutils.h
+|
++->klist.h
+|  |
+|  \\->kutils.h
+|
++->kprintf.h
+|  |
+|  \\->kutils.h
+|
+\\->kmem.h
+   |
+   \\->kasserts.h
+
 # kprintf include <kap/klib.h>
 <span style="color:red">klib contain all includes that appear after.</span>
 
