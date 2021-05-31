@@ -21,7 +21,7 @@ flag list :
 | 10 |  %ll  | display long long |
 | 11 |  %ull  | display unsigned long long |
 
-# kstr include <kap/kstr.h>
+# kstr include <kap/kstr.h> [NOT UPDATE]
 #### FUNCTION LIST (ENGLISH VERSION)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
