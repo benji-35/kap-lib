@@ -11,6 +11,10 @@
 #include <unistd.h>
 #include <kap/kutils.h>
 
+#ifdef __cpluplus
+extern "C" {
+#endif
+
 #ifndef _KAP_STR_TYPD_
 #define _KAP_STR_TYPD_
 
@@ -346,5 +350,10 @@ extern bool contain_only_char_tp(string str, char c, ksize_t pos);
 ///@return true if it's equal or false if it's not
 extern bool str_equality_tp(string str1, string str2, ksize_t pos);
 
-bool str_isempty(string str);
+extern bool str_isempty(string str);
+
+#ifdef __cpluplus
+}
+#endif
+
 #endif /* !_KAP_STRING_ */

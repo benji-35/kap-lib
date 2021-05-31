@@ -10,6 +10,10 @@
 
 #include <kap/kutils.h>
 
+#ifdef __cpluplus
+extern "C" {
+#endif
+
 #ifndef _KLIST_
 #define _KLIST_
 
@@ -59,25 +63,29 @@ struct khashmap_s {
 ///@param list > pointer on the list
 ///@param data > pointer on data
 ///@param print > function that can print de value (it can be NULL)
-void add_node(klist_t *list, OBJECT data, void (*print)(OBJECT data));
+extern void add_node(klist_t *list, OBJECT data, void (*print)(OBJECT data));
 
 ///Get node from list with its index
 ///@param list > pointer on the list
 ///@param index > index id
 ///@return node pointer. If node is not found, function return NULL
-knode_t *list_get_inode(klist_t *list, kusize_t index);
+extern knode_t *list_get_inode(klist_t *list, kusize_t index);
 
 ///Clear all list
 ///@param list > pointer on klist
-void list_clear(klist_t *list);
+extern void list_clear(klist_t *list);
 
 ///Initiate klist
 ///@return new klist
-klist_t *list_init(void);
+extern klist_t *list_init(void);
 
 ///Get last hnode in hash map
 ///@param hmap > hash map that contain hnode to find
 ///@return khnode > return NULL if an error occured
-khnode_t *get_last_hnode(hmap_t *hmap);
+extern khnode_t *get_last_hnode(hmap_t *hmap);
+
+#ifdef __cpluplus
+}
+#endif
 
 #endif /* !_KAP_LIST_H_ */

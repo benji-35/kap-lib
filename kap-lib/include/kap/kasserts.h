@@ -28,10 +28,18 @@ typedef char const ** ctext;
 #define kASSERT_FUNCTION NULL
 #endif /*kASSERT_FUNCTION*/
 
+#ifdef __cpluplus
+extern "C" {
+#endif
+
 extern bool kassert_e(bool isfail, cstring __expr, cstring __fname, int __line);
 extern bool kassert_f(bool isfail, cstring __expr, cstring __fname, int __line);
 
 #define kassert(__expr) kassert_f(__expr, #__expr, __FILE__, __LINE__)
 #define keassert(__expr) kassert_e(__expr, #__expr, __FILE__, __LINE__)
+
+#ifdef __cpluplus
+}
+#endif
 
 #endif /* !_KAP_ASSERTS_H_ */

@@ -14,6 +14,10 @@
 #include <kap/kmem.h>
 #include <kap/kasserts.h>
 
+#ifdef __cpluplus
+extern "C" {
+#endif
+
 #ifndef _KAP_SIZE_
 #define _KAP_SIZE_
 
@@ -72,28 +76,32 @@ typedef char const ** ctext;
 /// check if file can be open or not
 /// @param path > path of file
 /// @return true if file can be open or false if file can't be open
-bool can_open_file(string path);
+extern bool can_open_file(string path);
 
 /// open file and return content
 /// @param path > path of file
 /// @return content. If file can't be open return NULL
-string kopen_file(string path);
+extern string kopen_file(string path);
 
 /// open file and return content
 /// @param path > path of file
 /// @return content as text format. If file can't be open return NULL
-text kopen_file_t(string path);
+extern text kopen_file_t(string path);
 
 /// write in file
 /// @param path > path of file
 /// @param str > string that will write in file
 /// @param append > if true : the str will write after file content. If false : the file will clear and then write str
-void kwrite_file(string path, string str, bool append);
+extern void kwrite_file(string path, string str, bool append);
 
 /// check the extension of a file
 /// @param path > path of file
 /// @param __exten > extension want
 /// @return true if file have the good extension. False if it doesn't
-bool check_extension_file(string path, string __exten);
+extern bool check_extension_file(string path, string __exten);
+
+#ifdef __cpluplus
+}
+#endif
 
 #endif /* !_KAP_UTILS_H */

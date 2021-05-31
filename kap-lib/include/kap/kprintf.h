@@ -10,7 +10,15 @@
 
 #include <kap/kutils.h>
 
-void kprintf(string __cmd, ...);
-void kfprintf(int fd, string __cmd, ...);
+#ifdef __cpluplus
+extern "C" {
+#endif
+
+extern void kprintf(string __cmd, ...);
+extern void kfprintf(int fd, string __cmd, ...);
+
+#ifdef __cpluplus
+}
+#endif
 
 #endif /* !KPRINTF_H_ */
