@@ -66,12 +66,10 @@ typedef char const ** ctext;
 
 #endif /*_KAP_FD_*/
 
-#ifndef _KAP_UNUSED_
-#define _KAP_UNUSED_
-
+#ifndef UNUSED
+#define UNUSED
 #define UNUSED __attribute__((unused))
-
-#endif /*_KAP_UNUSED_*/
+#endif /*UNUSED*/
 
 /// check if file can be open or not
 /// @param path > path of file
