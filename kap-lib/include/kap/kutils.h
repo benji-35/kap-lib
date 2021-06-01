@@ -67,7 +67,6 @@ typedef char const ** ctext;
 #endif /*_KAP_FD_*/
 
 #ifndef UNUSED
-#define UNUSED
 #define UNUSED __attribute__((unused))
 #endif /*UNUSED*/
 
