@@ -10,7 +10,7 @@
 
 #include <kap/kutils.h>
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -84,7 +84,7 @@ extern klist_t *list_init(void);
 ///@return khnode > return NULL if an error occured
 extern khnode_t *get_last_hnode(hmap_t *hmap);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

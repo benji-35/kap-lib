@@ -13,7 +13,7 @@
 #ifndef _KAP_SIZE_
 #define _KAP_SIZE_
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -82,7 +82,7 @@ extern void *kmalloc(ksize_t __size);
 ///@return void * > return result of malloc
 extern void *kmalloc_sec(ksize_t __size);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

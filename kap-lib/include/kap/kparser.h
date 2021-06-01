@@ -11,7 +11,7 @@
 #include <kap/kutils.h>
 #include <kap/kstr.h>
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -107,7 +107,7 @@ extern yml_cont_t *find_last_yml_node_by_index(kyml_p *parser, ksize_t depth);
 extern yml_cont_t *flast_nyml_bindex(yml_cont_t **list, ksize_t depth);
 #endif /*!_KYML_PARSER*/
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

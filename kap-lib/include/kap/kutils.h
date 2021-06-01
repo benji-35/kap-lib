@@ -14,7 +14,7 @@
 #include <kap/kmem.h>
 #include <kap/kasserts.h>
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -100,7 +100,7 @@ extern void kwrite_file(string path, string str, bool append);
 /// @return true if file have the good extension. False if it doesn't
 extern bool check_extension_file(string path, string __exten);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

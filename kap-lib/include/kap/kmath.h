@@ -14,7 +14,7 @@
 #define ABS(value)    (((value) < (0)) ? (value * -1) : (value))
 #endif /*ABS*/
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -35,7 +35,7 @@ extern kdsize_t kpower(ksize_t num, ksize_t power);
 /// @return result of square root
 extern kdsize_t ksquare_root(kussize_t nb);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

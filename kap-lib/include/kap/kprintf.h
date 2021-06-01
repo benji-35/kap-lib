@@ -10,14 +10,14 @@
 
 #include <kap/kutils.h>
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
 extern void kprintf(string __cmd, ...);
 extern void kfprintf(int fd, string __cmd, ...);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 

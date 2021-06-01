@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <kap/kutils.h>
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -373,7 +373,7 @@ extern string concat_str_pos(string str1, string str2, ksize_t pos);
 ///@param pos > position that take the second string in the first
 extern void concat_str_pos_nm(string *str1, string str2, ksize_t pos);
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 }
 #endif
 
