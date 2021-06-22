@@ -15,6 +15,8 @@ int bin_to_int(string bin, bool binHaveFlag)
     ksize_t len = length(bin) - 1;
     ksize_t id = 0;
 
+    if (bin == NULL)
+        return 0;
     if (binHaveFlag) {
         bin = bin + 2;
         len -= 2;

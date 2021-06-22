@@ -66,7 +66,8 @@ SRC_KSTR =	$(PATH_STR)concat_str.c				\
 			$(PATH_STR)string_format.c			\
 			$(PATH_STR_FORM)add_istr.c			\
 			$(PATH_STR_FORM)flag_str_format.c	\
-			$(PATH_STR_FORM)str_flag_list.c
+			$(PATH_STR_FORM)str_flag_list.c		\
+			$(PATH_STR)remove_all_fochar.c
 
 SRC_KUTILS =	$(PATH_UTILS)kan_open_file.c		\
 				$(PATH_UTILS)kopen_file.c			\
@@ -96,7 +97,8 @@ SRC_MATHS =	$(PATH_MATHS)kdivisible_by.c	\
 			$(PATH_MATHS)ksquare_root.c		\
 			$(PATH_MATHS)int_to_bin.c		\
 			$(PATH_MATHS)bin_to_int.c		\
-			$(PATH_MATHS)int_to_hexa.c
+			$(PATH_MATHS)int_to_hexa.c		\
+			$(PATH_MATHS)hexa_to_int.c
 
 SRC_HASHMAP	=	$(PATH_HASH_MAP)add_node.c			\
 				$(PATH_HASH_MAP)create_hashmap.c	\

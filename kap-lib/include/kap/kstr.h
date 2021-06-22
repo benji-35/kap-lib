@@ -373,6 +373,11 @@ extern string concat_str_pos(string str1, string str2, ksize_t pos);
 ///@param pos > position that take the second string in the first
 extern void concat_str_pos_nm(string *str1, string str2, ksize_t pos);
 
+/// remove all first occurences of char c in string str
+/// @param str > pointer on string
+/// @param char to remove
+extern void str_rm_all_fochar(string *str, char c);
+
 #ifdef __cplusplus
 }
 #endif

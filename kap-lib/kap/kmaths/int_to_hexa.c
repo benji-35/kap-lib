@@ -66,6 +66,11 @@ string bin_to_hex(string bin, bool flag, bool binHaveFlag)
     string res = NULL;
     string tamp = NULL;
 
+    if (binHaveFlag) {
+        kfree(_bin);
+        bin = bin + 2;
+        _bin = copy_str(bin);
+    }
     reformat_bin_hex(&_bin);
     res = hex_from_bin(_bin);
     kfree(_bin);
