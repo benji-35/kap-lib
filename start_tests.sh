@@ -11,5 +11,5 @@ make -C tests/
 clear
 tests/tests
 make fclean -C tests/
-tests/main-parser
+valgrind tests/main-parser
 rm -f tests/main-parser

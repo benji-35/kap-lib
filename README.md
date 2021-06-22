@@ -159,6 +159,8 @@ flag list :
 | 04 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |
 | 04 |   int_to_bin   | int nb, bool flag | string | return a string that contain the binary and add binary flag if you want at the begining of string |
 | 05 | bin_to_int | string bin, bool binHaveFlag | int | function that return the value of binary |
+| 06 | int_to_hex | int nb, bool flag | string | function that return hexa value of number nb |
+| 07 | bin_to_hex | string bin, bool flag, bool binHaveFlag | string | function that return hexa value from binary |
 
 # kutils include <kap/kutils.h>
 

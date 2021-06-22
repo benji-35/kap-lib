@@ -12,7 +12,7 @@
 #include <kap/kmath.h>
 
 char *int_to_binary(long long nb, int flag, int minimize);
-string int_to_hex(long long nb, int flag);
+string int_to_hexa(long long nb, int flag);
 
 void display_binary(va_list *data, int nb, int fd)
 {
@@ -28,7 +28,7 @@ void display_binary(va_list *data, int nb, int fd)
 void display_hexa(va_list *data, int nb, int fd)
 {
     unsigned int nb_b = va_arg(*data, unsigned int);
-    char *str = int_to_hex(nb_b, 0);
+    char *str = int_to_hexa(nb_b, 0);
 
     for (int i = 0; i < nb - length(str); i++)
         add_char_strp(&str, ' ', 0);
@@ -39,7 +39,7 @@ void display_hexa(va_list *data, int nb, int fd)
 void display_pointer(va_list *data, int nb, int fd)
 {
     unsigned int nb_b = va_arg(*data, unsigned int);
-    char *str = int_to_hex(nb_b, 1);
+    char *str = int_to_hexa(nb_b, 1);
 
     for (int i = 0; i < nb - length(str); i++)
         add_char_strp(&str, ' ', 0);

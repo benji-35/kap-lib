@@ -25,7 +25,7 @@ void display_ulong(va_list *data, int bef, int fd);
 void display_longlong(va_list *data, int bef, int fd);
 void display_ulonglong(va_list *data, int bef, int fd);
 char *int_to_binary(long long nb, int flag, int minimize);
-char *int_to_hex(long long nb, int flag);
+char *int_to_hexa(long long nb, int flag);
 void display_char(va_list *data, int nb, int fd);
 
 #define FLAG_LENGTH 10

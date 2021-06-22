@@ -46,6 +46,19 @@ extern string int_to_bin(int nb, bool flag);
 /// @param binHaveFlag > to exclude flag before operation
 /// @return the value of binary in number
 extern int bin_to_int(string bin, bool binHaveFlag);
+
+/// function that return hexa value of number nb
+/// @param nb > 
+/// @param flag >
+/// @return the hexa in string
+extern string int_to_hex(int nb, bool flag);
+
+/// function that return hexa value from binary
+/// @param bin > string that contain binary
+/// @param flag > set true if you want hexa flag before hexa value else set false
+/// @param binHaveFlag > set true if binary string contain at begining the binary flag
+/// @return the hexa in string
+extern string bin_to_hex(string bin, bool flag, bool binHaveFlag);
 #ifdef __cplusplus
 }
 #endif

@@ -10,27 +10,61 @@
 int main(int ac, text av)
 {
     string bin = int_to_bin(1, true);
-    printf("(1) bin = %s\n", bin);
+    string hex = int_to_hex(1, true);
+    string hex_bin = bin_to_hex(bin, true, true);
+    printf("(1) bin = %s, hex = %s, hex_bin = %s\n", bin, hex, hex_bin);
     printf("int value = %d\n", bin_to_int(bin, true));
     kfree(bin);
+    kfree(hex);
+    kfree(hex_bin);
+
+
     bin = int_to_bin(5, true);
-    printf("(5) bin = %s\n", bin);
+    hex = int_to_hex(5, true);
+    hex_bin = bin_to_hex(bin, true, true);
+    printf("(1) bin = %s, hex = %s, hex_bin = %s\n", bin, hex, hex_bin);
     printf("int value = %d\n", bin_to_int(bin, true));
     kfree(bin);
+    kfree(hex);
+    kfree(hex_bin);
+
+
     bin = int_to_bin(12, true);
-    printf("(12) bin = %s\n", bin);
+    hex = int_to_hex(12, true);
+    hex_bin = bin_to_hex(bin, true, true);
+    printf("(1) bin = %s, hex = %s, hex_bin = %s\n", bin, hex, hex_bin);
     printf("int value = %d\n", bin_to_int(bin, true));
     kfree(bin);
+    kfree(hex);
+    kfree(hex_bin);
+
+
     bin = int_to_bin(32, true);
-    printf("(32) bin = %s\n", bin);
+    hex = int_to_hex(32, true);
+    hex_bin = bin_to_hex(bin, true, true);
+    printf("(1) bin = %s, hex = %s, hex_bin = %s\n", bin, hex, hex_bin);
     printf("int value = %d\n", bin_to_int(bin, true));
     kfree(bin);
+    kfree(hex);
+    kfree(hex_bin);
+
+
     bin = int_to_bin(64, true);
-    printf("(64) bin = %s\n", bin);
+    hex = int_to_hex(64, true);
+    hex_bin = bin_to_hex(bin, true, true);
+    printf("(1) bin = %s, hex = %s, hex_bin = %s\n", bin, hex, hex_bin);
     printf("int value = %d\n", bin_to_int(bin, true));
     kfree(bin);
+    kfree(hex);
+    kfree(hex_bin);
+
+
     bin = int_to_bin(66, true);
-    printf("(66) bin = %s\n", bin);
+    hex = int_to_hex(66, true);
+    hex_bin = bin_to_hex(bin, true, true);
+    printf("(1) bin = %s, hex = %s, hex_bin = %s\n", bin, hex, hex_bin);
     printf("int value = %d\n", bin_to_int(bin, true));
     kfree(bin);
+    kfree(hex);
+    kfree(hex_bin);
 }

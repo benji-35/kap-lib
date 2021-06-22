@@ -95,7 +95,8 @@ SRC_MATHS =	$(PATH_MATHS)kdivisible_by.c	\
 			$(PATH_MATHS)kpower.c			\
 			$(PATH_MATHS)ksquare_root.c		\
 			$(PATH_MATHS)int_to_bin.c		\
-			$(PATH_MATHS)bin_to_int.c
+			$(PATH_MATHS)bin_to_int.c		\
+			$(PATH_MATHS)int_to_hexa.c
 
 SRC_HASHMAP	=	$(PATH_HASH_MAP)add_node.c			\
 				$(PATH_HASH_MAP)create_hashmap.c	\

@@ -44,7 +44,7 @@ static char val_hex(string str)
     return (result);
 }
 
-string int_to_hex(long long nb, int flag)
+string int_to_hexa(long long nb, int flag)
 {
     string binary = int_to_binary(nb, 0, 0);
     text splitted = ksplit_interv(binary, 4);
