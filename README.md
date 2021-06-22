@@ -91,6 +91,7 @@ flag list :
 | 51 | kput_char | char c | void | display the c char in terminal |
 | 52 | ksplit_interv | string str, int nb | text | return string split all nb chars |
 | 53 | str_format | string __cmd, ... | string | As a kprint or printf, str_format return string with values you entered |
+| 54 | str_rm_all_fochar | string *str, char c | void | remove all first occurences of char c in string str |
 #### FUNCTION LIST (VERSION FRANÇAISE)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
@@ -148,6 +149,7 @@ flag list :
 | 51 | kput_char | char c | void | affiche le char c dans le terminal |
 | 52 | ksplit_interv | string str, int nb | text | retourn la string séparé tous les nb char |
 | 53 | str_format | string __cmd, ... | string | Comme le kprintf ou le printf. Le str_format vous permet d'avoir la string avec toutes les variables que vous avez entré |
+| 54 | str_rm_all_fochar | string *str, char c | void | supprime toutes les premières occurences du char c dans la string str |
 
 # kmath include <kap/kmath.h>
 
