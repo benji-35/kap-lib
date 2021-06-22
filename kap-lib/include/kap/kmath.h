@@ -35,6 +35,12 @@ extern kdsize_t kpower(ksize_t num, ksize_t power);
 /// @return result of square root
 extern kdsize_t ksquare_root(kussize_t nb);
 
+/// function that return the binary in string of number
+/// @param nb > int var of number
+/// @param flag > set true if you want binary flag before the binary number
+/// @return a string of binary
+extern string int_to_bin(int nb, bool flag);
+
 #ifdef __cplusplus
 }
 #endif

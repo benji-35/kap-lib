@@ -6,7 +6,7 @@
 ##
 
 C_STANDARD_FLAGS =
-C_WARNING_FLAGS = -Wextra -Wall
+C_WARNING_FLAGS = -Wextra -Wall -g
 INCLUDE_FLAGS =
 
 C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS)
@@ -18,11 +18,16 @@ INCLUDE_FLAGS += -I ../kap-lib/include
 LIB_FLAGS += -L ../kap-lib -lkap -lcriterion
 
 SRC                 =   kprintf_tests.c	\
-						kstr_tests.c
+						kstr_tests.c	\
+						kmath_tests.c
+
+SRC_MAIN	=	main.c
 
 OBJ = $(SRC:.c=.o)
 
-all: build_sub tests
+OBJ_MAIN	=	$(SRC_MAIN:.c=.o)
+
+all: build_sub tests main-parser
 .PHONY : all
 
 build_sub:
@@ -39,6 +44,10 @@ clean:
 tests: $(OBJ)
 	@$(GCC) -o $@ $(OBJ) $(LIB_FLAGS)
 	@rm -f $(OBJ)
+
+main-parser:	$(OBJ_MAIN)
+	@$(GCC) -o $@ $(OBJ_MAIN) $(LIB_FLAGS)
+	@rm -f $(OBJ_MAIN)
 
 fclean: clean
 	@find . -type f -name 'vgcore*' -delete

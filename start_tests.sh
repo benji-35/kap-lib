@@ -5,4 +5,11 @@
 ## start_tests
 ##
 
-clear ; make re -C tests/ ; clear ; tests/tests ; make fclean -C tests/
+clear
+make fclean -C tests/
+make -C tests/
+clear
+tests/tests
+make fclean -C tests/
+tests/main-parser
+rm -f tests/main-parser

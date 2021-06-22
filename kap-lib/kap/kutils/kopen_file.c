@@ -11,7 +11,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-string kopen_file(string path)
+string kopen_file(cstring path)
 {
     string res = NULL;
     struct stat st;
@@ -32,7 +32,7 @@ string kopen_file(string path)
     return (res);
 }
 
-text kopen_file_t(string path)
+text kopen_file_t(cstring path)
 {
     text res;
     string readed;

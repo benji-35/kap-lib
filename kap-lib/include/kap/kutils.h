@@ -73,17 +73,17 @@ typedef char const ** ctext;
 /// check if file can be open or not
 /// @param path > path of file
 /// @return true if file can be open or false if file can't be open
-extern bool can_open_file(string path);
+extern bool can_open_file(cstring path);
 
 /// open file and return content
 /// @param path > path of file
 /// @return content. If file can't be open return NULL
-extern string kopen_file(string path);
+extern string kopen_file(cstring path);
 
 /// open file and return content
 /// @param path > path of file
 /// @return content as text format. If file can't be open return NULL
-extern text kopen_file_t(string path);
+extern text kopen_file_t(cstring path);
 
 /// write in file
 /// @param path > path of file

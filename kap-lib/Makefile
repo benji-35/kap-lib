@@ -93,7 +93,8 @@ SRC_KPRINTF =	$(PATH_PRINTF)check_flag.c				\
 
 SRC_MATHS =	$(PATH_MATHS)kdivisible_by.c	\
 			$(PATH_MATHS)kpower.c			\
-			$(PATH_MATHS)ksquare_root.c
+			$(PATH_MATHS)ksquare_root.c		\
+			$(PATH_MATHS)int_to_bin.c
 
 SRC_HASHMAP	=	$(PATH_HASH_MAP)add_node.c			\
 				$(PATH_HASH_MAP)create_hashmap.c	\
@@ -110,7 +111,15 @@ SRC_PARSER_XML	=
 
 SRC_PARSER_JSON	=
 
-SRC_PARSER_YML	=
+SRC_PARSER_YML	=	$(PATH_PARSER_YML)create_yml_content.c		\
+					$(PATH_PARSER_YML)destroy_yml_parser.c		\
+					$(PATH_PARSER_YML)find_node_bindentation.c	\
+					$(PATH_PARSER_YML)get_value_yml.c			\
+					$(PATH_PARSER_YML)init_yml_parser.c			\
+					$(PATH_PARSER_YML)save_yml_parser.c			\
+					$(PATH_PARSER_YML)set_value.c				\
+					$(PATH_PARSER_YML)yml_format.c				\
+					$(PATH_PARSER_YML)display_yml_content.c
 
 SRC_REGEX	=	
 
@@ -122,7 +131,6 @@ SRC_KAP += $(SRC_HASHMAP)
 SRC_KAP += $(SRC_LIST)
 SRC_KAP +=	$(SRC_PARSER_JSON)
 SRC_KAP += $(SRC_PARSER_XML)
-SRC_KAP += $(SRC_PARSER_YML)
 SRC_KAP	+= $(SRC_REGEX)
 SRC_KAP += $(SRC_KMEM)
 
@@ -150,3 +158,7 @@ clean:
 	@find . \( -name "*.o" -or -name "*.a" \) -delete
 
 .PHONY : clean
+
+re:	clean all
+
+.PHONY : re
