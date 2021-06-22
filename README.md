@@ -158,6 +158,7 @@ flag list :
 | 03 |   ksquare_root   | kussize_t nb | kussize_t | return value of square root of nb |
 | 04 |   kroot   | kusize_t nb, kusize_t rt | kussize_t | return value of rt root of nb |
 | 04 |   int_to_bin   | int nb, bool flag | string | return a string that contain the binary and add binary flag if you want at the begining of string |
+| 05 | bin_to_int | string bin, bool binHaveFlag | int | function that return the value of binary |
 
 # kutils include <kap/kutils.h>
 

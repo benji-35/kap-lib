@@ -5,8 +5,8 @@
 ** int_to_bin
 */
 
-#include <kap/kmath.h>
 #include <kap/kutils.h>
+#include <kap/kmath.h>
 #include <kap/kstr.h>
 
 static ksize_t bin_get_max(int nb) {

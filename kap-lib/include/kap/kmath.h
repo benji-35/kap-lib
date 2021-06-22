@@ -41,6 +41,11 @@ extern kdsize_t ksquare_root(kussize_t nb);
 /// @return a string of binary
 extern string int_to_bin(int nb, bool flag);
 
+/// function that return the value of binary
+/// @param bin > string that contain binary
+/// @param binHaveFlag > to exclude flag before operation
+/// @return the value of binary in number
+extern int bin_to_int(string bin, bool binHaveFlag);
 #ifdef __cplusplus
 }
 #endif
