@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 
-static ksize_t nb_split(string str, char splitter)
+static ksize_t nb_split(cstring str, char splitter)
 {
     ksize_t size = length(str);
     ksize_t result = 0;
@@ -22,7 +22,7 @@ static ksize_t nb_split(string str, char splitter)
     return (result);
 }
 
-static ksize_t size_before_splitter(string str, char splitter)
+static ksize_t size_before_splitter(cstring str, char splitter)
 {
     ksize_t i = 0;
 
@@ -34,14 +34,14 @@ static ksize_t size_before_splitter(string str, char splitter)
     return (i);
 }
 
-static void complete_str_split(string str, ksize_t size, string result)
+static void complete_str_split(cstring str, ksize_t size, string result)
 {
     for (ksize_t i = 0; i < size; i++)
         result[i] = str[i];
     result[size] = 0;
 }
 
-text split_str(string str, char spliter)
+text split_str(cstring str, char spliter)
 {
     ksize_t size = length(str);
     ksize_t nbsplit = nb_split(str, spliter);

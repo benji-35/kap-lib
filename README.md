@@ -62,7 +62,7 @@ flag list :
 | 22 |      insert_str_s     |      string *str, string to_insert, int pos|      void      | Add a string at the position in the string str |
 | 23 |       int_to_str      |        int nb       |     string     | Return int in string                |
 | 24 |       reverse_str     |      string *str    |      void      | Reverse the string                  |
-| 25 |        length         |      string str     |       int      | Return string size                  |
+| 25 |        length         |      cstring str     |       int      | Return string size                  |
 | 26 |      length_text     |      text split     |       int      | Return text size                    |
 | 27 |     str_char_occur    |      string str, char c|       int      | Return number of occurence of char in string|
 | 28 |      str_rm_occhar    |      string *str, char c    |      void      | Remove all occurence of char in string|
@@ -75,7 +75,7 @@ flag list :
 | 35 |    remove_ostr_str    |      string *str, string to_ren    |      void      | Remove all same string in string str|
 | 36 |    replace_char_str   |      string str, char target, char replace|       void     | Replace all char equals to target in str to replace value|
 | 37 |   replace_char_text   |       text txt, char target, char replace|      void      | Replace all char equals to target in text to replace value|
-| 38 |       split_str       |      string str, char splitter|      text      | Split text for each splitter position in string and return the text splitted|
+| 38 |       split_str       |      cstring str, char splitter|      text      | Split text for each splitter position in string and return the text splitted|
 | 39 |      text_to_str      |      text split, string separator|     string     | From text, a string is generate and you can put a separator if you want (separator is nullable)|
 | 40 |       strat_with      |      string str1, string str2|       int      | Return 1 if str1 start with str2 else function return 0|
 | 41 |       get_words       |       string str    |      text      | Return a list with words of string  |
@@ -92,6 +92,7 @@ flag list :
 | 52 | ksplit_interv | string str, int nb | text | return string split all nb chars |
 | 53 | str_format | string __cmd, ... | string | As a kprint or printf, str_format return string with values you entered |
 | 54 | str_rm_all_fochar | string *str, char c | void | remove all first occurences of char c in string str |
+| 55 | str_isempty | cstring str | bool | return true if str is empty or return false is str is not empty |
 #### FUNCTION LIST (VERSION FRANÇAISE)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
@@ -120,7 +121,7 @@ flag list :
 | 22 |      insert_str_s     |      string *str, string to_insert, int pos|      void      | Insert une string dans une string à une position précise|
 | 23 |       int_to_str      |        int nb       |     string     | Retourne un nombre entier en string|
 | 24 |       reverse_str     |      string *str    |      void      | Inverse une string|
-| 25 |        length         |      string str     |       int      | Retourne la taille de la string|
+| 25 |        length         |      cstring str     |       int      | Retourne la taille de la string|
 | 26 |      length_text     |      text split     |       int      | Retourne la taille du texte|
 | 27 |     str_char_occur    |      string str, char c|       int      | Retourne le nombre d'occurences d'un char dans une string|
 | 28 |      str_rm_occhar    |      string *str, char c    |      void      | Supprime toutes les occurences du char dans une string|
@@ -133,7 +134,7 @@ flag list :
 | 35 |    remove_ostr_str    |      string *str, string to_ren    |      void      | Supprime toutes les occurences de la string to_ren dans la string str|
 | 36 |    replace_char_str   |      string str, char target, char replace|       void     | Remplace toute les chars ayant la valeur target par la valeur replace dans la string str|
 | 37 |   replace_char_text   |       text txt, char target, char replace|      void      | Remplace toute les chars ayant la valeur target par la valeur replace dans le texte txt|
-| 38 |       split_str       |      string str, char splitter|      text      | Divise la string par rapport aux occurences de splitter dans la string str et en retourne un texte|
+| 38 |       split_str       |      cstring str, char splitter|      text      | Divise la string par rapport aux occurences de splitter dans la string str et en retourne un texte|
 | 39 |      text_to_str      |      text split, string separator|     string     | Depuis un texte créer un string dans laquelle entre chaque ligne on peut rajouter une string|
 | 40 |       strat_with      |      string str1, string str2|       int      | Retroune 1 si la string 1 commence par la string 2|
 | 41 |       get_words       |       string str    |      text      | retourne la liste des mots dans la string str|
@@ -150,6 +151,7 @@ flag list :
 | 52 | ksplit_interv | string str, int nb | text | retourn la string séparé tous les nb char |
 | 53 | str_format | string __cmd, ... | string | Comme le kprintf ou le printf. Le str_format vous permet d'avoir la string avec toutes les variables que vous avez entré |
 | 54 | str_rm_all_fochar | string *str, char c | void | supprime toutes les premières occurences du char c dans la string str |
+| 55 | str_isempty | cstring str | bool | retourne true si la string est vide sinon retourne false |
 
 # kmath include <kap/kmath.h>
 

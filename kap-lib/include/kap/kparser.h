@@ -57,6 +57,15 @@ struct read_yml_line {
 
 #endif /*!_KYML_PARSER*/
 
+#ifndef _YML_FUNC_PARSER_
+#define _YML_FUNC_PARSER_
+
+extern kyml_p *init_kyml_parser(cstring path);
+extern yml_content_t *get_last_yml_content(kyml_p *parser);
+extern string get_value_yml(kyml_p *parser, cstring path);
+extern text get_array_yml(kyml_p *parser, cstring path);
+
+#endif /*_YML_FUNC_PARSER_*/
 #ifdef __cplusplus
 }
 #endif

@@ -9,7 +9,7 @@
 #include <kap/kutils.h>
 #include <kap/kstr.h>
 
-ksize_t length(string str)
+ksize_t length(cstring str)
 {
     ksize_t r = 0;
 
@@ -31,7 +31,7 @@ ksize_t length_text(text split)
     return (r);
 }
 
-bool str_isempty(string str)
+bool str_isempty(cstring str)
 {
     if (str == NULL)
         return true;

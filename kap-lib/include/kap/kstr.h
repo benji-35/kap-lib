@@ -30,7 +30,7 @@ typedef char const ** ctext;
 /// @param str > string
 /// @return size (int) of the string
 ///
-extern ksize_t length(string str);
+extern ksize_t length(cstring str);
 
 ///Check if str1 finish with str2
 ///@param str1 > main string
@@ -50,7 +50,7 @@ extern bool str_equality(string str1, string str2);
 ///@param str1 > string
 ///@param splitter > char that can split the string
 ///@return text by spliting string
-extern text split_str(string str, char spliter);
+extern text split_str(cstring str, char spliter);
 
 ///Check str1 contain the string "contain"
 ///@param str1 > string
@@ -353,7 +353,7 @@ extern bool str_equality_tp(string str1, string str2, ksize_t pos);
 ///check if a string is empty or not
 ///@param str > string to check
 ///@return true if string is empty or false is it's not
-extern bool str_isempty(string str);
+extern bool str_isempty(cstring str);
 
 ///concat two strings and set the new content in str1
 ///@param str1 > pointer on string
@@ -377,6 +377,12 @@ extern void concat_str_pos_nm(string *str1, string str2, ksize_t pos);
 /// @param str > pointer on string
 /// @param char to remove
 extern void str_rm_all_fochar(string *str, char c);
+
+/// return number of first occurences of specific char
+/// @param str > string
+/// @param c > char
+/// @return number of occurences of char c before another char
+extern ksize_t nb_fchars(cstring str, char c);
 
 #ifdef __cplusplus
 }
