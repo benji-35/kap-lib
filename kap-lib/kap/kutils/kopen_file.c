@@ -43,5 +43,6 @@ text kopen_file_t(cstring path)
     if (readed == KNULL)
         return (KNULL);
     res = split_str(readed, '\n');
+    kfree(readed);
     return (res);
 }
