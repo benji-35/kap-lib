@@ -100,16 +100,15 @@ SRC_MATHS =	$(PATH_MATHS)kdivisible_by.c	\
 			$(PATH_MATHS)int_to_hexa.c		\
 			$(PATH_MATHS)hexa_to_int.c
 
-SRC_HASHMAP	=	$(PATH_HASH_MAP)add_node.c			\
-				$(PATH_HASH_MAP)create_hashmap.c	\
-				$(PATH_HASH_MAP)destroy_hashmap.c	\
-				$(PATH_HASH_MAP)find_node.c
-
-SRC_LIST	=	$(PATH_LIST)kinit_list.c	\
-				$(PATH_LIST)klist_clear.c	\
-				$(PATH_LIST)klist_rm_node.c	\
-				$(PATH_LIST)knode_get.c		\
-				$(PATH_LIST)list_add_node.c
+SRC_LIST	=	$(PATH_LIST)/list/kinit_list.c		\
+				$(PATH_LIST)/list/klist_clear.c		\
+				$(PATH_LIST)/list/klist_rm_node.c	\
+				$(PATH_LIST)/list/knode_get.c		\
+				$(PATH_LIST)/list/list_add_node.c	\
+				$(PATH_LIST)/hmap/add_hnode.c		\
+				$(PATH_LIST)/hmap/clear_hashmap.c	\
+				$(PATH_LIST)/hmap/find_hashnode.c	\
+				$(PATH_LIST)/hmap/init_hashmap.c
 
 SRC_PARSER_XML	=
 
@@ -131,7 +130,6 @@ SRC_KAP += $(SRC_KSTR)
 SRC_KAP += $(SRC_KUTILS)
 SRC_KAP += $(SRC_MATHS)
 SRC_KAP += $(SRC_KPRINTF)
-SRC_KAP += $(SRC_HASHMAP)
 SRC_KAP += $(SRC_LIST)
 SRC_KAP +=	$(SRC_PARSER_JSON)
 SRC_KAP += $(SRC_PARSER_XML)

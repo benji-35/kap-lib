@@ -1,5 +1,6 @@
 # Kap-Lib
-Kap-lib is a C lib that contain intresting things and complex action as string functions
+Kap-lib is a C lib that contain intresting things and complex action
+This library is available in c++ and c
 
 ## INCLUDE MAP
 | HEADER NAME | HEADERS CALL |
@@ -34,7 +35,7 @@ flag list :
 | 11 |  %ull  | display unsigned long long |
 
 # kstr include <kap/kstr.h> [NOT UPDATE]
-#### FUNCTION LIST (ENGLISH VERSION)
+#### FUNCTION LIST KSTR (ENGLISH VERSION)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
 |:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
@@ -93,7 +94,7 @@ flag list :
 | 53 | str_format | string __cmd, ... | string | As a kprint or printf, str_format return string with values you entered |
 | 54 | str_rm_all_fochar | string *str, char c | void | remove all first occurences of char c in string str |
 | 55 | str_isempty | cstring str | bool | return true if str is empty or return false is str is not empty |
-#### FUNCTION LIST (VERSION FRANÇAISE)
+#### FUNCTION LIST KSTR (VERSION FRANÇAISE)
 
 | N° |     Name function     |      Arguments      |  Value return  |            description              |
 |:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
@@ -191,3 +192,22 @@ flag list :
 | 07 |   kfree   | void *__ptr | void | if __ptr == null then nothing is done else __ptr is free |
 | 08 | kmemcpy | void *__ptr, void *__src, ksize_t __size | void * | copy value in __src to __ptr. __size is the src pointer size |
 | 09 | kmemset | void *__ptr, int __val, ksize_t __size | void | set the value __val of pointer __ptr. __size is the __ptr pointer size |
+
+# klist include <kap/klist.h>
+## List
+| N° |     Name function     |      Arguments      |  Value return  |            description              |
+|:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
+| 01 | list_init | void | klist_t * | initialize new list |
+| 02 | list_clear | klist_t *list | void | clear all list |
+| 03 | list_remove_node | klist_t *list, int index | void | remove a node in list by its index |
+| 04 | list_get_inode | klist_t *list, kusize_t index | knode_t * | get a node in list by its index |
+| 05 | list_add_node | klist_t \*list, OBJECT data, void (*print)(OBJECT data) | void | add new node in list |
+
+## Hashmap
+| N° |     Name function     |      Arguments      |  Value return  |            description              |
+|:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
+| 01 | init_hashmap | void | hmap_t * | initialize new hashmap |
+| 02 | clear_hashmap | hmap_t *hashmap | void | clear all hashmap |
+| 03 | remove_hashnode | hmap_t *hashmap, string key | void | remove a specific hashmap node |
+| 04 | add_hashnode | hmap_t *hashmap, string key, OBJECT value | bool | return true if node is added in hashmap or false if its not |
+| 05 | find_hashnode | hmap_t *hashmap, string key | khnode_t | return the hash node if its found else function return NULL |

@@ -33,6 +33,26 @@ struct klist_s {
     knode_t *list;
 };
 
+///Get node from list with its index
+///@param list > pointer on the list
+///@param data > pointer on data
+///@param print > function that can print de value (it can be NULL)
+extern void list_add_node(klist_t *list, OBJECT data, void (*print)(OBJECT data));
+
+///Get node from list with its index
+///@param list > pointer on the list
+///@param index > index id
+///@return node pointer. If node is not found, function return NULL
+extern knode_t *list_get_inode(klist_t *list, kusize_t index);
+
+///Clear all list
+///@param list > pointer on klist
+extern void list_clear(klist_t *list);
+
+///Initiate klist
+///@return new klist
+extern klist_t *list_init(void);
+
 #endif /*_KLIST_*/
 
 #ifndef _KHASHMAP_
@@ -57,32 +77,33 @@ struct khashmap_s {
     khnode_t *nodes;
 };
 
+///initialize a new hashmap
+///@return hmap > pointer of head of hashmap
+extern hmap_t *init_hashmap(void);
+
+///find hash node in hashmap
+/// @param hashmap > head of hashmap
+/// @param key > the key of node (string)
+/// @return khnode if node is found else return NULL
+extern khnode_t *find_hashnode(hmap_t *hashmap, string key);
+
+///remove node after found it
+/// @param hashmap > head of hashmap
+/// @param key > the key of node (string)
+extern void remove_hashnode(hmap_t *hashmap, string key);
+
+///clear all hashmap
+/// @param hashmap > head of hashmap
+extern void clear_hashmap(hmap_t *hashmap);
+
+///add a new hash node in hashmap
+///@param hashmap > head of hashmap
+///@param key > string that will be the key of the node
+///@param value > pointer on variable you want save in hashmap
+///@return true if node is added else return false
+extern bool add_hashnode(hmap_t *hashmap, string key, OBJECT value);
+
 #endif /*_KHASHMAP_*/
-
-///Get node from list with its index
-///@param list > pointer on the list
-///@param data > pointer on data
-///@param print > function that can print de value (it can be NULL)
-extern void add_node(klist_t *list, OBJECT data, void (*print)(OBJECT data));
-
-///Get node from list with its index
-///@param list > pointer on the list
-///@param index > index id
-///@return node pointer. If node is not found, function return NULL
-extern knode_t *list_get_inode(klist_t *list, kusize_t index);
-
-///Clear all list
-///@param list > pointer on klist
-extern void list_clear(klist_t *list);
-
-///Initiate klist
-///@return new klist
-extern klist_t *list_init(void);
-
-///Get last hnode in hash map
-///@param hmap > hash map that contain hnode to find
-///@return khnode > return NULL if an error occured
-extern khnode_t *get_last_hnode(hmap_t *hmap);
 
 #ifdef __cplusplus
 }
