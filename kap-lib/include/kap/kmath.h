@@ -72,6 +72,22 @@ extern string hex_to_bin(string hex, bool flag, bool hexHaveFlag);
 /// @param hexHaveFlag > set true if hexa have flag else set false
 /// @return the value
 extern int hex_to_int(string hex, bool hexHaveFlag);
+
+///check if number is prime number
+///@param nb > number
+///@result true if is prime number or false if its not
+extern bool is_prime(ksize_t nb);
+
+///get first prime number from number nb
+///@param nb > number
+/// @result first prime at sup
+extern ksize_t get_prime_sup(ksize_t nb);
+
+///get first prime from n umber nb
+///@param nb > number
+///@result first prime at min
+extern ksize_t get_prime_min(ksize_t nb);
+
 #ifdef __cplusplus
 }
 #endif

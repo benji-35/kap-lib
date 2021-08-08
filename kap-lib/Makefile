@@ -98,7 +98,8 @@ SRC_MATHS =	$(PATH_MATHS)kdivisible_by.c	\
 			$(PATH_MATHS)int_to_bin.c		\
 			$(PATH_MATHS)bin_to_int.c		\
 			$(PATH_MATHS)int_to_hexa.c		\
-			$(PATH_MATHS)hexa_to_int.c
+			$(PATH_MATHS)hexa_to_int.c		\
+			$(PATH_MATHS)prime.c
 
 SRC_LIST	=	$(PATH_LIST)/list/kinit_list.c		\
 				$(PATH_LIST)/list/klist_clear.c		\

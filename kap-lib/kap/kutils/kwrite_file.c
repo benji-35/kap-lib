@@ -33,15 +33,32 @@ static void kwrite_noappend(string path, string txt)
     close(fd);
 }
 
-void kwrite_file(string path, string txt, bool append)
+void kwrite_file_t(string path, text txt, char sep, bool append)
 {
+    string str = NULL;
+
     if (path == NULL)
         return;
     if (txt == NULL)
         return;
+    str = text_to_str(txt, sep);
     if (append) {
-        kwrite_append(path, txt);
+        kwrite_append(path, str);
     } else {
-        kwrite_noappend(path, txt);
+        kwrite_noappend(path, str);
+    }
+    kfree(str);
+}
+
+void kwrite_file(cstring path, cstring content, bool append)
+{
+    if (path == NULL)
+        return;
+    if (content == NULL)
+        return;
+    if (append) {
+        kwrite_append(path, content);
+    } else {
+        kwrite_noappend(path, content);
     }
 }

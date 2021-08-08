@@ -85,11 +85,18 @@ extern string kopen_file(cstring path);
 /// @return content as text format. If file can't be open return NULL
 extern text kopen_file_t(cstring path);
 
-/// write in file
+/// write string in file
 /// @param path > path of file
 /// @param str > string that will write in file
 /// @param append > if true : the str will write after file content. If false : the file will clear and then write str
-extern void kwrite_file(string path, string str, bool append);
+extern void kwrite_file(cstring path, cstring str, bool append);
+
+/// write text in file
+/// @param path > path of file
+/// @param txt > text that will write in file
+/// @param sep > separator between lines in text (to make a real text, put \\n)
+/// @param append > if true : the str will write after file content. If false : the file will clear and then write str
+void kwrite_file_t(string path, text txt, char sep, bool append);
 
 /// check the extension of a file
 /// @param path > path of file

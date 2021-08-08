@@ -168,6 +168,9 @@ flag list :
 | 07 | bin_to_hex | string bin, bool flag, bool binHaveFlag | string | function that return hex value from binary |
 | 08 | hex_to_bin | string hex, bool flag, bool hexHaveFlag | string | function that return binary value from hex |
 | 09 | hex_to_int | string hex, bool hexHaveFlag | int | function that return value of hex |
+| 10 | is_prime | ksize_t nb | bool | return true if nb is prime number else return false |
+| 11 | get_prime_sup | ksize_t nb | ksize_t | return the superior number prime |
+| 12 | get_prime_min | ksize_t nb | ksize_t | return the minus prime |
 
 # kutils include <kap/kutils.h>
 
@@ -176,8 +179,9 @@ flag list :
 | 01 |   can_open_file   | string path | bool | return true if file can be open else return false |
 | 02 |   kopen_file   | string path | string | return string that contain the file content |
 | 03 | kopen_file_t | string path | text | same as kopen_file but return content as text |
-| 04 | kwrite_file | string path, string str, bool append | void | write in file |
-| 05 | check_extension_file | string path, string __exten | bool | return true if file have the good extension. False if it doesn't |
+| 04 | kwrite_file | string path, string str, bool append | void | write string in file |
+| 05 | kwrite_file_t | string path, text txt, char sep, bool append | void | write text in file |
+| 06 | check_extension_file | string path, string __exten | bool | return true if file have the good extension. False if it doesn't |
 
 # kmem include <kap/kmem.h>
 
