@@ -5,11 +5,12 @@
 ** main
 */
 
+#include <stdio.h>
 #include <kap/klib.h>
 
-int main(int ac, text av)
+int main(int ac UNUSED, text av UNUSED)
 {
-    string bin = int_to_bin(1, true);
+    /*string bin = int_to_bin(1, true);
     string hex = int_to_hex(1, true);
     string hex_bin = bin_to_hex(bin, true, true);
     string bin_hex = hex_to_bin(hex, true, true);
@@ -78,5 +79,12 @@ int main(int ac, text av)
     kfree(bin);
     kfree(hex);
     kfree(hex_bin);
-    kfree(bin_hex);
+    kfree(bin_hex);*/
+    kyml_parser_t *parser = init_yml_parser("tests/parser_files/test2.yml");
+    set_value_YML("content.content1", "finalContent", parser);
+    string val = get_value_YML("clans.allezLeFoot.color", parser);
+    printf("value of allezLeFoot Color : %s\n", val);
+    display_yml_content(parser);
+    save_yml_parser(parser);
+    destroy_yml_parser(parser);
 }

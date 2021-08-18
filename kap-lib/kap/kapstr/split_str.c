@@ -13,6 +13,8 @@ static ksize_t nb_split(cstring str, char splitter)
     ksize_t size = length(str);
     ksize_t result = 0;
 
+    if (size <= 0)
+        return 0;
     if (str[size - 1] == splitter)
         result--;
     for (ksize_t i = 0; str[i] != 0; i++) {
@@ -55,6 +57,9 @@ text split_str(cstring str, char spliter)
         complete_str_split(str + i, to_mal, result[curr]);
         curr ++;
         i += to_mal;
+    }
+    if (size == 0) {
+        result[nbsplit] = NULL;
     }
     result[nbsplit + 1] = NULL;
     return (result);

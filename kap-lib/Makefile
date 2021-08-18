@@ -67,7 +67,8 @@ SRC_KSTR =	$(PATH_STR)concat_str.c				\
 			$(PATH_STR_FORM)add_istr.c			\
 			$(PATH_STR_FORM)flag_str_format.c	\
 			$(PATH_STR_FORM)str_flag_list.c		\
-			$(PATH_STR)remove_all_fochar.c
+			$(PATH_STR)remove_all_fochar.c		\
+			$(PATH_STR)nb_chars.c
 
 SRC_KUTILS =	$(PATH_UTILS)kan_open_file.c		\
 				$(PATH_UTILS)kopen_file.c			\
@@ -115,15 +116,14 @@ SRC_PARSER_XML	=
 
 SRC_PARSER_JSON	=
 
-SRC_PARSER_YML	=	$(PATH_PARSER_YML)create_yml_content.c		\
-					$(PATH_PARSER_YML)destroy_yml_parser.c		\
-					$(PATH_PARSER_YML)find_node_bindentation.c	\
-					$(PATH_PARSER_YML)get_value_yml.c			\
-					$(PATH_PARSER_YML)init_yml_parser.c			\
-					$(PATH_PARSER_YML)save_yml_parser.c			\
-					$(PATH_PARSER_YML)set_value.c				\
-					$(PATH_PARSER_YML)yml_format.c				\
-					$(PATH_PARSER_YML)display_yml_content.c
+SRC_PARSER_YML	=	$(PATH_PARSER_YML)init_ymlparser.c\
+					$(PATH_PARSER_YML)init_node_list.c\
+					$(PATH_PARSER_YML)save_yml_parser.c\
+					$(PATH_PARSER_YML)set_get_value.c\
+					$(PATH_PARSER_YML)utils/add_yml_node.c\
+					$(PATH_PARSER_YML)utils/quick_yml_node.c\
+					$(PATH_PARSER_YML)utils/node_exists.c\
+					$(PATH_PARSER_YML)utils/smart_add_yml_node.c
 
 SRC_REGEX	=	
 
@@ -134,6 +134,7 @@ SRC_KAP += $(SRC_KPRINTF)
 SRC_KAP += $(SRC_LIST)
 SRC_KAP +=	$(SRC_PARSER_JSON)
 SRC_KAP += $(SRC_PARSER_XML)
+SRC_KAP += $(SRC_PARSER_YML)
 SRC_KAP	+= $(SRC_REGEX)
 SRC_KAP += $(SRC_KMEM)
 

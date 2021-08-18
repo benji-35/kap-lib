@@ -1,13 +1,10 @@
 name: test
 #ceci est un com, on s'en fou mdr
 content:
+   #cecie est un autre com
   content1: cont1
   content2: cont2
   content3:
     content: content of content 3
 
 array: [1, 2, 3, 4, 5]
-array2:
-  -6
-  -7
-  -8

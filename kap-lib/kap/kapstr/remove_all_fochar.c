@@ -9,6 +9,8 @@
 
 void str_rm_all_fochar(string *str, char c)
 {
+    if (str == NULL || *str == NULL)
+        return;
     while ((*str)[0] == c)
         str_rm_fchar(str);
 }

@@ -39,6 +39,7 @@ build_sub:
 
 clean:
 	@find . \( -name "*.o" -o -name "*.a" \) -delete
+	@find -name "main-parser" -delete
 .PHONY : clean
 
 tests: $(OBJ)

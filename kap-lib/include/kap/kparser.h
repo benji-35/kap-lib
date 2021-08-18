@@ -31,39 +31,45 @@ extern "C" {
 #endif /*!_YML_SPACES_*/
 
 #define YML_SPC _YML_SPACES_
+
+typedef struct knode_yml_s knode_yml;
 typedef struct kyml_parser_s kyml_parser_t;
-typedef kyml_parser_t kyml_p;
-typedef struct yml_content_s yml_content_t;
-typedef yml_content_t yml_cont_t;
 
-struct yml_content_s {
-    ksize_t depth;
-    string name;
-    string value;
-    yml_content_t **content;
-};
+//les structure YML
 
-struct kyml_parser_s {
+struct knode_yml_s {
     string path;
-    text content;
-    yml_content_t content_yml;
+    string value;
+    knode_yml *next;
+    knode_yml *prev;
+    kyml_parser_t *master;
+};
+struct kyml_parser_s {
+    knode_yml *nodeList;
+    string path;
 };
 
-struct read_yml_line {
-    int id_line;
-    int spaces_before;
-    string content;
-};
+//les fonctions YML
 
-#endif /*!_KYML_PARSER*/
-
-#ifndef _YML_FUNC_PARSER_
-#define _YML_FUNC_PARSER_
-
-extern kyml_p *init_kyml_parser(cstring path);
-extern yml_content_t *get_last_yml_content(kyml_p *parser);
-extern string get_value_yml(kyml_p *parser, cstring path);
-extern text get_array_yml(kyml_p *parser, cstring path);
+extern void add_yml_node(string path, string value, kyml_parser_t *parser);
+extern void smart_add_yml_node(cstring path UNUSED, string value UNUSED, kyml_parser_t *parser UNUSED);
+extern knode_yml *get_last_yml_node(kyml_parser_t *parser);
+extern void display_yml_content(kyml_parser_t *parser);
+extern void init_yml_nodelist(kyml_parser_t *parser);
+extern knode_yml *get_yml_node(cstring path, kyml_parser_t *parser);
+extern void remove_nodeYML(cstring path, kyml_parser_t *parser);
+///check if node exists with path 
+extern bool node_yml_exists(cstring path, kyml_parser_t *parser);
+///initialize the yml parser by file path
+extern kyml_parser_t *init_yml_parser(cstring path);
+//destroy all things in parser
+extern void destroy_yml_parser(kyml_parser_t *parser);
+//to set value in yml parser
+extern void set_value_YML(cstring path, string value, kyml_parser_t *parser);
+///save paser
+extern void save_yml_parser(kyml_parser_t *parser);
+///get yml value
+extern string get_value_YML(cstring path, kyml_parser_t *parser);
 
 #endif /*_YML_FUNC_PARSER_*/
 #ifdef __cplusplus
@@ -71,3 +77,61 @@ extern text get_array_yml(kyml_p *parser, cstring path);
 #endif
 
 #endif /* !KPARSER_H_ */
+
+/*
+
+Pour le YML :
+
+    structure main :
+        - Path du fichier
+        - Liste des nodes
+    
+    structure Node de modif :
+        - Path
+        - Valeur
+
+
+    fonction init :
+    Malloc la structure main
+    lire le fichier
+    initialiser la liste des nodes
+
+    fonction get value :
+        prendre la path donné
+        tant que liste node -> next != null
+        +->[node->path == path donne] -OUI--> return node->value
+        |
+        NON
+        |
+        +-> node = node->next;
+        Fin tant
+        return NULL;
+    
+    fonction set value :
+        [path exists ?] -OUI--> aller à la node dans la liste et donner la valeur
+        |
+        NON
+        |
+        +->Créer une nouvelle node avec le path donné et sa valeur
+
+    fonction pathExists :
+        node = getNodeInList
+        [node == NULL] -OUI--> return false
+        return true
+
+    fonction getNodeInList :
+        tant que liste node -> next != NULL
+        |
+        +->[node->path == path donne] -OUI--> return true
+        |
+        +-> node = node -> next
+        Fin tant que
+        return NULL
+
+    fonction trierListeNode :
+        il faut trier pour faire en sorte que chaque noeud dans le path soit les un à la suite des autres
+
+    fonction save :
+        trierListeNode
+        écrire dans le fichier (chaque apparition de '.' sera modifer par un \n + YML_SPC)
+*/

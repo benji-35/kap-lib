@@ -49,7 +49,6 @@ text ksplit_interv(string str, ksize_t nb)
     text splitted = kmalloc(sizeof(string ) * (nb_split));
 
     kcomplete_interv(splitted, str, nb, nb_split - 1);
-    splitted[nb_split - 1] = kmalloc(sizeof(char));
     splitted[nb_split - 1] = NULL;
     return (splitted);
 }
