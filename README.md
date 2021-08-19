@@ -215,3 +215,18 @@ flag list :
 | 03 | remove_hashnode | hmap_t *hashmap, string key | void | remove a specific hashmap node |
 | 04 | add_hashnode | hmap_t *hashmap, string key, OBJECT value | bool | return true if node is added in hashmap or false if its not |
 | 05 | find_hashnode | hmap_t *hashmap, string key | khnode_t | return the hash node if its found else function return NULL |
+
+## YML PARSER
+With this parser, you can read, add values, delete nodes and save your yml
+
+\\!WARNING!/
+Function set_value_YML doesn't save the content. To save the content you have to use save_yml_parser or save_yml_parser_of.
+
+| N° |     Name function     |      Arguments      |  Value return  |            description              |
+|:--:|:---------------------:|:-------------------:|:--------------:|:-----------------------------------:|
+| 01 | init_yml_parser | cstring path | kyml_parser_t * | initialize a new yml parser with yml file content |
+| 02 | destroy_yml_parser | kyml_parser_t *parser | void | free memory of yml parser |
+| 03 | save_yml_parser | kyml_parser_t *parser | void | save yml content in file opened at initialize |
+| 04 | save_yml_parser_of | kyml_parser_t *parser, cstring path | void | save yml content in another file thaht file opened at initialize |
+| 05 | get_value_YML | cstring path, kyml_parser_t *parser | string | if there is value, function will return the value esle function will return NULL |
+| 06 | set_value_YML | cstring path, string value, kyml_parser_t *parser | void | set a value at specific path if value is NULL, node with path will be delete |
