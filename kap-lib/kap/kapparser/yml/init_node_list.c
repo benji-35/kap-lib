@@ -103,9 +103,10 @@ void init_yml_nodelist(kyml_parser_t *parser)
     string value = NULL;
 
     for (ksize_t i = 0; i < length_text(readed); i++) {
-            if (first_char_after_spacesYML(readed[i]) != '#') {
+        if (first_char_after_spacesYML(readed[i]) != '#') {
             manage_line_detect_yml(&currPath, &value, readed[i]);
             if (value != NULL) {
+                printf("[INIT NODE LIST] path = %s\n", currPath);
                 smart_add_yml_node(currPath, value, parser);
                 kfree(value);
                 value = NULL;

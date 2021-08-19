@@ -69,7 +69,8 @@ static void add_ymlNode_spec(knode_yml *node_prev, cstring value, kyml_parser_t 
     } else {
         n_node->prev = node_prev;
         n_node->next = node_prev->next;
-        n_node->next->prev = n_node;
+        if (n_node->next != NULL)
+            n_node->next->prev = n_node;
         node_prev->next = n_node;
         init_unset_yml_pathes(n_node, node_prev);
     }
