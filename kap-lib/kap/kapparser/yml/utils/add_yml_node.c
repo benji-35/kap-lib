@@ -9,7 +9,7 @@
 #include <kap/kprintf.h>
 #include <kap/kparser.h>
 
-void add_yml_node(string path, string value, kyml_parser_t *parser)
+void add_yml_node(cstring path, string value, kyml_parser_t *parser)
 {
     knode_yml *new_node = kmalloc(sizeof(knode_yml));
     knode_yml *last = get_last_yml_node(parser);
@@ -26,6 +26,7 @@ void add_yml_node(string path, string value, kyml_parser_t *parser)
     new_node->master = parser;
     new_node->path = copy_str(path);
     new_node->value = copy_str(value);
+    new_node->unixistant_pathes = NULL;
 }
 
 void display_yml_content(kyml_parser_t *parser)
@@ -38,6 +39,8 @@ void display_yml_content(kyml_parser_t *parser)
     kprintf("[Display YML content] File : %s\n\n", parser->path);
     while (node != NULL) {
         kprintf("[NODE %p]\n\tpath: %s\n\tcontent: %s\n", node, node->path, node->value);
+        for (ksize_t i = 0; i < length_text(node->unixistant_pathes); i++)
+            kprintf("  Have to create : %s\n", node->unixistant_pathes[i]);
         node = node->next;
     }
     kprintf("end display YML content\n");

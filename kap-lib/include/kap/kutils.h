@@ -96,7 +96,11 @@ extern void kwrite_file(cstring path, cstring str, bool append);
 /// @param txt > text that will write in file
 /// @param sep > separator between lines in text (to make a real text, put \\n)
 /// @param append > if true : the str will write after file content. If false : the file will clear and then write str
-void kwrite_file_t(string path, text txt, char sep, bool append);
+extern void kwrite_file_t(string path, text txt, cstring sep, bool append);
+
+///clear a file
+///@param path > path of file
+extern void kclear_file(cstring path);
 
 /// check the extension of a file
 /// @param path > path of file

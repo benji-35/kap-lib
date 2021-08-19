@@ -44,7 +44,7 @@ extern bool finish_with(string str1, string str2);
 ///@param str2 > check finish string
 ///@return 1 if str1 and str2 are equal
 ///otherwise return 0
-extern bool str_equality(string str1, string str2);
+extern bool str_equality(cstring str1, cstring str2);
 
 ///Split string by occurence of splitter
 ///@param str1 > string
@@ -57,7 +57,7 @@ extern text split_str(cstring str, char spliter);
 ///@param contain > string containing in str1
 ///@return 1 if string str1 contain string contain
 ///othewise return 0
-extern bool str_contains(string str1, string contain);
+extern bool str_contains(cstring str1, cstring contain);
 
 ///Check if str1 start with str2
 ///@param str1 > main string
@@ -83,7 +83,7 @@ extern void str_to_upper_case(string str);
 ///@param str1 > first string
 ///@param str2 > second string
 ///@return String with str1 and str2 in same string
-extern string concat_str(string str1, string str2);
+extern string concat_str(cstring str1, cstring str2);
 
 ///int to str
 ///@param nb > int value
@@ -224,7 +224,7 @@ extern void replace_char_str(string str, char target, char replace);
 ///@param split > text
 ///@param separator > string to place between line (Nullable)
 ///@return string result
-extern string text_to_str(text split, string separator);
+extern string text_to_str(text split, cstring separator);
 
 ///insert string "to_insert" in string "str" at specific position
 ///@param str > string pointer
@@ -358,7 +358,7 @@ extern bool str_isempty(cstring str);
 ///concat two strings and set the new content in str1
 ///@param str1 > pointer on string
 ///@param str2 > string to add at the end of str1
-extern void concat_str_nm(string *str1, string str2);
+extern void concat_str_nm(string *str1, cstring str2);
 
 ///concat the second string at specific pos in the first string and return the new content
 ///@param str1 > first string

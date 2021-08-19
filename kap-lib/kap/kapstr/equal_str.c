@@ -7,7 +7,7 @@
 
 #include <kap/kstr.h>
 
-bool str_equality(string str1, string str2)
+bool str_equality(cstring str1, cstring str2)
 {
     ksize_t s1 = length(str1);
 

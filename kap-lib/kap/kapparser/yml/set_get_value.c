@@ -31,7 +31,7 @@ void set_array_YML(cstring path, text values, kyml_parser_t *parser)
 {
     string tamp;
     string n_value = text_to_str(values, ", ");
-    concat_str_nm(n_value, "]");
+    concat_str_nm(&n_value, "]");
     tamp = concat_str("[", n_value);
     set_value_YML(path, n_value, parser);
     kfree(tamp);

@@ -18,7 +18,6 @@ static void rm_all_spaces_start(string *str, ksize_t nb_spaces)
 
 static void new_path_from_ymltext(string line, string *curr_path)
 {
-    string tampon = NULL;
     if (length(line) == 0) {
         return;
     }
@@ -107,7 +106,7 @@ void init_yml_nodelist(kyml_parser_t *parser)
             if (first_char_after_spacesYML(readed[i]) != '#') {
             manage_line_detect_yml(&currPath, &value, readed[i]);
             if (value != NULL) {
-                add_yml_node(currPath, value, parser);
+                smart_add_yml_node(currPath, value, parser);
                 kfree(value);
                 value = NULL;
             }

@@ -6,5 +6,6 @@ content:
   content2: cont2
   content3:
     content: content of content 3
+    content3-1: yo toi
 
 array: [1, 2, 3, 4, 5]

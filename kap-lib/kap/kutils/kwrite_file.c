@@ -13,7 +13,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-static void kwrite_append(string path, string txt)
+static void kwrite_append(cstring path, cstring txt)
 {
     int fd = open(path, O_WRONLY | O_CREAT | O_APPEND, 0644);
 
@@ -23,7 +23,7 @@ static void kwrite_append(string path, string txt)
     close(fd);
 }
 
-static void kwrite_noappend(string path, string txt)
+static void kwrite_noappend(cstring path, cstring txt)
 {
     int fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 
@@ -33,7 +33,7 @@ static void kwrite_noappend(string path, string txt)
     close(fd);
 }
 
-void kwrite_file_t(string path, text txt, char sep, bool append)
+void kwrite_file_t(string path, text txt, cstring sep, bool append)
 {
     string str = NULL;
 
@@ -61,4 +61,9 @@ void kwrite_file(cstring path, cstring content, bool append)
     } else {
         kwrite_noappend(path, content);
     }
+}
+
+void kclear_file(cstring path)
+{
+    kwrite_file(path, "", false);
 }

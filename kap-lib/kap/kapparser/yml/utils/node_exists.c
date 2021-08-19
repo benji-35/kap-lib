@@ -31,5 +31,5 @@ knode_yml *get_yml_node(cstring path, kyml_parser_t *parser)
             return node;
         node = node->next;
     }
-    
+    return NULL;
 }

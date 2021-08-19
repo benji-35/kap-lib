@@ -48,7 +48,7 @@ flag list :
 |  7 |       nb_o_split      |       text *txt     |       int      | Return the number of \0 in text     |
 |  8 |    is_alphanumeric    |        char c       |       int      | Return 1 if char is alphanumeric or 0 it's not an alphanurmeric char|
 |  9 |       concat_str      |      string str1, string str2|     string     | Concat string 2 with string 1 and return the result|
-| 10 |      str_contains     |      string str, string contain|       int      | Return 1 if str contain the content of contain otherwise it return 0|
+| 10 |      str_contains     |      cstring str, cstring contain|       int      | Return 1 if str contain the content of contain otherwise it return 0|
 | 11 |    str_contain_pos    |      string str, string contain|       int      | Return the position of the first string occurence. if there is no occurence then NULL is return|
 | 12 |       copy_str        |      string str     |     string     | Return a copy of string             |
 | 13 |      copy_str_fp      |      string str, int pos|     string     | Return a copy of string from a position|
@@ -56,7 +56,7 @@ flag list :
 | 15 |     double_to_str     |       double f, int precision  |     string     | Return a double in string with precision number after coma|
 | 16 |       empty_str       |         void        |     string     | Return an empty string with only \0 |
 | 17 |     empty_str_size    |       int size      |     string     | Return an empty string with size  give in argument|
-| 18 |      str_equality     |     string str1, string str2   |       int      | Return 1 if str1 and str2 are equals|
+| 18 |      str_equality     |     cstring str1, cstring str2   |       int      | Return 1 if str1 and str2 are equals|
 | 19 |       finish_with     |     string str1, string str2     |       int      | Return 1 if str1 finish with str2   |
 | 20 |       free_text      |      text split     |      void      | Free the text                       |
 | 21 |    insert_char_str    |      string *str, int position, char c |     void     | Add a char at the position in the string |
@@ -77,7 +77,7 @@ flag list :
 | 36 |    replace_char_str   |      string str, char target, char replace|       void     | Replace all char equals to target in str to replace value|
 | 37 |   replace_char_text   |       text txt, char target, char replace|      void      | Replace all char equals to target in text to replace value|
 | 38 |       split_str       |      cstring str, char splitter|      text      | Split text for each splitter position in string and return the text splitted|
-| 39 |      text_to_str      |      text split, string separator|     string     | From text, a string is generate and you can put a separator if you want (separator is nullable)|
+| 39 |      text_to_str      |      text split, cstring separator|     string     | From text, a string is generate and you can put a separator if you want (separator is nullable)|
 | 40 |       strat_with      |      string str1, string str2|       int      | Return 1 if str1 start with str2 else function return 0|
 | 41 |       get_words       |       string str    |      text      | Return a list with words of string  |
 | 42 |    str_to_double      |       string str    |     double     | Return double value from double in string|
@@ -107,7 +107,7 @@ flag list :
 |  7 |       nb_o_split      |       text *txt     |       int      | Retourne le nombre de \0 dans le texte|
 |  8 |    is_alphanumeric    |        char c       |       int      | Retourne 1 si le char est un caractère alphanumérique sinon la fonction retourne 0|
 |  9 |       concat_str      |      string str1, string str2|     string     | Ajoute la string str2 à la fin de la string str1 et retourne le résultat|
-| 10 |      str_contains     |      string str, string contain|       int      | Retourne 1 si la string str contient la string contain|
+| 10 |      str_contains     |      cstring str, cstring contain|       int      | Retourne 1 si la string str contient la string contain|
 | 11 |    str_contain_pos    |      string str, string contain|       int      | retroune la position de la première occurence de contain dans la string str. Si aucune occurence n'est trouvé alors la fonction retourne -1|
 | 12 |       copy_str        |      string str     |     string     | Retourne la copie de la string str|
 | 13 |      copy_str_fp      |      string str, int pos|     string     | Retourne la copie de la string str depuis la position pos|
@@ -115,7 +115,7 @@ flag list :
 | 15 |     double_to_str     |       double f, int precision  |     string     | Retourne la valeur de la double en string avec precision (int) chiffre après la virgule|
 | 16 |       empty_str       |         void        |     string     | Retourne une string vide ayant la taille 0|
 | 17 |     empty_str_size    |       int size      |     string     | Retourne une string vide ayant la taille demandé|
-| 18 |      str_equality     |     string str1, string str2   |       int      | Retourne 1 si la string 1 est égale à la string 2 sinon la fonction retourne 0|
+| 18 |      str_equality     |     cstring str1, cstring str2   |       int      | Retourne 1 si la string 1 est égale à la string 2 sinon la fonction retourne 0|
 | 19 |       finish_with     |     string str1, string str2     |       int      | Retourne 1 si la string 1 finit avec la string 2 sinon la fonction retourne 0|
 | 20 |       free_text      |      text split     |      void      | Free le text|
 | 21 |    insert_char_str    |      string *str, int position, char c |     void     | Ajoute un char à une position dans la string|
@@ -136,7 +136,7 @@ flag list :
 | 36 |    replace_char_str   |      string str, char target, char replace|       void     | Remplace toute les chars ayant la valeur target par la valeur replace dans la string str|
 | 37 |   replace_char_text   |       text txt, char target, char replace|      void      | Remplace toute les chars ayant la valeur target par la valeur replace dans le texte txt|
 | 38 |       split_str       |      cstring str, char splitter|      text      | Divise la string par rapport aux occurences de splitter dans la string str et en retourne un texte|
-| 39 |      text_to_str      |      text split, string separator|     string     | Depuis un texte créer un string dans laquelle entre chaque ligne on peut rajouter une string|
+| 39 |      text_to_str      |      text split, cstring separator|     string     | Depuis un texte créer un string dans laquelle entre chaque ligne on peut rajouter une string|
 | 40 |       strat_with      |      string str1, string str2|       int      | Retroune 1 si la string 1 commence par la string 2|
 | 41 |       get_words       |       string str    |      text      | retourne la liste des mots dans la string str|
 | 42 |    str_to_double      |       string str    |     double     | Passe une valeur double en string à une double|
@@ -180,7 +180,7 @@ flag list :
 | 02 |   kopen_file   | string path | string | return string that contain the file content |
 | 03 | kopen_file_t | string path | text | same as kopen_file but return content as text |
 | 04 | kwrite_file | string path, string str, bool append | void | write string in file |
-| 05 | kwrite_file_t | string path, text txt, char sep, bool append | void | write text in file |
+| 05 | kwrite_file_t | string path, text txt, cstring sep, bool append | void | write text in file |
 | 06 | check_extension_file | string path, string __exten | bool | return true if file have the good extension. False if it doesn't |
 
 # kmem include <kap/kmem.h>

@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 
-string concat_str(string str1, string str2)
+string concat_str(cstring str1, cstring str2)
 {
     ksize_t s1 = length(str1);
     ksize_t s2 = length(str2);
@@ -59,7 +59,7 @@ string concat_str_pos(string str1, string str2, ksize_t pos)
     return (result);
 }
 
-void concat_str_nm(string *str1, string str2)
+void concat_str_nm(string *str1, cstring str2)
 {
     string tampon = concat_str(*str1, str2);
 

@@ -38,6 +38,7 @@ void destroy_yml_parser(kyml_parser_t *parser)
         kfree(node->path);
         kfree(node->value);
         tampon = node->next;
+        free_text(node->unixistant_pathes);
         kfree(node);
         node = tampon;
     }

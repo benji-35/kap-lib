@@ -7,7 +7,7 @@
 
 #include <kap/kstr.h>
 
-bool str_contains(string str1, string contain)
+bool str_contains(cstring str1, cstring contain)
 {
     int s1 = length(str1);
     int curr = 0;

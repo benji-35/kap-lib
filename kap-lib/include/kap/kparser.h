@@ -43,6 +43,7 @@ struct knode_yml_s {
     knode_yml *next;
     knode_yml *prev;
     kyml_parser_t *master;
+    text unixistant_pathes;
 };
 struct kyml_parser_s {
     knode_yml *nodeList;
@@ -51,7 +52,7 @@ struct kyml_parser_s {
 
 //les fonctions YML
 
-extern void add_yml_node(string path, string value, kyml_parser_t *parser);
+extern void add_yml_node(cstring path, string value, kyml_parser_t *parser);
 extern void smart_add_yml_node(cstring path UNUSED, string value UNUSED, kyml_parser_t *parser UNUSED);
 extern knode_yml *get_last_yml_node(kyml_parser_t *parser);
 extern void display_yml_content(kyml_parser_t *parser);
@@ -70,6 +71,8 @@ extern void set_value_YML(cstring path, string value, kyml_parser_t *parser);
 extern void save_yml_parser(kyml_parser_t *parser);
 ///get yml value
 extern string get_value_YML(cstring path, kyml_parser_t *parser);
+///save yml parser in another file
+extern void save_yml_parser_of(kyml_parser_t *parser, cstring path);
 
 #endif /*_YML_FUNC_PARSER_*/
 #ifdef __cplusplus

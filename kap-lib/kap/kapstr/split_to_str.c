@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <kap/kstr.h>
 
-string text_to_str(text split, string separator)
+string text_to_str(text split, cstring separator)
 {
     string str = NULL;
     string tampon = NULL;
