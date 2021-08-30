@@ -1,0 +1,21 @@
+{
+    "var1": "mainVar",
+    "array1": [
+        "arr1",
+        "arr2"
+    ],
+    "num1": 12,
+    "bool": true,
+    "object1": {
+        "var1": "obj1 var",
+        "arr": [
+            "arr1",
+            "arr2"
+        ],
+        "num": 96,
+        "bool": false,
+        "objectInObject": {
+            "var1": "objInObj var"
+        }
+    }
+}
