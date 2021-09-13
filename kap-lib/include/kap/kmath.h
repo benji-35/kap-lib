@@ -14,6 +14,14 @@
 #define ABS(value)    (((value) < (0)) ? (value * -1) : (value))
 #endif /*ABS*/
 
+#ifndef SQUARE
+#define SQUARE(value) (value * value)
+#endif /*SQUARE*/
+
+#ifndef PI
+#define PI 3.14159265359f
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

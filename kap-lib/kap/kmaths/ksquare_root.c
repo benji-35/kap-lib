@@ -6,28 +6,32 @@
 */
 
 #include <kap/kutils.h>
+#include <kap/kmath.h>
 
-static bool check_square_root(kussize_t nb1, kussize_t nb2, kussize_t nb)
+static void check_square_root(kdsize_t *b1, kdsize_t *b2, double precision, kdsize_t nb)
 {
-    if ((nb1 * nb2) == nb) {
-        if (nb1 == nb2)
-            return (true);
+    while (SQUARE(*b2) < nb) {
+        *b1 = *b2;
+        *b2 += precision;
+        if (SQUARE(*b2) == nb)
+            return;
     }
-    return (false);
 }
 
-kussize_t ksquare_root(kussize_t nb)
+kdsize_t ksquare_root(kdsize_t nb)
 {
-    kussize_t res = 0;
+    kdsize_t b1 = 0;
+    kdsize_t b2 = 1;
+    double precision = 1;
 
-    if (nb <= 0)
-        return (res);
-    while (check_square_root(res, res, nb))
-        res++;
-    return (res);
-}
-
-kussize_t kroot(kusize_t nb UNUSED, kusize_t rt UNUSED)
-{
-    return (0);
+    while (SQUARE(b1) != nb || SQUARE(b2) != nb) {
+        check_square_root(&b1, &b2, precision, nb);
+        if (SQUARE(b1) == nb)
+            return b1;
+        if (SQUARE(b2) == nb)
+            return b2;
+        precision = precision / 10;
+        if (precision < 0.0000000001)
+            return b2;
+    }
 }

@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "criterion.h": "c"
+        "criterion.h": "c",
+        "cmath": "cpp",
+        "*.tcc": "cpp"
     },
     "files.exclude": {
         "**/.git": true,
