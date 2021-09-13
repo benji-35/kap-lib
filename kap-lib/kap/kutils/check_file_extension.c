@@ -8,7 +8,7 @@
 #include <kap/kutils.h>
 #include <kap/kstr.h>
 
-bool check_extension_file(string path, string __exten)
+bool check_extension_file(cstring path, cstring __exten)
 {
     bool res = false;
     text sep;

@@ -104,7 +104,7 @@ extern text get_words(string str);
 ///get size of text
 ///@param split > text type
 ///@return size of text
-extern ksize_t length_text(text split);
+extern ksize_t length_text(ctext split);
 
 ///free text
 ///@param split > text type

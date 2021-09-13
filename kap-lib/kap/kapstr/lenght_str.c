@@ -20,7 +20,7 @@ ksize_t length(cstring str)
     return (r);
 }
 
-ksize_t length_text(text split)
+ksize_t length_text(ctext split)
 {
     ksize_t r = 0;
 

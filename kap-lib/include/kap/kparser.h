@@ -14,9 +14,29 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+struct knode_main_parser_s {
+    string path;
+    string value;
+    knode_yml *next;
+    knode_yml *prev;
+    kyml_parser_t *master;
+    text unixistant_pathes;
+};
+struct kparser_main_s {
+    knode_yml *nodeList;
+    string path;
+};
 
 #ifndef _KJSON_PARSER_
 #define _KJSON_PARSER_
+
+typedef struct kparser_main_s kjson_parser_t;
+typedef struct knode_main_parser_s knode_json_t;
+
+///initialize json parser
+/// @param path -> path of json file
+extern kjson_parser_t *init_json_parser(cstring path);
+
 #endif /*!_KJSON_PARSER_*/
 
 #ifndef _KXML_PARSER
@@ -32,23 +52,8 @@ extern "C" {
 
 #define YML_SPC _YML_SPACES_
 
-typedef struct knode_yml_s knode_yml;
-typedef struct kyml_parser_s kyml_parser_t;
-
-//les structure YML
-
-struct knode_yml_s {
-    string path;
-    string value;
-    knode_yml *next;
-    knode_yml *prev;
-    kyml_parser_t *master;
-    text unixistant_pathes;
-};
-struct kyml_parser_s {
-    knode_yml *nodeList;
-    string path;
-};
+typedef struct knode_main_parser_s knode_yml;
+typedef struct kparser_main_s kyml_parser_t;
 
 //les fonctions YML
 
