@@ -33,5 +33,8 @@ kdsize_t ksquare_root(kdsize_t nb)
         precision = precision / 10;
         if (precision < 0.0000000001)
             return b2;
+        b2 = b1;
+        b1 -= precision;
     }
+    return b2;
 }
