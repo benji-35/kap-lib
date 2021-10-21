@@ -80,6 +80,65 @@ extern string get_value_YML(cstring path, kyml_parser_t *parser);
 extern void save_yml_parser_of(kyml_parser_t *parser, cstring path);
 
 #endif /*_YML_FUNC_PARSER_*/
+
+#ifndef _CONF_PARSER
+#define _CONF_PARSER
+
+#ifndef _CONF_PARSER_STRUCTURES
+#define _CONF_PARSER_STRUCTURES
+
+//define all conf parser structure
+
+typedef struct kconf_parser_s kconf_parser_t;
+
+struct kconf_parser_s {
+    string path;
+    text content;
+    bool auto_save;
+};
+
+
+#endif /*_CONF_PARSER_STRUCTURES*/
+
+#ifndef _CONF_PARSER_FUNCTIONS
+#define _CONF_PARSER_FUNCTIONS
+
+//define all conf parser fucntions
+
+///Save the content of parser
+///@param parser -> parser of conf file
+extern void save_conf_parser(kconf_parser_t *parser);
+
+///Free the parser of conf file
+///@param parser -> parser of conf file
+extern void free_conf_parser(kconf_parser_t *parser);
+
+///add a value or set value in conf file
+///@param parser -> parser of conf file
+///@param key -> key that get value
+///@param value -> string that content the value to save
+extern void add_value_conf(kconf_parser_t *parser, cstring key, string value);
+
+///get value in conf file
+///@param parser -> parser of conf file
+///@param key -> key that content value
+///@return string that content value. If key does not found, function return an empty string. The return value need to be free
+extern string get_value_conf(kconf_parser_t *parser, cstring key);
+
+///set auto save value
+///@param parser -> parser of conf file
+///@param val_autosave -> value of auto save
+extern void set_autosave_kconf_parser(kconf_parser_t *parser, bool val_autosave);
+
+///initialize config file parser
+///@param path -> path of file config
+///@return parser or null
+extern kconf_parser_t *init_kconf_parser(cstring path);
+
+#endif /*_CONF_PARSER_FUNCTIONS*/
+
+#endif /*_CONF_PARSER*/
+
 #ifdef __cplusplus
 }
 #endif

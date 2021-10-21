@@ -57,6 +57,34 @@ typedef char const ** ctext;
 #define OBJECT void *
 #endif
 
+#ifndef PVOID
+#define PVOID static void
+#endif /*PVOID*/
+
+#ifndef PBOOL
+#define PBOOL static bool
+#endif /*PBOOL*/
+
+#ifndef PINT
+#define PINT static int
+#endif /*PINT*/
+
+#ifndef PCHAR
+#define PCHAR static char
+#endif /*PCHAR*/
+
+#ifndef PSTRING
+#define PSTRING static string
+#endif /*PSTRING*/
+
+#ifndef PFLOAT
+#define PFLOAT static float
+#endif /*PFLOAT*/
+
+#ifndef PDOUBLE
+#define PDOUBLE static double
+#endif /*PFLOAT*/
+
 #ifndef _KAP_FD_
 #define _KAP_FD_
 
