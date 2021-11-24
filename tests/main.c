@@ -80,7 +80,11 @@ int main(int ac UNUSED, text av UNUSED)
     kfree(hex);
     kfree(hex_bin);
     kfree(bin_hex);*/
-    kyml_parser_t *parser = init_yml_parser("tests/parser_files/result_test.yml");
+    kyml_parser_t *parser = init_yml_parser("tests/parser_files/test.yml");
+    if (parser == NULL) {
+        kprintf("Error while init parser -> returned NULL\n");
+        return 84;
+    }
     set_value_YML("content.content1", "finalContent", parser);
     string val = get_value_YML("clans.allezLeFoot.color", parser);
     printf("\n[MAIN] value of allezLeFoot Color : %s\n", val);
@@ -94,4 +98,5 @@ int main(int ac UNUSED, text av UNUSED)
     display_yml_content(parser);
     save_yml_parser(parser);
     destroy_yml_parser(parser);
+    return 0;
 }

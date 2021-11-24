@@ -8,8 +8,6 @@
 #include <kap/kutils.h>
 #include <kap/kmath.h>
 
-kdsize_t ksquare_root(kussize_t nb);
-
 kdsize_t kpower(ksize_t num, ksize_t power)
 {
     int r = 0;

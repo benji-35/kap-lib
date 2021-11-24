@@ -41,7 +41,7 @@ extern kdsize_t kpower(ksize_t num, ksize_t power);
 /// function that return the square root
 /// @param nb > number to execute the square root
 /// @return result of square root
-extern kdsize_t ksquare_root(kussize_t nb);
+extern kdsize_t ksquare_root(kdsize_t nb);
 
 /// function that return the binary in string of number
 /// @param nb > int var of number

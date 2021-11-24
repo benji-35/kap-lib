@@ -134,7 +134,7 @@ extern void kclear_file(cstring path);
 /// @param path > path of file
 /// @param __exten > extension want
 /// @return true if file have the good extension. False if it doesn't
-extern bool check_extension_file(string path, string __exten);
+extern bool check_extension_file(cstring path, cstring __exten);
 
 #ifdef __cplusplus
 }

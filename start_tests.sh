@@ -8,8 +8,20 @@
 clear
 make fclean -C tests/
 make -C tests/
-clear
-tests/tests
-make fclean -C tests/
-valgrind tests/main-parser
-rm -f tests/main-parser
+libFile=./kap-lib/libkap.a
+
+libMainExe=./tests/main_parser
+
+if [ -e "$libFile" ]; then
+    clear
+    tests/tests
+    if [ -e "$libMainExe" ]; then
+        valgrind $libMainExe
+        rm -f libMainExe
+    else
+        echo "$libMainExe do not exists"
+    fi
+    make fclean -C tests/
+else
+    echo "lib not compile"
+fi

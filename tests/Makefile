@@ -27,7 +27,7 @@ OBJ = $(SRC:.c=.o)
 
 OBJ_MAIN	=	$(SRC_MAIN:.c=.o)
 
-all: build_sub tests main-parser
+all: build_sub tests main_parser
 .PHONY : all
 
 build_sub:
@@ -39,14 +39,14 @@ build_sub:
 
 clean:
 	@find . \( -name "*.o" -o -name "*.a" \) -delete
-	@find -name "main-parser" -delete
+	@find -name "main_parser" -delete
 .PHONY : clean
 
 tests: $(OBJ)
 	@$(GCC) -o $@ $(OBJ) $(LIB_FLAGS)
 	@rm -f $(OBJ)
 
-main-parser:	$(OBJ_MAIN)
+main_parser:	$(OBJ_MAIN)
 	@$(GCC) -o $@ $(OBJ_MAIN) $(LIB_FLAGS)
 	@rm -f $(OBJ_MAIN)
 
