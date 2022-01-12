@@ -54,6 +54,7 @@ main_parser:	$(OBJ_MAIN)
 fclean: clean
 	@find . -type f -name 'vgcore*' -delete
 	@rm -rf tests tests.dSYM
+	@make clean -sC ../kap-lib
 .PHONY : fclean
 
 re: fclean all
