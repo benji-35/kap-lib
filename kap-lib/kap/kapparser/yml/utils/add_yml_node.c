@@ -39,7 +39,7 @@ void display_yml_content(kyml_parser_t *parser)
     while (node != NULL) {
         kprintf("[NODE %p]\n\tpath: %s\n\tcontent: %s\n", node, node->path,
             node->value);
-        for (ksize_t i = 0; i < length_text((ctext)node->unixistant_pathes); i++)
+        for (ksize_t i=0; i < length_text((ctext)node->unixistant_pathes); i++)
             kprintf("  Have to create : %s\n", node->unixistant_pathes[i]);
         node = node->next;
     }
