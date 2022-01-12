@@ -276,7 +276,7 @@ Test(kstr, add_str_text_test, .init = kstr_redirect_all_stds)
     text get = split_str(stri, '\n');
     string want = "Je\nsuis\nbenjamin\nyo\n";
 
-    add_str_text(&get, length_text(get), "yo");
+    add_str_text(&get, length_text((ctext)get), "yo");
     my_puttext(get, kstdout);
     cr_assert_stdout_eq_str(want, "Expected [%s]\n", want);
     free_text(get);
@@ -705,7 +705,7 @@ Test(kstr, length_text_one, .init = kstr_redirect_all_stds)
 {
     ksize_t want = 6;
     string txt[] = {"1", "2", "3", "4", "5", "6", NULL};
-    ksize_t get = length_text(txt);
+    ksize_t get = length_text((ctext)txt);
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
@@ -714,7 +714,7 @@ Test(kstr, length_text_two, .init = kstr_redirect_all_stds)
 {
     ksize_t want = 0;
     string txt[] = {NULL};
-    ksize_t get = length_text(txt);
+    ksize_t get = length_text((ctext)txt);
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }
@@ -723,7 +723,7 @@ Test(kstr, length_text_three, .init = kstr_redirect_all_stds)
 {
     ksize_t want = 0;
     char** txt = NULL;
-    ksize_t get = length_text(txt);
+    ksize_t get = length_text((ctext)txt);
 
     cr_assert_eq(want, get, "The result was [%d]. Expected [%d]\n", get, want);
 }

@@ -87,15 +87,23 @@ int main(int ac UNUSED, text av UNUSED)
     }
     set_value_YML("content.content1", "finalContent", parser);
     string val = get_value_YML("clans.allezLeFoot.color", parser);
-    printf("\n[MAIN] value of allezLeFoot Color : %s\n", val);
     if (val == NULL) {
-        printf("[MAIN] creation du path avec la valeur initiale\n");
+        kprintf("val from path : [clans.allezLeFoot.color] = []\n");
+        kprintf("[MAIN] creation du path avec la valeur initiale\n");
         set_value_YML("clans.allezLeFoot.color", "Init value", parser);
+        kprintf("set [Init value] to [clans.allezLeFoot.color]\n");
+    } else if (str_equality(val, "&2") == false) {
+        kprintf("val from path : [clans.allezLeFoot.color] = [%s]\n", val);
+        set_value_YML("clans.allezLeFoot.color", "&2", parser);
+        kprintf("set [\"&2\"] to [clans.allezLeFoot.color]\n");
+        string nVal = get_value_YML("clans.allezLeFoot.color", parser);
+        kprintf("val from path : [clans.allezLeFoot.color] = [%s]\n", nVal);
+        kfree(nVal);
     } else {
-        set_value_YML("clans.allezLeFoot.color", "\"&2\"", parser);
+        kprintf("everything good\n");
     }
-    printf("\n");
-    display_yml_content(parser);
+    kprintf("\n");
+    //display_yml_content(parser);
     save_yml_parser(parser);
     destroy_yml_parser(parser);
     return 0;

@@ -19,7 +19,8 @@ LIB_FLAGS += -L ../kap-lib -lkap -lcriterion
 
 SRC                 =   kprintf_tests.c	\
 						kstr_tests.c	\
-						kmath_tests.c
+						kmath_tests.c	\
+						kparser_tests.c
 
 SRC_MAIN	=	main.c
 
