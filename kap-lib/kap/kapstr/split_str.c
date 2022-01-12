@@ -64,3 +64,34 @@ text split_str(cstring str, char spliter)
     result[nbsplit + 1] = NULL;
     return (result);
 }
+
+text split_str_max(cstring str, char spliter, ksize_t nb_splits) {
+    if (nb_splits <= 0) {
+        return split_str(str, spliter);
+    }
+    ksize_t size = length(str);
+    ksize_t nbsplit = nb_split(str, spliter);
+    if (nbsplit > nb_splits) {
+        nbsplit = nb_splits;
+    }
+    text result = kmalloc(sizeof(char *) * (nbsplit + 2));
+    ksize_t to_mal;
+    ksize_t curr = 0;
+    for (ksize_t i = 0; i < size; i++) {
+        if (curr == nbsplit - 1) {
+            result[curr] = kmalloc(sizeof(char) * (size - i + 1));
+            complete_str_split(str + i, (size - i), result[curr]);
+            break;
+        }
+        to_mal = size_before_splitter(str + i, spliter);
+        result[curr] = kmalloc(sizeof(char) * (to_mal + 1));
+        complete_str_split(str + i, to_mal, result[curr]);
+        curr ++;
+        i += to_mal;
+    }
+    if (size == 0) {
+        result[nbsplit] = NULL;
+    }
+    result[nbsplit + 1] = NULL;
+    return (result);
+}

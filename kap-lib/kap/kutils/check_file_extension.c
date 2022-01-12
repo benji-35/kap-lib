@@ -17,7 +17,7 @@ bool check_extension_file(cstring path, cstring __exten)
     kassert((sep = split_str(path, '.')) == NULL);
     if (sep == NULL)
         return false;
-    kassert((len = length_text(sep)) <= 0);
+    kassert((len = length_text((ctext)sep)) <= 0);
     if (len <= 0)
         return false;
     if (str_equality(sep[len - 1], __exten))

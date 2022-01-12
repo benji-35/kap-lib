@@ -16,17 +16,17 @@ static void check_flag_avsplit(text *txt, va_list *list, char flg)
     if (flg != 's' && flg != 'c')
         return;
     if (flg == 's') {
-        for (ksize_t i = 0; i < length_text(*txt); i++) {
+        for (ksize_t i = 0; i < length_text((ctext)*txt); i++) {
             res2 = split_sstr((*txt)[i], va_arg(*list, string));
             remove_line_text(txt, i);
-            add_text_text(txt, length_text(*txt), res2);
+            add_text_text(txt, length_text((ctext)*txt), res2);
             free_text(res2);
         }
     } else {
-        for (ksize_t i = 0; i < length_text(*txt); i++) {
+        for (ksize_t i = 0; i < length_text((ctext)*txt); i++) {
             res2 = split_str((*txt)[i], va_arg(*list, int));
             remove_line_text(txt, i);
-            add_text_text(txt, length_text(*txt), res2);
+            add_text_text(txt, length_text((ctext)*txt), res2);
             free_text(res2);
         }
     }
@@ -36,7 +36,7 @@ text advanced_split_str(string str, string __cmd, ...)
 {
     text res = NULL;
     va_list list;
-    ksize_t size = length(__cmd);
+    ksize_t size = length((cstring)__cmd);
 
     add_str_text(&res, 0, str);
     va_start(list, __cmd);

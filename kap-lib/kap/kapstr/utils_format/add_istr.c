@@ -40,9 +40,8 @@ void add_doublestr(string *str, va_list *list, int spaces)
 void add_charstr(string *str, va_list *list, int spaces)
 {
     char c = va_arg(*list, int);
-    
-    add_char_strp(str, c, length(*str));
 
+    add_char_strp(str, c, length(*str));
     for (ksize_t i = length(*str); i < spaces; i++)
         add_char_strp(str, ' ', length(*str) - 1);
 }

@@ -25,6 +25,8 @@ PATH_PARSER_YML	=	kap/kapparser/yml/
 
 PATH_PARSER_JSON	=	kap/kapparser/json/
 
+PATH_PARSER_CONF = kap/kapparser/conf/
+
 PATH_MEMORY	=	kap/kmem/
 
 SRC_KAP =	
@@ -125,6 +127,12 @@ SRC_PARSER_YML	=	$(PATH_PARSER_YML)init_ymlparser.c\
 					$(PATH_PARSER_YML)utils/node_exists.c\
 					$(PATH_PARSER_YML)utils/smart_add_yml_node.c
 
+SRC_PARSER_CONF =	$(PATH_PARSER_CONF)init_kconf.c\
+					$(PATH_PARSER_CONF)add_conf_value.c\
+					$(PATH_PARSER_CONF)get_conf_value.c\
+					$(PATH_PARSER_CONF)remove_conf_parser.c\
+					$(PATH_PARSER_CONF)save_conf_parser.c\
+
 SRC_REGEX	=	
 
 SRC_KAP += $(SRC_KSTR)
@@ -137,6 +145,7 @@ SRC_KAP += $(SRC_PARSER_XML)
 SRC_KAP += $(SRC_PARSER_YML)
 SRC_KAP	+= $(SRC_REGEX)
 SRC_KAP += $(SRC_KMEM)
+SRC_KAP += $(SRC_PARSER_CONF)
 
 OBJ_KAP = $(SRC_KAP:.c=.o)
 

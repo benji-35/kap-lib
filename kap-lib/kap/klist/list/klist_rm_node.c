@@ -14,5 +14,4 @@ void list_remove_node(klist_t *list, int index)
 
     if (node == NULL)
         return;
-    
 }

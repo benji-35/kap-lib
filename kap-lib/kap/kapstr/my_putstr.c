@@ -40,7 +40,7 @@ void my_puttext(text txt, int fd)
         my_putstr_err("NULL");
         return;
     }
-    for (int i = 0; i < length_text(txt); i++) {
+    for (int i = 0; i < length_text((ctext)txt); i++) {
         my_putstr_fd(txt[i], fd);
         my_putstr_fd("\n", fd);
     }

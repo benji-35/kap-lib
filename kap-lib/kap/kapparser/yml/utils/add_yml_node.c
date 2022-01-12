@@ -36,10 +36,10 @@ void display_yml_content(kyml_parser_t *parser)
         return;
     }
     knode_yml *node = parser->nodeList;
-    kprintf("[Display YML content] File : %s\n\n", parser->path);
     while (node != NULL) {
-        kprintf("[NODE %p]\n\tpath: %s\n\tcontent: %s\n", node, node->path, node->value);
-        for (ksize_t i = 0; i < length_text(node->unixistant_pathes); i++)
+        kprintf("[NODE %p]\n\tpath: %s\n\tcontent: %s\n", node, node->path,
+            node->value);
+        for (ksize_t i = 0; i < length_text((ctext)node->unixistant_pathes); i++)
             kprintf("  Have to create : %s\n", node->unixistant_pathes[i]);
         node = node->next;
     }
@@ -70,5 +70,4 @@ void remove_nodeYML(cstring path, kyml_parser_t *parser)
         }
         node = node->next;
     }
-    
 }

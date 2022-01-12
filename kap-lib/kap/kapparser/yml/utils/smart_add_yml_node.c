@@ -19,8 +19,9 @@ knode_yml *prev_nodeYML(text inputs, kyml_parser_t *parser)
 
     while (node != NULL) {
         cnode_pathes = split_str(node->path, '.');
-        for (ksize_t i = 0; i < length_text(inputs) - 1; i++) {
-            if (i < length_text(cnode_pathes) && str_equality(cnode_pathes[i], inputs[i])) {
+        for (ksize_t i = 0; i < length_text((ctext)inputs) - 1; i++) {
+            if (i < length_text((ctext)cnode_pathes) &&
+                str_equality(cnode_pathes[i], inputs[i])) {
                 nb_max++;
             }
         }
@@ -37,23 +38,24 @@ knode_yml *prev_nodeYML(text inputs, kyml_parser_t *parser)
 
 static void init_unset_yml_pathes(knode_yml *n_node, knode_yml *node_prev)
 {
-    text path_splitted = split_str(n_node->path, '.');
+    text p_splitted = split_str(n_node->path, '.');
     text prev_splitted = split_str(node_prev->path, '.');
-    ksize_t size_prev = length_text(prev_splitted);
-    ksize_t size_path = length_text(path_splitted);
+    ksize_t size_prev = length_text((ctext)prev_splitted);
+    ksize_t size_path = length_text((ctext)p_splitted);
 
     n_node->unixistant_pathes = NULL;
     if (size_path > size_prev) {
         for (ksize_t i = size_prev - 1; i < size_path - 1; i++) {
             add_str_text(&n_node->unixistant_pathes,
-                length_text(n_node->unixistant_pathes), path_splitted[i]);
+                length_text((ctext)n_node->unixistant_pathes), p_splitted[i]);
         }
     }
-    free_text(path_splitted);
+    free_text(p_splitted);
     free_text(prev_splitted);
 }
 
-static void add_ymlNode_spec(knode_yml *node_prev, cstring value, kyml_parser_t *parser, cstring path)
+static void add_ymlNode_spec(knode_yml *node_prev, cstring value,
+    kyml_parser_t *parser, cstring path)
 {
     knode_yml *n_node = kmalloc(sizeof(knode_yml));
     n_node->master = parser;
@@ -62,7 +64,8 @@ static void add_ymlNode_spec(knode_yml *node_prev, cstring value, kyml_parser_t 
     n_node->unixistant_pathes = NULL;
     if (node_prev == NULL) {
         n_node->unixistant_pathes = split_str(path, '.');
-        remove_line_text(&n_node->unixistant_pathes, length_text(n_node->unixistant_pathes));
+        remove_line_text(&n_node->unixistant_pathes,
+            length_text((ctext)n_node->unixistant_pathes));
         n_node->prev = NULL;
         n_node->next = parser->nodeList;
         parser->nodeList = n_node;
@@ -76,7 +79,8 @@ static void add_ymlNode_spec(knode_yml *node_prev, cstring value, kyml_parser_t 
     }
 }
 
-void smart_add_yml_node(cstring path UNUSED, string value UNUSED, kyml_parser_t *parser UNUSED)
+void smart_add_yml_node(cstring path UNUSED, string value UNUSED,
+    kyml_parser_t *parser UNUSED)
 {
     text nodes_input;
     knode_yml *node_prev = NULL;

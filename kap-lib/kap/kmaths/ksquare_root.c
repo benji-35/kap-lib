@@ -8,7 +8,8 @@
 #include <kap/kutils.h>
 #include <kap/kmath.h>
 
-static void check_square_root(kdsize_t *b1, kdsize_t *b2, double precision, kdsize_t nb)
+static void check_square_root(kdsize_t *b1, kdsize_t *b2, double precision,
+    kdsize_t nb)
 {
     while (SQUARE(*b2) < nb) {
         *b1 = *b2;

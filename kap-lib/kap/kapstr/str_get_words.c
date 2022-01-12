@@ -42,7 +42,7 @@ static void complete_str_splitw(string str, ksize_t size, string result)
 
 static void rm_o_str(text *txt)
 {
-    ksize_t size = length_text(*txt);
+    ksize_t size = length_text((ctext)*txt);
     ksize_t nb_o = nb_o_split(*txt);
     ksize_t curr = 0;
     char **res = kmalloc(sizeof(char *) * ((size - nb_o) + 1));

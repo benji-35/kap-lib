@@ -20,8 +20,8 @@ extern "C" {
 
 typedef char ** text;
 typedef char *string;
-typedef char const * cstring;
-typedef char const ** ctext;
+typedef const char * cstring;
+typedef const char ** ctext;
 
 #endif /*_KAP_STR_TYPD_*/
 
@@ -383,6 +383,13 @@ extern void str_rm_all_fochar(string *str, char c);
 /// @param c > char
 /// @return number of occurences of char c before another char
 extern ksize_t nb_fchars(cstring str, char c);
+
+/// split your str with a specific number of spliting
+/// @param str > string to split
+/// @param spliter > char that split the text
+/// @param nb_splits > nb of splits in string
+/// @return text that is the result of spliting
+extern text split_str_max(cstring str, char spliter, ksize_t nb_splits);
 
 #ifdef __cplusplus
 }

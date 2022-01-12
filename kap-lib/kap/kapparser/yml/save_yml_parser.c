@@ -9,16 +9,16 @@
 #include <kap/kparser.h>
 #include <kap/kprintf.h>
 
-static string gen_have_to_addYML(text path_splitted, text have_to_add)
+static string gen_have_to_addYML(text path_splitted, text hta)
 {
     string res = empty_str();
-    for (ksize_t i = 0; i < length_text(path_splitted); i++) {
-        for (ksize_t math = 0; math < length_text(have_to_add); math++) {
-            if (str_equality(path_splitted[i], have_to_add[math])) {
+    for (ksize_t i = 0; i < length_text((ctext)path_splitted); i++) {
+        for (ksize_t math = 0; math < length_text((ctext)hta); math++) {
+            if (str_equality(path_splitted[i], hta[math])) {
                 for (ksize_t spaces = 0; spaces < (YML_SPC * (i)); spaces++) {
                     concat_str_nm(&res, " ");
                 }
-                concat_str_nm(&res, have_to_add[math]);
+                concat_str_nm(&res, hta[math]);
                 concat_str_nm(&res, ":\n");
                 break;
             }
@@ -27,12 +27,13 @@ static string gen_have_to_addYML(text path_splitted, text have_to_add)
     return res;
 }
 
-static string gen_yml_endsentece(text path_splitted, cstring value, text have_to_add)
+static string gen_yml_endsentece(text path_splitted, cstring value,
+    text have_to_add)
 {
     string res = empty_str();
-    ksize_t nb_points = length_text(path_splitted) - 1;
+    ksize_t nb_points = length_text((ctext)path_splitted) - 1;
     string hta = gen_have_to_addYML(path_splitted, have_to_add);
-    
+
     concat_str_nm(&res, hta);
     kfree(hta);
     if (nb_points < 0)
@@ -57,10 +58,11 @@ void save_yml_parser(kyml_parser_t *parser)
     if (parser == NULL)
         return;
     kclear_file(parser->path);
-    node = parser->nodeList;    
+    node = parser->nodeList;
     while (node) {
         path_splitted = split_str(node->path, '.');
-        res_sent = gen_yml_endsentece(path_splitted, node->value, node->unixistant_pathes);
+        res_sent = gen_yml_endsentece(path_splitted, node->value,
+            node->unixistant_pathes);
         kwrite_file(parser->path, res_sent, true);
         kfree(res_sent);
         node = node->next;

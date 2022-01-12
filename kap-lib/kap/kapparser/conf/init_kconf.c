@@ -20,7 +20,6 @@ kconf_parser_t *init_kconf_parser(cstring path) {
     return parser;
 }
 
-
 void set_autosave_kconf_parser(kconf_parser_t *parser, bool val_autosave) {
     parser->auto_save = val_autosave;
     save_conf_parser(parser);
