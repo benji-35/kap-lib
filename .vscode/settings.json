@@ -2,7 +2,9 @@
     "files.associations": {
         "criterion.h": "c",
         "cmath": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "kutils.h": "c",
+        "klib.h": "c"
     },
     "files.exclude": {
         "**/.git": true,
