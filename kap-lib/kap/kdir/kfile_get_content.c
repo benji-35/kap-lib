@@ -7,36 +7,45 @@
 
 #include "kap/kdir.h"
 #include "kap/kasserts.h"
+#include "kap/kprintf.h"
 
 #include <sys/stat.h>
 #include <fcntl.h>
 
-static text get_file_conents(cstring path) {
+static string get_file_conent_string(cstring path) {
+    string result = NULL;
+    int fd = open(path, O_RDONLY);
     struct stat st;
-    char *buf;
-    int rd;
-    int fd = open(path, O_RDONLY, stat);
-    text result;
 
     if (fd == -1)
         return NULL;
     stat(path, &st);
-    buf = kmalloc_sec(sizeof(char) * (st.st_size + 1));
-    rd = read(fd, buf, st.st_size);
-    if (rd == -1)
+    result = kmalloc_sec(sizeof(char) * (st.st_size + 1));
+    if (read(fd, result, st.st_size) == -1) {
+        kfree(result);
         return NULL;
-    buf[st.st_size] = 0;
+    }
+    result[st.st_size] = '\0';
     close(fd);
-    result = split_str(buf, '\n');
-    kfree(buf);
+    return result;
+}
+
+static text get_file_content_text(cstring path) {
+    text result;
+    string str = get_file_conent_string(path);
+
+    if (str == NULL)
+        return NULL;
+    result = split_str(str, '\n');
+    kfree(str);
     return result;
 }
 
 text get_file_content(kfile_t *file) {
-    if (!kassert(file == NULL))
+    if (kassert(file == NULL))
         return NULL;
     if (kassert(file->_type != KFILE)) {
         return NULL;
     }
-    return get_file_conents(file->_path);
+    return get_file_content_text(file->_path);
 }
