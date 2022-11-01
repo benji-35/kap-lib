@@ -29,7 +29,13 @@ PATH_PARSER_CONF = kap/kapparser/conf/
 
 PATH_MEMORY	=	kap/kmem/
 
+PATH_DIR	=	kap/kdir/
+
 SRC_KAP =	
+
+SRC_KDIR =	$(PATH_DIR)kdir_init.c				\
+			$(PATH_DIR)kdir_update.c			\
+			$(PATH_DIR)kfile_get_content.c		\
 
 SRC_KSTR =	$(PATH_STR)concat_str.c				\
 			$(PATH_STR)contain_str.c			\
@@ -146,6 +152,7 @@ SRC_KAP += $(SRC_PARSER_YML)
 SRC_KAP	+= $(SRC_REGEX)
 SRC_KAP += $(SRC_KMEM)
 SRC_KAP += $(SRC_PARSER_CONF)
+SRC_KAP += $(SRC_KDIR)
 
 OBJ_KAP = $(SRC_KAP:.c=.o)
 

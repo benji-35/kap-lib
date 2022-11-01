@@ -16,5 +16,6 @@
 #include <kap/kprintf.h>
 #include <kap/kmem.h>
 #include <kap/kparser.h>
+#include <kap/kdir.h>
 
 #endif /* !_KAP_LIB_H */
