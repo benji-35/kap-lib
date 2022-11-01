@@ -10,7 +10,7 @@
 
 void list_add_node(klist_t *list, OBJECT data, void (*print)(OBJECT data))
 {
-    knode_t *node = kmalloc(sizeof(node));
+    knode_t *node = kmalloc(sizeof(knode_t));
     knode_t *last = list->list;
 
     if (node == NULL)
