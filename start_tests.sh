@@ -58,19 +58,19 @@ then
         then
             if [ "$playmain" == "y" ]
             then
-                valgrind $libMainExe
+                valgrind --leak-check=full $libMainExe
                 rm -f libMainExe
             elif [ "$playmain" == "Y" ]
             then
-                valgrind $libMainExe
+                valgrind --leak-check=full $libMainExe
                 rm -f libMainExe
             elif [ "$playmain" == "yes" ]
             then
-                valgrind $libMainExe
+                valgrind --leak-check=full $libMainExe
                 rm -f libMainExe
             elif [ "$playmain" == "YES" ]
             then
-                valgrind $libMainExe
+                valgrind --leak-check=full $libMainExe
                 rm -f libMainExe
             fi
         else

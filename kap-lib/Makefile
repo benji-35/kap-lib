@@ -37,6 +37,7 @@ SRC_KDIR =	$(PATH_DIR)kdir_init.c				\
 			$(PATH_DIR)kdir_update.c			\
 			$(PATH_DIR)kfile_get_content.c		\
 			$(PATH_DIR)print_kfile.c			\
+			$(PATH_DIR)kfile_remove.c			\
 
 SRC_KSTR =	$(PATH_STR)concat_str.c				\
 			$(PATH_STR)contain_str.c			\

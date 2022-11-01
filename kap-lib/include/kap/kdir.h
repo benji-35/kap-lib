@@ -51,6 +51,7 @@
 
         void update_dir(kdir_t *dir);
         void print_kfile(void *file);
+        void remove_file(kfile_t *file);
     #endif
 
 #endif /* !KDIR_H_ */

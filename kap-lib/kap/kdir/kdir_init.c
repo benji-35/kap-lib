@@ -20,8 +20,12 @@ kdir_t *getDirectory(cstring path) {
 void remove_dir(kdir_t *dir) {
     if (dir != NULL) {
         kfree(dir->_path);
-        list_clear(dir->_content);
     }
+    for (kusize_t i = 0; i < dir->_content->size; i++) {
+        remove_file((kfile_t *)list_get_inode(dir->_content, i)->data);
+    }
+    list_clear(dir->_content);
+    kfree(dir->_content);
     kfree(dir);
 }
 
