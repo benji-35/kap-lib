@@ -92,8 +92,8 @@
     #define kstdout 1
     #define kstderr 2
 
-    #ifndef var
-        #define var __auto_type
+    #ifndef auto
+        #define auto __auto_type
     #endif
 
     #endif /*_KAP_FD_*/

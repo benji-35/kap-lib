@@ -10,15 +10,9 @@
 
 int main(int ac UNUSED, text av UNUSED)
 {
-    var coucou = copy_str("Hello World !");
-    var txt = split_str(coucou, ' ');
+    auto dir = init_yml_parser("tests/test.yml");
 
-    for (var i = 0; i < length_text(txt); i++) {
-        printf("%s\n", txt[i]);
-    }
-
-    free_text(txt);
-    kfree(coucou);
+    get_yml_node("path", dir)->value;
 
     return 0;
 }
