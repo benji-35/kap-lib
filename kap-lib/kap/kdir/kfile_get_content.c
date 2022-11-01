@@ -8,20 +8,27 @@
 #include "kap/kdir.h"
 #include "kap/kasserts.h"
 
-static text get_file_conents(cstring path) {
-    FILE *file = fopen(path, "r");
-    text result = NULL;
-    string line = NULL;
-    size_t len = 0;
-    size_t size = 0;
+#include <sys/stat.h>
+#include <fcntl.h>
 
-    if (file == NULL)
+static text get_file_conents(cstring path) {
+    struct stat st;
+    char *buf;
+    int rd;
+    int fd = open(path, O_RDONLY, stat);
+    text result;
+
+    if (fd == -1)
         return NULL;
-    while (getline(&line, &len, file) != -1) {
-        add_str_text(&result, size, line);
-        size++;
-    }
-    fclose(file);
+    stat(path, &st);
+    buf = kmalloc_sec(sizeof(char) * (st.st_size + 1));
+    rd = read(fd, buf, st.st_size);
+    if (rd == -1)
+        return NULL;
+    buf[st.st_size] = 0;
+    close(fd);
+    result = split_str(buf, '\n');
+    kfree(buf);
     return result;
 }
 
