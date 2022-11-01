@@ -15,7 +15,7 @@ GCC = gcc
 
 INCLUDE_FLAGS += -I ../kap-lib/include
 
-LIB_FLAGS += -L ../kap-lib -lkap -lcriterion
+LIB_FLAGS += -L ../kap-lib -lkap -lcriterion -g
 
 SRC                 =   kprintf_tests.c	\
 						kstr_tests.c	\

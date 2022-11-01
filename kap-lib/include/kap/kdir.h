@@ -50,6 +50,7 @@
         text get_file_content(kfile_t *file);
 
         void update_dir(kdir_t *dir);
+        void print_kfile(void *file);
     #endif
 
 #endif /* !KDIR_H_ */

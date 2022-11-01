@@ -36,6 +36,7 @@ SRC_KAP =
 SRC_KDIR =	$(PATH_DIR)kdir_init.c				\
 			$(PATH_DIR)kdir_update.c			\
 			$(PATH_DIR)kfile_get_content.c		\
+			$(PATH_DIR)print_kfile.c			\
 
 SRC_KSTR =	$(PATH_STR)concat_str.c				\
 			$(PATH_STR)contain_str.c			\
@@ -162,7 +163,7 @@ C_WARNING_FLAGS = -Wextra -Wall
 
 INCLUDE_FLAGS = -I ./include
 
-C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS)
+C_FLAGS = $(C_WARNING_FLAGS) $(INCLUDE_FLAGS) -g
 
 .c.o:
 	@echo "$(notdir $(CURDIR)): C '$<'"

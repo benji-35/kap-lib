@@ -54,10 +54,11 @@ void update_dir(kdir_t *dir) {
     while ((sdir = readdir(d)) != NULL) {
         file = kmalloc_sec(sizeof(kfile_t));
         file->_name = copy_str(sdir->d_name);
-        file->_path = copy_str(dir->_path);
-        file->_ext = get_file_ext(sdir->d_name);
-        file->_type = get_file_type(sdir->d_name);
-        list_add_node(dir->_content, file, NULL);
+        file->_path = concat_str(dir->_path, "/");
+        concat_str_nm(&file->_path, sdir->d_name);
+        file->_ext = get_file_ext(file->_path);
+        file->_type = get_file_type(file->_path);
+        list_add_node(dir->_content, file, &print_kfile);
     }
     closedir(d);
 }
